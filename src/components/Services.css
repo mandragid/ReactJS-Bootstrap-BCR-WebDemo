@@ -1,0 +1,51 @@
+.CheckIcon {
+	width: 25px;
+	padding-right: 2px;
+}
+
+.List {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.JudulService {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.DescService {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.ServiceList {
+	padding-left: 15px;
+	text-align: left;
+}
+
+.ServiceContent {
+	padding: 30px;
+	text-align: center;
+}
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.List {
+		justify-content: center;
+	}
+	.ServiceList {
+		padding-left: 0px;
+	}
+	.ServiceContent {
+		padding: 0px;
+		text-align: left;
+	}
+}

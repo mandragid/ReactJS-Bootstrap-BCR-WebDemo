@@ -1,0 +1,43 @@
+.JudulWhyus {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.DescWhyus {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.WhyUs {
+	height: 1000px;
+}
+
+.JudulKartu {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.DescKartu {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.Card {
+		width: 320px;
+		height: 220px;
+	}
+}

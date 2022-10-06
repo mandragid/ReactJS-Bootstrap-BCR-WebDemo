@@ -1,0 +1,49 @@
+.User1 {
+	width: 619px;
+	height: 270px;
+	left: 410px;
+	top: 1652px;
+	background: #f1f3ff;
+}
+
+.TestiBox {
+	background-color: #f1f3ff;
+	width: 400px;
+	height: 200px;
+	padding: 20px;
+	border-radius: 30px;
+	margin: auto;
+}
+
+.IsiTesti {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.NamaTesti {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.owl-dot {
+	display: none;
+	visibility: hidden;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 400px) {
+	.TestiBox {
+		background-color: #f1f3ff;
+		width: 350px;
+		height: 200px;
+		padding: 20px;
+		border-radius: 30px;
+		margin: auto;
+	}
+}

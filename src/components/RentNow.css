@@ -1,0 +1,51 @@
+.Jumbotron {
+	height: 326px;
+	left: 136px;
+	top: 2078px;
+	background-color: #0d28a6;
+}
+
+.Semo {
+	width: 713px;
+	height: 54px;
+
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 150%;
+	color: #ffffff;
+}
+
+.Lorem {
+	width: 468px;
+	height: 40px;
+
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	/* or 143% */
+
+	text-align: center;
+
+	/* Neutral/01 */
+
+	color: #ffffff;
+}
+
+.RentDesc {
+	padding-bottom: 50px;
+}
+
+.RentTitle {
+	padding-bottom: 20px;
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.Semo {
+		font-size: 10px;
+	}
+}

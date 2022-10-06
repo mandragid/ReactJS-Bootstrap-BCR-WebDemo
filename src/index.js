@@ -7,12 +7,16 @@ import reportWebVitals from "./reportWebVitals";
 import NavBar from "./components/NavBar";
 import Services from "./components/Services";
 import WhyUs from "./components/WhyUs";
+import Testimony from "./components/Testimony";
+import RentNow from "./components/RentNow";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<NavBar />
 		<Services />
 		<WhyUs />
+		<Testimony />
+		<RentNow />
 	</React.StrictMode>
 );
 

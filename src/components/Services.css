@@ -34,8 +34,9 @@
 
 .ServiceContent {
 	padding: 30px;
-	text-align: center;
+	text-align: left;
 }
+
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 	.List {

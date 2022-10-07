@@ -1,0 +1,19 @@
+.container {
+	background-color: 0000;
+}
+
+.Logos img {
+	width: 32px;
+}
+
+.Footer {
+	margin-top: 100px;
+}
+
+.Footer p {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}

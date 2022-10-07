@@ -12,7 +12,7 @@
 	font-family: "Arial";
 	font-style: normal;
 	font-weight: 700;
-	font-size: 36px;
+	font-size: 25px;
 	line-height: 150%;
 	color: #ffffff;
 }
@@ -36,7 +36,7 @@
 }
 
 .RentDesc {
-	padding-bottom: 50px;
+	padding-bottom: 20px;
 }
 
 .RentTitle {
@@ -46,6 +46,6 @@
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 	.Semo {
-		font-size: 10px;
+		font-size: 36px;
 	}
 }

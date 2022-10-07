@@ -37,12 +37,12 @@
 }
 
 /* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 400px) {
+@media (min-width: 390px) {
 	.TestiBox {
 		background-color: #f1f3ff;
-		width: 350px;
+		width: 340px;
 		height: 200px;
-		padding: 20px;
+		padding: 25px;
 		border-radius: 30px;
 		margin: auto;
 	}

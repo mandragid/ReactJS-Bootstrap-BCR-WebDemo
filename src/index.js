@@ -4,23 +4,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import NavBar from "./components/NavBar";
-import Services from "./components/Services";
-import WhyUs from "./components/WhyUs";
-import Testimony from "./components/Testimony";
-import RentNow from "./components/RentNow";
-import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<NavBar />
-		<Services />
-		<WhyUs />
-		<Testimony />
-		<RentNow />
-		<FAQ />
-		<Footer />
+		<App />
 	</React.StrictMode>
 );
 

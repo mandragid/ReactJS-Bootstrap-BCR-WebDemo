@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import WhyUs from "./components/WhyUs";
+import Testimony from "./components/Testimony";
+import RentNow from "./components/RentNow";
+import FAQ from "./components/FAQ";
+import Footer from "./components/Footer";
+import CariMobil from "./components/CariMobil";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div>
+			<Router>
+				<Routes>
+					<Route
+						exact
+						path="/"
+						element={
+							<div>
+								<NavBar />
+								<WhyUs />
+								<Testimony />
+								<RentNow />
+								<FAQ />
+								<Footer />
+							</div>
+						}
+					/>
+					<Route exact path="/cari-mobil" element={<CariMobil />} />
+				</Routes>
+			</Router>
+		</div>
+	);
 }
 
 export default App;

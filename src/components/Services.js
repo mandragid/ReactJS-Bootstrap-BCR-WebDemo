@@ -9,7 +9,7 @@ function Services() {
 			<div className="container ">
 				<div className="row align-items-center">
 					<div className="col-md-6 p-0">
-						<img className="w-100" src={GambarCewek} />
+						<img className="w-100" src={GambarCewek} alt="GambarCewek" />
 					</div>
 					<div className="col ServiceContent">
 						<div className="col JudulService">Best Car Rental for any kind of trip in (Lokasimu)!</div>
@@ -20,31 +20,31 @@ function Services() {
 						<div className="ServiceList">
 							<div className="row mt-3">
 								<div className="col List">
-									<img className="CheckIcon" src={CheckIcon}></img>
+									<img className="CheckIcon" src={CheckIcon} alt="CheckIcon"></img>
 									Sewa Mobil Dengan Supir di Bali 12 Jam
 								</div>
 							</div>
 							<div className="row">
 								<div className="col List">
-									<img className="CheckIcon" src={CheckIcon}></img>
+									<img className="CheckIcon" src={CheckIcon} alt="CheckIcon"></img>
 									Sewa Mobil Lepas Kunci di Bali 24 Jam
 								</div>
 							</div>
 							<div className="row">
 								<div className="col List">
-									<img className="CheckIcon" src={CheckIcon}></img>
+									<img className="CheckIcon" src={CheckIcon} alt="CheckIcon"></img>
 									Sewa Mobil Jangka Panjang Bulanan
 								</div>
 							</div>
 							<div className="row">
 								<div className="col List">
-									<img className="CheckIcon" src={CheckIcon}></img>
+									<img className="CheckIcon" src={CheckIcon} alt="CheckIcon"></img>
 									Gratis Antar - Jemput Mobil di Bandara
 								</div>
 							</div>
 							<div className="row">
 								<div className="col List">
-									<img className="CheckIcon" src={CheckIcon}></img>
+									<img className="CheckIcon" src={CheckIcon} alt="CheckIcon"></img>
 									Layanan Airport Transfer / Drop In Out
 								</div>
 							</div>

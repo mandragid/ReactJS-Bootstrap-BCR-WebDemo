@@ -7,6 +7,7 @@ import RentNow from "./components/RentNow";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import CariMobil from "./components/CariMobil";
+import Services from "./components/Services";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 						element={
 							<div>
 								<NavBar />
+								<Services />
 								<WhyUs />
 								<Testimony />
 								<RentNow />

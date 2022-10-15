@@ -9,7 +9,7 @@ function NavBar() {
 	return (
 		<div className="container-fluid Wrapper">
 			{/* Navigation Bar */}
-			<div className="container">
+			<div className="container-fluid">
 				<Navbar expand="lg" variant="light">
 					<Container>
 						<Navbar.Brand href="#home">BCR</Navbar.Brand>

@@ -59,14 +59,14 @@ function CariMobil() {
 				<div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
 					<div className="container FormSewa d-flex align-items-center justify-content-center shadow p-3 mb-5 bg-white rounded">
 						<div className="row">
-							<div className="col">
+							<div className="col-sm-3">
 								<p>Nama Mobil</p>
 								<Form.Control type="text" placeholder="Nama/Jenis Mobil" />
 							</div>
 
 							<div className="col">
 								<p>Kategori</p>
-								<DropdownButton className="DropdownButton" id="dropdown-basic-button" title="Masukkan Kapasitas Mobil">
+								<DropdownButton id="dropdown-basic-button" title="Masukkan Kapasitas Mobil">
 									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
 									<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
 									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
@@ -82,7 +82,7 @@ function CariMobil() {
 							</div>
 							<div className="col">
 								<p>Status</p>
-								<DropdownButton id="dropdown-basic-button" title="Disewa">
+								<DropdownButton id="dropdown-basic-button-status" title="Disewa">
 									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
 									<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
 									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>

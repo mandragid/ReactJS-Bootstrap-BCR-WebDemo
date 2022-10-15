@@ -41,9 +41,13 @@
 	width: 140px;
 	height: 36px;
 	margin-top: 15px;
-
 	background: #5cb85f;
 	border-radius: 2px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .Wrapper {
@@ -59,8 +63,8 @@
 
 .FormSewa {
 	background-color: #ffffff;
-	width: 1047px;
-	height: 106px;
+	width: 1200px;
+	height: 306px;
 	margin-top: -50px;
 	border-radius: 10px;
 }
@@ -105,6 +109,19 @@
 	background-color: #ffffff;
 }
 
+#dropdown-basic-button {
+	background-color: #ffffff;
+	border-color: #6c757d;
+	color: #6c757d;
+}
+
+#dropdown-basic-button-status {
+	width: 200px;
+	text-align: start;
+	background-color: #ffffff;
+	border-color: #6c757d;
+	color: #6c757d;
+}
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 	.JudulHero {

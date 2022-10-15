@@ -1,3 +1,11 @@
+.body {
+	background-color: #e60000;
+}
+.HeroCM,
+.WrapperCM {
+	background-color: #f1f3ff;
+}
+
 .LinkNav a {
 	font-family: "Arial";
 	font-style: normal;
@@ -14,7 +22,6 @@
 	font-size: 36px;
 	line-height: 150%;
 }
-
 .CaptionHero {
 	font-family: "Arial";
 	font-style: normal;
@@ -23,7 +30,7 @@
 	line-height: 20px;
 }
 
-.TombolHero {
+.ButtonCariMobil {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -33,6 +40,7 @@
 	font-size: 12px;
 	width: 140px;
 	height: 36px;
+	margin-top: 15px;
 
 	background: #5cb85f;
 	border-radius: 2px;
@@ -55,6 +63,46 @@
 	height: 106px;
 	margin-top: -50px;
 	border-radius: 10px;
+}
+
+.FormSewa p {
+	margin-bottom: 1px;
+	margin-top: -10px;
+}
+
+.ContainerFormSewa {
+	background-color: rgb(255, 255, 255);
+}
+.Button {
+	background-color: #5cb85f;
+}
+
+.container {
+	background-color: 0000;
+}
+
+.Logos img {
+	width: 32px;
+}
+
+.Footer {
+	margin-top: 200px;
+	background-color: rgb(255, 255, 255);
+}
+
+.Footer p {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.topsection {
+	background-color: #ffffff;
+}
+.bottomsection {
+	background-color: #ffffff;
 }
 
 /* // Large devices (desktops, 992px and up) */

@@ -5,7 +5,7 @@ import CheckIcon from "../img/check.png";
 
 function Services() {
 	return (
-		<div className="container-fluid mt-5">
+		<div id="Services" className="container-fluid mt-5">
 			<div className="container ">
 				<div className="row align-items-center">
 					<div className="col-md-6 p-0">

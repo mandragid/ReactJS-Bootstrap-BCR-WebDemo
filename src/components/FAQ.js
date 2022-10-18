@@ -4,7 +4,7 @@ import Accordion from "react-bootstrap/Accordion";
 
 function FAQ() {
 	return (
-		<div className="container-fluid justify-content-around">
+		<div id="FAQ" className="container-fluid justify-content-around">
 			<div className="container FAQContainer">
 				<div className="row">
 					<div className="col-md-6">

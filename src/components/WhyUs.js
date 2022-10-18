@@ -8,7 +8,7 @@ import Sopir from "../img/sopir.png";
 
 function WhyUs() {
 	return (
-		<div className="WhyUs container-fluid mt-5">
+		<div id="WhyUs" className="WhyUs container-fluid mt-5">
 			<div className="container">
 				<div className="row">
 					<h2 className="JudulWhyus">Why Us?</h2>

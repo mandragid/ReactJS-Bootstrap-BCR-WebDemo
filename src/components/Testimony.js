@@ -8,7 +8,7 @@ import User from "../img/user.png";
 function Testimony() {
 	const item = {
 		items: [
-			<div className="container TestiBox">
+			<div id="Testimonial" className="container TestiBox">
 				<div className="row align-items-center">
 					<div className="col-4">
 						<img className="w-100" src={User} alt="usertesti" />

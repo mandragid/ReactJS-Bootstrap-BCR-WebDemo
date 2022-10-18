@@ -12,7 +12,7 @@ function NavBar() {
 			<div className="container-fluid">
 				<Navbar expand="lg" variant="light">
 					<Container>
-						<Navbar.Brand href="#home">BCR</Navbar.Brand>
+						<Navbar.Brand href="/">BCR</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="ms-auto LinkNav">
@@ -36,7 +36,7 @@ function NavBar() {
 							<p className="CaptionHero">
 								Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
 							</p>
-							<a href="#" className="btn btn-primary TombolHero rounded-pill">
+							<a href="/cari-mobil" className="btn btn-primary TombolHero rounded-pill">
 								Mulai Sewa Mobil
 							</a>
 						</div>

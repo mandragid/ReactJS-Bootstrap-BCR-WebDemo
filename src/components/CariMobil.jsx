@@ -38,15 +38,15 @@ function CariMobil() {
 				{/* Hero Content */}
 				<div className="container-fluid HeroCM">
 					<div className="row align-items-center flex-md-row">
-						<div className="col-md-6 d-flex justify-content-center ">
-							<div className="col-md-8  text-md-left HeroContent">
+						<div className="col-md-12 col-lg-6 d-flex justify-content-center ">
+							<div className="col-md-12  text-md-left HeroContent">
 								<h1 className="JudulHero">Sewa dan Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
 								<p className="CaptionHero">
 									Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
 								</p>
 							</div>
 						</div>
-						<div className="col-md-6 p-0">
+						<div className="col-md-12 col-lg-6 p-0">
 							<img className="w-100" src={Mercy}></img>
 						</div>
 					</div>
@@ -57,14 +57,14 @@ function CariMobil() {
 			{/* Form Cari */}
 			<div className="middlesection">
 				<div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
-					<div className="container FormSewa d-flex align-items-center justify-content-center shadow p-3 mb-5 bg-white rounded">
+					<div className="container FormSewa d-flex align-items-center justify-content-center shadow p-5 mb-5 bg-white rounded">
 						<div className="row">
-							<div className="col-sm-3">
+							<div className="col-sm-12 col-md-6 col-xl-2 text-center mb-3">
 								<p>Nama Mobil</p>
-								<Form.Control type="text" placeholder="Nama/Jenis Mobil" />
+								<Form.Control className="text-center" id="FormControl" type="text" placeholder="Nama/Jenis Mobil" />
 							</div>
 
-							<div className="col">
+							<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
 								<p>Kategori</p>
 								<DropdownButton id="dropdown-basic-button" title="Masukkan Kapasitas Mobil">
 									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -72,7 +72,7 @@ function CariMobil() {
 									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
 								</DropdownButton>
 							</div>
-							<div className="col">
+							<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
 								<p>Harga</p>
 								<DropdownButton id="dropdown-basic-button" title="Masukkan Harga Sewa/Hari">
 									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -80,17 +80,17 @@ function CariMobil() {
 									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
 								</DropdownButton>
 							</div>
-							<div className="col">
+							<div className="col-sm-12 col-md-6 col-xl-2 text-center mb-3">
 								<p>Status</p>
-								<DropdownButton id="dropdown-basic-button-status" title="Disewa">
+								<DropdownButton id="dropdown-basic-button" title="Disewa/Ready">
 									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
 									<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
 									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
 								</DropdownButton>
 							</div>
 
-							<div className="col">
-								<a href="#" className="btn btn-primary ButtonCariMobil">
+							<div className="col-sm-12 col-md-12 col-xl-2 text-center justify-content-center BtnCariMobil">
+								<a href="#" className="btn btn-success text-center">
 									Cari Mobil
 								</a>
 							</div>

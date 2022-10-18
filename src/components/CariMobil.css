@@ -31,15 +31,12 @@
 }
 
 .ButtonCariMobil {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+	position: relative;
 	padding: 8px 12px;
 	gap: 10px;
 	font-size: 12px;
-	width: 140px;
-	height: 36px;
+	width: 120px;
+
 	margin-top: 15px;
 	background: #5cb85f;
 	border-radius: 2px;
@@ -64,7 +61,6 @@
 .FormSewa {
 	background-color: #ffffff;
 	width: 1200px;
-	height: 306px;
 	margin-top: -50px;
 	border-radius: 10px;
 }
@@ -77,6 +73,7 @@
 .ContainerFormSewa {
 	background-color: rgb(255, 255, 255);
 }
+
 .Button {
 	background-color: #5cb85f;
 }
@@ -111,17 +108,11 @@
 
 #dropdown-basic-button {
 	background-color: #ffffff;
-	border-color: #6c757d;
+	border-color: #ced4da;
 	color: #6c757d;
+	width: 100%;
 }
 
-#dropdown-basic-button-status {
-	width: 200px;
-	text-align: start;
-	background-color: #ffffff;
-	border-color: #6c757d;
-	color: #6c757d;
-}
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 	.JudulHero {
@@ -131,5 +122,10 @@
 	.TombolHero {
 		width: 150px;
 		font-size: 15px;
+	}
+
+	.BtnCariMobil {
+		margin-top: 14px;
+		height: 36px;
 	}
 }

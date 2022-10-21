@@ -1,0 +1,28 @@
+.MainContent h1 {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.MainContent ul li {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 175%;
+	color: #8a8a8a;
+}
+
+.MainContent p {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.GambarDetail {
+	height: 216px;
+}

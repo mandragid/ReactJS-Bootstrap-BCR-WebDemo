@@ -87,7 +87,7 @@ function SearchResult() {
 								<p className="DescMobil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 							</div>
 							<div className="col">
-								<a href="#" className="btn btn-success text-center BtnPilihMobil">
+								<a href="/detail-paket" className="btn btn-success text-center BtnPilihMobil">
 									<h1 className="CaptPilihMobil">Pilih Mobil</h1>
 								</a>
 							</div>
@@ -102,7 +102,7 @@ function SearchResult() {
 								<p className="DescMobil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 							</div>
 							<div className="col">
-								<a href="#" className="btn btn-success text-center BtnPilihMobil">
+								<a href="/detail-paket" className="btn btn-success text-center BtnPilihMobil">
 									<h1 className="CaptPilihMobil">Pilih Mobil</h1>
 								</a>
 							</div>
@@ -117,7 +117,7 @@ function SearchResult() {
 								<p className="DescMobil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 							</div>
 							<div className="col">
-								<a href="#" className="btn btn-success text-center BtnPilihMobil">
+								<a href="/detail-paket" className="btn btn-success text-center BtnPilihMobil">
 									<h1 className="CaptPilihMobil">Pilih Mobil</h1>
 								</a>
 							</div>

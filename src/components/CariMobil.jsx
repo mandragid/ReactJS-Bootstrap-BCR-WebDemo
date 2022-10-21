@@ -90,7 +90,7 @@ function CariMobil() {
 							</div>
 
 							<div className="col-sm-12 col-md-12 col-xl-2 text-center justify-content-center BtnCariMobil">
-								<a href="#" className="btn btn-success text-center">
+								<a href="/hasil-pencarian" className="btn btn-success text-center">
 									Cari Mobil
 								</a>
 							</div>

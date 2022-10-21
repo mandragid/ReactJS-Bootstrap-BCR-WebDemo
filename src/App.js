@@ -8,6 +8,8 @@ import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import CariMobil from "./components/CariMobil";
 import Services from "./components/Services";
+import SearchResult from "./components/SearchResult";
+import DetailPaket from "./components/DetailPaket";
 
 function App() {
 	return (
@@ -30,6 +32,8 @@ function App() {
 						}
 					/>
 					<Route exact path="/cari-mobil" element={<CariMobil />} />
+					<Route exact path="/hasil-pencarian" element={<SearchResult />} />
+					<Route exact path="/detail-paket" element={<DetailPaket />} />
 				</Routes>
 			</Router>
 		</div>

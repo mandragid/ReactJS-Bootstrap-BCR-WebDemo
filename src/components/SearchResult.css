@@ -1,0 +1,84 @@
+.NavContainer {
+	height: 400px;
+	background-color: #f1f3ff;
+}
+
+.LinkNav a {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+.FormSewa {
+	background-color: #ffffff;
+	width: 1200px;
+	margin-top: -50px;
+	border-radius: 10px;
+}
+
+.FormSewa p {
+	margin-bottom: 1px;
+	margin-top: -10px;
+}
+
+#dropdown-basic-button {
+	background-color: #ffffff;
+	border-color: #ced4da;
+	color: #6c757d;
+	width: 100%;
+}
+
+.ResultCard {
+	width: 333px;
+	height: 478px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+	padding: 24px;
+	margin: 10px;
+}
+
+.CarImage {
+	width: 100%;
+	height: 222px;
+}
+
+.NamaMobil {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.HargaMobil {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.DescMobil {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.BtnPilihMobil {
+	width: 100%;
+	height: 48px;
+	background-color: #5cb85f;
+}
+
+.CaptPilihMobil {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: white;
+}

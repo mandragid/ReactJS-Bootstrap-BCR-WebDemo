@@ -18,7 +18,6 @@ function SearchResult(props) {
   const [fName, setFname] = useState("");
   const [fCategory, setFcategory] = useState("");
   const [fmaxPrice, setFmaxprice] = useState("");
-  const [fminPrice, setFminprice] = useState("");
   const [fstatus, setFstatus] = useState("");
 
   useEffect(() => {
@@ -35,26 +34,22 @@ function SearchResult(props) {
     console.log(e.target.value);
   };
   const handleChangeCategory = (e) => {
-    setFcategory(e);
-    console.log(e);
+    setFcategory(e.target.value);
+    console.log(e.target.value);
   };
-  const handleMaxPrice = (e) => {
-    setFmaxprice(e);
-    console.log(e);
-  };
-  const handleMinPrice = (e) => {
-    setFminprice(e);
-    console.log(e);
+  const handlePrice = (e) => {
+    setFmaxprice(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleStatus = (e) => {
-    setFstatus(e);
-    console.log(e);
+    setFstatus(e.target.value);
+    console.log(e.target.value);
   };
   const handleFilter = (e) => {
     axios
       .get(
-        `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${fName}&category=${fCategory}&maxPrice=${fmaxPrice}&minPrice=${fminPrice}&isRented=${fstatus}`
+        `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${fName}&category=${fCategory}&maxPrice=${fmaxPrice}&isRented=${fstatus}`
       )
       .then((res) => {
         setCardata(res.data.cars);
@@ -86,10 +81,8 @@ function SearchResult(props) {
         handleFilter={handleFilter}
         fCategory={fCategory}
         handleChangeCategory={handleChangeCategory}
-        handleMaxPrice={handleMaxPrice}
+        handlePrice={handlePrice}
         fmaxPrice={fmaxPrice}
-        handleMinPrice={handleMinPrice}
-        fminPrice={fminPrice}
         handleStatus={handleStatus}
         fstatus={fstatus}
       />

@@ -42,7 +42,7 @@ function NavBar() {
 						</div>
 					</div>
 					<div className="col-md-6 p-0">
-						<img className="w-100" src={Mercy}></img>
+						<img className="w-100" src={Mercy} alt="Mercy"></img>
 					</div>
 				</div>
 			</div>

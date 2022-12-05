@@ -2,16 +2,37 @@ import "../components/SearchCar.css";
 import React from "react";
 import NavBar from "../components/NavBar";
 import Mercy from "../img/mercy.png";
-import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Facebook from "../img/facebook.png";
 import Instagram from "../img/instagram.png";
 import Twitter from "../img/twitter.png";
 import Email from "../img/email.png";
 import Twitch from "../img/twitch.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Filter from "../components/Filter";
 
 function SearchCar() {
+	const [carData, setCardata] = useState([]);
+	const [fName, setFname] = useState("");
+	const [fCategory, setFcategory] = useState("");
+
+	const handleChangeName = (e) => {
+		setFname(e.target.value);
+		console.log(e.target.value);
+	};
+	const handleChangeCategory = (e) => {
+		setFcategory(e.target.value);
+	};
+
+	const handleFilter = (e) => {
+		axios
+			.get(`https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${fName}&category=${fCategory}`)
+			.then((res) => {
+				setCardata(res.data.cars);
+			})
+			.catch((err) => console.log(err.message));
+	};
+
 	return (
 		<div className="topsection">
 			<NavBar />
@@ -35,51 +56,10 @@ function SearchCar() {
 
 			{/* End of Hero Content */}
 
-			{/* Form Cari */}
-			<div className="middlesection">
-				<div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
-					<div className="container FormSewa d-flex align-items-center justify-content-center shadow p-5 mb-5 bg-white rounded">
-						<div className="row">
-							<div className="col-sm-12 col-md-6 col-xl-2 text-center mb-3">
-								<p>Nama Mobil</p>
-								<Form.Control className="text-center" id="FormControl" type="text" placeholder="Nama/Jenis Mobil" />
-							</div>
+			{/* Form Filter */}
+			<Filter handleChangeName={handleChangeName} handleFilter={handleFilter} fCategory={fCategory} handleChangeCategory={handleChangeCategory} />
 
-							<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
-								<p>Kategori</p>
-								<DropdownButton id="dropdown-basic-button" title="Masukkan Kapasitas Mobil">
-									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-									<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-								</DropdownButton>
-							</div>
-							<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
-								<p>Harga</p>
-								<DropdownButton id="dropdown-basic-button" title="Masukkan Harga Sewa/Hari">
-									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-									<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-								</DropdownButton>
-							</div>
-							<div className="col-sm-12 col-md-6 col-xl-2 text-center mb-3">
-								<p>Status</p>
-								<DropdownButton id="dropdown-basic-button" title="Disewa/Ready">
-									<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-									<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-									<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-								</DropdownButton>
-							</div>
-
-							<div className="col-sm-12 col-md-12 col-xl-2 text-center justify-content-center BtnCariMobil">
-								<a href="/hasil-pencarian" className="btn btn-success text-center">
-									Cari Mobil
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			{/* end of form cari */}
+			{/* end of form Filter */}
 
 			{/* footer */}
 

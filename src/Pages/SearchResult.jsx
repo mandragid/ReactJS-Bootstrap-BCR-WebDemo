@@ -1,4 +1,4 @@
-import "../components/DetailPaket.css";
+import "../components/SearchResult.css";
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,8 +11,24 @@ import Instagram from "../img/instagram.png";
 import Twitter from "../img/twitter.png";
 import Email from "../img/email.png";
 import Twitch from "../img/twitch.png";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function DetailPaket() {
+function SearchResult() {
+	const [carData, setCardata] = useState([]);
+	const [fName, setFname] = useState("");
+	const [fCategory, setFcategory] = useState("");
+
+	useEffect(() => {
+		axios
+			.get("https://bootcamp-rent-cars.herokuapp.com/customer/v2/car")
+			.then((res) => {
+				setCardata(res.data.cars);
+			})
+			.catch((err) => console.log(err.message));
+	}, []);
+
 	return (
 		<div className="container-fluid NavContainer">
 			<div className="container-fluid NavContainer">
@@ -31,14 +47,13 @@ function DetailPaket() {
 					</Container>
 				</Navbar>
 			</div>
-			{/* navbar end */}
-			{/* search form */}
+			{/* end of navigation bar */}
 			<div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
 				<div className="container FormSewa d-flex align-items-center justify-content-center shadow p-5 mb-5 bg-white rounded">
-					<div className="row w-100">
+					<div className="row">
 						<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
 							<p>Nama Mobil</p>
-							<Form.Control className="text-center" id="FormControl" type="text" placeholder="" aria-label="Disabled input" disabled />
+							<Form.Control className="text-center" id="FormControl" type="text" placeholder="Nama/Jenis Mobil" />
 						</div>
 
 						<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
@@ -57,68 +72,56 @@ function DetailPaket() {
 								<Dropdown.Item href="#/action-3">Rp. 400k-600k</Dropdown.Item>
 							</DropdownButton>
 						</div>
-						<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
+						<div className="col-sm-12 col-md-6 col-xl-2 text-center mb-3">
 							<p>Status</p>
 							<DropdownButton id="dropdown-basic-button" title="Disewakan">
 								<Dropdown.Item href="#/action-1">Disewakan</Dropdown.Item>
 								<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
 							</DropdownButton>
 						</div>
-					</div>
-				</div>
-			</div>
-			{/* search form end */}
-			{/* main content */}
-			<div className="container-fluid ">
-				<div className="container MainContent">
-					<div className="row">
-						<div className="col-12 col-sm-6 LeftSide order-2 order-sm-1">
-							<h1>Tentang Paket</h1>
-							<h1>Include</h1>
-							<ul>
-								<li>Apa saja yang termasuk dalam paket misal durasi max 12 jam</li>
-								<li>Sudah termasuk bensin selama 12 jam</li>
-								<li>Sudah termasuk Tiket Wisata</li>
-								<li>Sudah termasuk pajak</li>
-							</ul>
-							<h1>Exclude</h1>
-							<ul>
-								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
-								<li>Tidak termasuk akomodasi penginapan</li>
-							</ul>
-							<h1>Refund, Reschedule, Overtime</h1>
-							<ul>
-								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
-								<li>Tidak termasuk akomodasi penginapan</li>
-								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
-								<li>Tidak termasuk akomodasi penginapan</li>
-								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
-								<li>Tidak termasuk akomodasi penginapan</li>
-							</ul>
-						</div>
-						<div className="col-12 col-sm-6 RightSide order-1 order-sm-2">
-							<div className="col GambarDetail">Gambar</div>
-							<div className="col">
-								<h1>Nama Mobil</h1>
-								<p>Kapasitas</p>
-							</div>
-							<div className="row">
-								<div className="col">
-									<p>Total</p>
-								</div>
-								<div className="col">
-									<p>Rp. 500.000</p>
-								</div>
-							</div>
+
+						<div className="col-sm-12 col-md-12 col-xl-1 text-center justify-content-center BtnCariMobil">
+							<a href="#" className="btn btn-success text-center">
+								Edit
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			{/* main content end */}
+			{/* end of searchform */}
+
+			{/* start of search result */}
+
+			<div className="container-fluid">
+				<div className="container d-flex justify-content-center">
+					<div className="row d-flex justify-content-center">
+						{/* card result */}
+						{!!carData.length
+							? carData.map((item) => (
+									<div className="col-sm-12 col-md-6  ResultCard">
+										<div className="col CarImage">
+											<img src={item.image} />
+										</div>
+										<div className="col">
+											<p className="NamaMobil">{item.name}</p>
+											<p className="HargaMobil">{item.price}</p>
+											<p className="DescMobil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+										</div>
+										<div className="col">
+											<Link to={`/detail-paket/${item.id}`}>
+												<a href="/detail-paket" className="btn btn-success text-center BtnPilihMobil">
+													<h1 className="CaptPilihMobil">Pilih Mobil</h1>
+												</a>{" "}
+											</Link>
+										</div>
+									</div>
+							  ))
+							: null}
+					</div>
+				</div>
+			</div>
+			{/* end of search result */}
+
 			{/* footer */}
 			<div className="container-fluid bottomsection">
 				<div className="container Footer">
@@ -155,4 +158,4 @@ function DetailPaket() {
 	);
 }
 
-export default DetailPaket;
+export default SearchResult;

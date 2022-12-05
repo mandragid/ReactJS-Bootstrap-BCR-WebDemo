@@ -39,6 +39,10 @@
 	margin: 10px;
 }
 
+.ResultCard img {
+	width: 270px;
+}
+
 .CarImage {
 	width: 100%;
 	height: 222px;

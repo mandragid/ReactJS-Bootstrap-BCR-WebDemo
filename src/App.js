@@ -1,41 +1,21 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import WhyUs from "./components/WhyUs";
-import Testimony from "./components/Testimony";
-import RentNow from "./components/RentNow";
-import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
-import CariMobil from "./components/CariMobil";
-import Services from "./components/Services";
-import SearchResult from "./components/SearchResult";
-import DetailPaket from "./components/DetailPaket";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SearchCar from "./Pages/SearchCar";
+import SearchResult from "./Pages/SearchResult";
+import CarDetail from "./Pages/CarDetail";
+import LandingPage from "./Pages/LandingPage";
 
 function App() {
 	return (
 		<div>
-			<Router>
+			<BrowserRouter>
 				<Routes>
-					<Route
-						exact
-						path="/"
-						element={
-							<div>
-								<NavBar />
-								<Services />
-								<WhyUs />
-								<Testimony />
-								<RentNow />
-								<FAQ />
-								<Footer />
-							</div>
-						}
-					/>
-					<Route exact path="/cari-mobil" element={<CariMobil />} />
-					<Route exact path="/hasil-pencarian" element={<SearchResult />} />
-					<Route exact path="/detail-paket" element={<DetailPaket />} />
+					<Route path="/" element={<LandingPage />} />
+					<Route path="/cari-mobil" element={<SearchCar />} />
+					<Route path="/hasil-pencarian" element={<SearchResult />} />
+					<Route path="/detail-paket/:id" element={<CarDetail />} />
 				</Routes>
-			</Router>
+			</BrowserRouter>
 		</div>
 	);
 }

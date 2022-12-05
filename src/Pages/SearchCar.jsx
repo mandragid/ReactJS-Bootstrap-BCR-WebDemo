@@ -1,8 +1,6 @@
-import "../components/CariMobil.css";
+import "../components/SearchCar.css";
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import NavBar from "../components/NavBar";
 import Mercy from "../img/mercy.png";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -13,45 +11,28 @@ import Twitter from "../img/twitter.png";
 import Email from "../img/email.png";
 import Twitch from "../img/twitch.png";
 
-function CariMobil() {
+function SearchCar() {
 	return (
 		<div className="topsection">
-			<div className="container-fluid WrapperCM">
-				<div className="container">
-					<Navbar expand="lg" variant="light">
-						<Container>
-							<Navbar.Brand href="/">BCR</Navbar.Brand>
-							<Navbar.Toggle aria-controls="basic-navbar-nav" />
-							<Navbar.Collapse id="basic-navbar-nav">
-								<Nav className="ms-auto LinkNav">
-									<Nav.Link href="/">Our Services</Nav.Link>
-									<Nav.Link href="/">Why Us</Nav.Link>
-									<Nav.Link href="/">Testimonial</Nav.Link>
-									<Nav.Link href="/">FAQ</Nav.Link>
-								</Nav>
-							</Navbar.Collapse>
-						</Container>
-					</Navbar>
-				</div>
-				{/* End of Navigation Bar */}
+			<NavBar />
 
-				{/* Hero Content */}
-				<div className="container-fluid HeroCM">
-					<div className="row align-items-center flex-md-row">
-						<div className="col-md-12 col-lg-6 d-flex justify-content-center ">
-							<div className="col-md-12  text-md-left HeroContent">
-								<h1 className="JudulHero">Sewa dan Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
-								<p className="CaptionHero">
-									Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
-								</p>
-							</div>
+			{/* Hero Content */}
+			<div className="container-fluid HeroCM">
+				<div className="row align-items-center flex-md-row">
+					<div className="col-md-12 col-lg-6 d-flex justify-content-center ">
+						<div className="col-md-12  text-md-left HeroContent">
+							<h1 className="JudulHero">Sewa dan Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
+							<p className="CaptionHero">
+								Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
+							</p>
 						</div>
-						<div className="col-md-12 col-lg-6 p-0">
-							<img className="w-100" src={Mercy}></img>
-						</div>
+					</div>
+					<div className="col-md-12 col-lg-6 p-0">
+						<img className="w-100" src={Mercy}></img>
 					</div>
 				</div>
 			</div>
+
 			{/* End of Hero Content */}
 
 			{/* Form Cari */}
@@ -137,4 +118,4 @@ function CariMobil() {
 	);
 }
 
-export default CariMobil;
+export default SearchCar;

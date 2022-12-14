@@ -4,20 +4,22 @@ import SearchCar from "./Pages/SearchCar";
 import SearchResult from "./Pages/SearchResult";
 import CarDetail from "./Pages/CarDetail";
 import LandingPage from "./Pages/LandingPage";
+import AdminNavbar from "./admin/Components/AdminNavbar";
 
 function App() {
-  return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/cari-mobil" element={<SearchCar />} />
-          <Route path="/hasil-pencarian" element={<SearchResult />} />
-          <Route path="/detail-paket/:id" element={<CarDetail />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+	return (
+		<div>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<LandingPage />} />
+					<Route path="/cari-mobil" element={<SearchCar />} />
+					<Route path="/hasil-pencarian" element={<SearchResult />} />
+					<Route path="/detail-paket/:id" element={<CarDetail />} />
+					<Route path="/admin/dashboard" element={<AdminNavbar />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;

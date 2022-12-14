@@ -1,0 +1,24 @@
+.admin-dashboard {
+	background-color: #f4f5f7;
+}
+
+.sidebar {
+	background-color: #0d28a6;
+	height: 1000px;
+	width: 70px;
+}
+
+.nav-dash {
+	width: 220px;
+	height: 830px;
+	background-color: white;
+}
+
+.chart-container {
+	height: 300px;
+	background-color: grey;
+}
+
+.admin-user-logo {
+	width: 30px;
+}

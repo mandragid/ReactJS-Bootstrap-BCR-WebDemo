@@ -1,0 +1,69 @@
+.body,
+.Hero,
+.NavContainer,
+.Wrapper {
+	background-color: #f1f3ff;
+}
+
+.LinkNav a {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	color: black;
+}
+
+.JudulHero {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 150%;
+}
+
+.CaptionHero {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.TombolHero {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	font-size: 12px;
+	width: 140px;
+	height: 36px;
+
+	background: #5cb85f;
+	border-radius: 2px;
+}
+
+.Wrapper {
+	margin: 0 auto;
+	width: 100%;
+
+	padding: 0;
+}
+
+.HeroContent {
+	padding: 40px;
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.JudulHero {
+		font-size: 42px;
+	}
+
+	.TombolHero {
+		width: 150px;
+		font-size: 15px;
+	}
+}

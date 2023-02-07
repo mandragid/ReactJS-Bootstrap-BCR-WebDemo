@@ -1,4 +1,4 @@
-import "../components/SearchResult.css";
+import "../components/CarDetail.css";
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,8 +11,23 @@ import Instagram from "../img/instagram.png";
 import Twitter from "../img/twitter.png";
 import Email from "../img/email.png";
 import Twitch from "../img/twitch.png";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-function SearchResult() {
+function CarDetail() {
+	const { id } = useParams();
+	const [car, setCar] = useState({});
+
+	useEffect(() => {
+		axios
+			.get(`https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`)
+			.then((res) => {
+				setCar(res.data);
+			})
+			.catch((err) => console.log(err.message));
+	}, []);
+
 	return (
 		<div className="container-fluid NavContainer">
 			<div className="container-fluid NavContainer">
@@ -31,13 +46,14 @@ function SearchResult() {
 					</Container>
 				</Navbar>
 			</div>
-			{/* end of navigation bar */}
+			{/* navbar end */}
+			{/* search form */}
 			<div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
 				<div className="container FormSewa d-flex align-items-center justify-content-center shadow p-5 mb-5 bg-white rounded">
-					<div className="row">
+					<div className="row w-100">
 						<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
 							<p>Nama Mobil</p>
-							<Form.Control className="text-center" id="FormControl" type="text" placeholder="Nama/Jenis Mobil" />
+							<Form.Control className="text-center" id="FormControl" type="text" placeholder="" aria-label="Disabled input" disabled />
 						</div>
 
 						<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
@@ -56,78 +72,73 @@ function SearchResult() {
 								<Dropdown.Item href="#/action-3">Rp. 400k-600k</Dropdown.Item>
 							</DropdownButton>
 						</div>
-						<div className="col-sm-12 col-md-6 col-xl-2 text-center mb-3">
+						<div className="col-sm-12 col-md-6 col-xl-3 text-center mb-3">
 							<p>Status</p>
 							<DropdownButton id="dropdown-basic-button" title="Disewakan">
 								<Dropdown.Item href="#/action-1">Disewakan</Dropdown.Item>
 								<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
 							</DropdownButton>
 						</div>
-
-						<div className="col-sm-12 col-md-12 col-xl-1 text-center justify-content-center BtnCariMobil">
-							<a href="#" className="btn btn-success text-center">
-								Edit
-							</a>
-						</div>
 					</div>
 				</div>
 			</div>
-			{/* end of searchform */}
-			{/* start of search result */}
+			{/* search form end */}
+			{/* main content */}
+			<div className="container-fluid ">
+				<div className="container MainContent">
+					<div className="row">
+						<div className="col-12 col-sm-6 LeftSide order-2 order-sm-1">
+							<h1>Tentang Paket</h1>
+							<h1>Include</h1>
+							<ul>
+								<li>Apa saja yang termasuk dalam paket misal durasi max 12 jam</li>
+								<li>Sudah termasuk bensin selama 12 jam</li>
+								<li>Sudah termasuk Tiket Wisata</li>
+								<li>Sudah termasuk pajak</li>
+							</ul>
+							<h1>Exclude</h1>
+							<ul>
+								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
+								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+								<li>Tidak termasuk akomodasi penginapan</li>
+							</ul>
+							<h1>Refund, Reschedule, Overtime</h1>
+							<ul>
+								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
+								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+								<li>Tidak termasuk akomodasi penginapan</li>
+								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
+								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+								<li>Tidak termasuk akomodasi penginapan</li>
+								<li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
+								<li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+								<li>Tidak termasuk akomodasi penginapan</li>
+							</ul>
+						</div>
 
-			<div className="container-fluid">
-				<div className="container d-flex justify-content-center">
-					<div className="row d-flex justify-content-center">
-						{/* card result */}
-						<div className="col-sm-12 col-md-6  ResultCard">
-							<div className="col CarImage">Gambar Mobil</div>
-							<div className="col">
-								<p className="NamaMobil">Nama Mobil</p>
-								<p className="HargaMobil">Harga Mobil</p>
-								<p className="DescMobil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+						{Object.entries(car).length ? (
+							<div className="col-12 col-sm-6 RightSide order-1 order-sm-2">
+								<div className="col GambarDetail">
+									<img src={car.image} alt="Gambar Mobil" />
+								</div>
+								<div className="col">
+									<h1>{car.name}</h1>
+									<p>{car.category}</p>
+								</div>
+								<div className="row">
+									<div className="col">
+										<p>Total</p>
+									</div>
+									<div className="col">
+										<p>{car.price}</p>
+									</div>
+								</div>
 							</div>
-							<div className="col">
-								<a href="/detail-paket" className="btn btn-success text-center BtnPilihMobil">
-									<h1 className="CaptPilihMobil">Pilih Mobil</h1>
-								</a>
-							</div>
-						</div>
-						{/* card result */}
-						{/* card result */}
-						<div className="col-sm-12 col-md-6 ResultCard">
-							<div className="col CarImage">Gambar Mobil</div>
-							<div className="col">
-								<p className="NamaMobil">Nama Mobil</p>
-								<p className="HargaMobil">Harga Mobil</p>
-								<p className="DescMobil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-							</div>
-							<div className="col">
-								<a href="/detail-paket" className="btn btn-success text-center BtnPilihMobil">
-									<h1 className="CaptPilihMobil">Pilih Mobil</h1>
-								</a>
-							</div>
-						</div>
-						{/* card result */}
-						{/* card result */}
-						<div className="col-sm-12 col-md-6 ResultCard">
-							<div className="col CarImage">Gambar Mobil</div>
-							<div className="col">
-								<p className="NamaMobil">Nama Mobil</p>
-								<p className="HargaMobil">Harga Mobil</p>
-								<p className="DescMobil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-							</div>
-							<div className="col">
-								<a href="/detail-paket" className="btn btn-success text-center BtnPilihMobil">
-									<h1 className="CaptPilihMobil">Pilih Mobil</h1>
-								</a>
-							</div>
-						</div>
-						{/* card result */}
+						) : null}
 					</div>
 				</div>
 			</div>
-			{/* end of search result */}
-
+			{/* main content end */}
 			{/* footer */}
 			<div className="container-fluid bottomsection">
 				<div className="container Footer">
@@ -164,4 +175,4 @@ function SearchResult() {
 	);
 }
 
-export default SearchResult;
+export default CarDetail;

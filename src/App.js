@@ -5,6 +5,8 @@ import SearchResult from "./Pages/SearchResult";
 import CarDetail from "./Pages/CarDetail";
 import LandingPage from "./Pages/LandingPage";
 import Dashboard from "./admin/Pages/Dashboard";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 function App() {
 	return (
@@ -16,6 +18,8 @@ function App() {
 					<Route path="/hasil-pencarian" element={<SearchResult />} />
 					<Route path="/detail-paket/:id" element={<CarDetail />} />
 					<Route path="/admin/dashboard" element={<Dashboard />} />
+					<Route path='/admin/Login' element = {<Login/>} />
+      				<Route path='/admin/Register' element = {<Register/>} />
 				</Routes>
 			</BrowserRouter>
 		</div>

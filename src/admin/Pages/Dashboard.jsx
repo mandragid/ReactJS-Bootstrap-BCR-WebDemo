@@ -1,11 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Table from "react-bootstrap/Table";
 import Pagination from "react-bootstrap/Pagination";
@@ -13,8 +8,40 @@ import "./Dashboard.css";
 import HomeLogo from "../img/Home.png";
 import Rectangle from "../img/Rectangle.png";
 import AdminNavbar from "../Components/AdminNavbar";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import BarChart from "../Components/BarChart";
+import { useEffect, useState } from "react";
+import { orderListTotal } from "../../const/OrderData";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function Dashboard() {
+	const [chartData, setChartData] = useState({
+		labels: [],
+		datasets: [
+			{
+				label: "",
+				labelColor: [],
+				data: [],
+				backgroundColor: [],
+			},
+		],
+	});
+
+	useEffect(() => {
+		setChartData({
+			labels: orderListTotal.map((data) => data.date),
+			datasets: [
+				{
+					label: "data rental mobil",
+					labelColor: ["blue"],
+					data: orderListTotal.map((data) => data.totalOrder),
+					backgroundColor: ["blue"],
+				},
+			],
+		});
+	}, []);
+
 	return (
 		<div>
 			<div className="container-fluid admin-dashboard">
@@ -52,10 +79,18 @@ function Dashboard() {
 									<div className="row">
 										<div className="col-2">
 											<Form.Select aria-label="Default select example">
-												<option>June 2022</option>
-												<option value="1">July 2022</option>
-												<option value="2">Aug 2022</option>
-												<option value="3">Sept 2022</option>
+												<option value="1">January 2023</option>
+												<option value="2">February 2023</option>
+												<option value="3">March 2023</option>
+												<option value="4">April 2023</option>
+												<option value="5">May 2023</option>
+												<option value="6">June 2023</option>
+												<option value="7">July 2023</option>
+												<option value="8">August 2023</option>
+												<option value="9">September 2023</option>
+												<option value="10">October 2023</option>
+												<option value="11">November 2023</option>
+												<option value="12">December 2023</option>
 											</Form.Select>
 										</div>
 										<div className="col">
@@ -65,7 +100,9 @@ function Dashboard() {
 											</Button>{" "}
 										</div>
 									</div>
-									<div className="row chart-container">CHART DATA</div>
+									<div className="row chart-container">
+										<BarChart chartData={chartData} />
+									</div>
 								</div>
 								<div className="container">
 									<div className="row mt-5">

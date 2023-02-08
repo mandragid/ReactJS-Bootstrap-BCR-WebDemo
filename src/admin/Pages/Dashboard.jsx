@@ -12,10 +12,14 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import BarChart from "../Components/BarChart";
 import { useEffect, useState } from "react";
 import { orderListTotal } from "../../const/OrderData";
+import axios from "axios";
+import { API } from "../../const/endpoint";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function Dashboard() {
+	const [orderList, setOrderList] = useState();
+
 	const [chartData, setChartData] = useState({
 		labels: [],
 		datasets: [
@@ -33,14 +37,27 @@ function Dashboard() {
 			labels: orderListTotal.map((data) => data.date),
 			datasets: [
 				{
-					label: "data rental mobil",
+					label: "Amount of Car Rented",
 					labelColor: ["blue"],
 					data: orderListTotal.map((data) => data.totalOrder),
-					backgroundColor: ["blue"],
+					backgroundColor: "#586B90",
 				},
 			],
 		});
 	}, []);
+
+	useEffect(() => {
+		const payload = localStorage.getItem("token");
+		axios
+			.get(API.GET_ORDERLIST, payload)
+			.then((res) => {
+				setOrderList(res);
+				console.log(res);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	});
 
 	return (
 		<div>
@@ -79,18 +96,18 @@ function Dashboard() {
 									<div className="row">
 										<div className="col-2">
 											<Form.Select aria-label="Default select example">
-												<option value="1">January 2023</option>
-												<option value="2">February 2023</option>
-												<option value="3">March 2023</option>
-												<option value="4">April 2023</option>
-												<option value="5">May 2023</option>
-												<option value="6">June 2023</option>
-												<option value="7">July 2023</option>
-												<option value="8">August 2023</option>
-												<option value="9">September 2023</option>
-												<option value="10">October 2023</option>
-												<option value="11">November 2023</option>
-												<option value="12">December 2023</option>
+												<option value="1">January - 2023</option>
+												<option value="2">February - 2023</option>
+												<option value="3">March - 2023</option>
+												<option value="4">April - 2023</option>
+												<option value="5">May - 2023</option>
+												<option value="6">June - 2023</option>
+												<option value="7">July - 2023</option>
+												<option value="8">August - 2023</option>
+												<option value="9">September - 2023</option>
+												<option value="10">October - 2023</option>
+												<option value="11">November - 2023</option>
+												<option value="12">December - 2023</option>
 											</Form.Select>
 										</div>
 										<div className="col">
@@ -100,7 +117,7 @@ function Dashboard() {
 											</Button>{" "}
 										</div>
 									</div>
-									<div className="row chart-container">
+									<div className="row chartjs-container">
 										<BarChart chartData={chartData} />
 									</div>
 								</div>

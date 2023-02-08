@@ -5,7 +5,8 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Table from "react-bootstrap/Table";
 import Pagination from "react-bootstrap/Pagination";
 import "./Dashboard.css";
-import HomeLogo from "../img/Home.png";
+import HomeLogo from "../img/Home_Logo.png";
+import CarsLogo from "../img/Cars_Logo.png";
 import Rectangle from "../img/Rectangle.png";
 import AdminNavbar from "../Components/AdminNavbar";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
@@ -14,6 +15,7 @@ import { useEffect, useState } from "react";
 import { orderListTotal } from "../../const/OrderData";
 import axios from "axios";
 import { API } from "../../const/endpoint";
+import { Link } from "react-router-dom";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -65,7 +67,18 @@ function Dashboard() {
 				<div className="row">
 					<div className="col-1 sidebar">
 						<div className="row">
-							<img src={HomeLogo} alt="x" className="" />
+							<Link to={"/admin/dashboard"}>
+								<div className="home">
+									<img src={HomeLogo} alt="x" className="" />
+									<p>Home</p>
+								</div>
+							</Link>
+							<Link to={"/admin/cars"}>
+								<div className="cars">
+									<img src={CarsLogo} alt="x" className="" />
+									<p>Cars</p>
+								</div>
+							</Link>
 						</div>
 					</div>
 					<div className="col admin-nav">

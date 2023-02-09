@@ -1,27 +1,91 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Table from "react-bootstrap/Table";
 import Pagination from "react-bootstrap/Pagination";
 import "./Dashboard.css";
-import HomeLogo from "../img/Home.png";
+import HomeLogo from "../img/Home_Logo.png";
+import CarsLogo from "../img/Cars_Logo.png";
 import Rectangle from "../img/Rectangle.png";
 import AdminNavbar from "../Components/AdminNavbar";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import BarChart from "../Components/BarChart";
+import { useEffect, useState } from "react";
+import { orderListTotal } from "../../const/OrderData";
+import axios from "axios";
+import { API } from "../../const/endpoint";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import rootReducer from "../../Redux";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function Dashboard() {
+	const [orderList, setOrderList] = useState({});
+	console.log("Orders", orderList);
+
+	const [chartData, setChartData] = useState({
+		labels: [],
+		datasets: [
+			{
+				label: "",
+				labelColor: [],
+				data: [],
+				backgroundColor: [],
+			},
+		],
+	});
+
+	useEffect(() => {
+		setChartData({
+			labels: orderListTotal.map((data) => data.date),
+			datasets: [
+				{
+					label: "Amount of Car Rented",
+					labelColor: ["blue"],
+					data: orderListTotal.map((data) => data.totalOrder),
+					backgroundColor: "#586B90",
+				},
+			],
+		});
+	}, []);
+
+	useEffect(() => {
+		const token = localStorage.getItem("token");
+		const config = {
+			headers: {
+				access_token: token,
+			},
+		};
+		axios
+			.get(API.GET_ORDERLIST, config)
+			.then((res) => {
+				setOrderList(res.data.orders);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
+
 	return (
 		<div>
 			<div className="container-fluid admin-dashboard">
 				<div className="row">
 					<div className="col-1 sidebar">
 						<div className="row">
-							<img src={HomeLogo} alt="x" className="" />
+							<Link to={"/admin/dashboard"}>
+								<div className="home">
+									<img src={HomeLogo} alt="x" className="" />
+									<p>Home</p>
+								</div>
+							</Link>
+							<Link to={"/admin/cars"}>
+								<div className="cars">
+									<img src={CarsLogo} alt="x" className="" />
+									<p>Cars</p>
+								</div>
+							</Link>
 						</div>
 					</div>
 					<div className="col admin-nav">
@@ -52,10 +116,18 @@ function Dashboard() {
 									<div className="row">
 										<div className="col-2">
 											<Form.Select aria-label="Default select example">
-												<option>June 2022</option>
-												<option value="1">July 2022</option>
-												<option value="2">Aug 2022</option>
-												<option value="3">Sept 2022</option>
+												<option value="1">January - 2023</option>
+												<option value="2">February - 2023</option>
+												<option value="3">March - 2023</option>
+												<option value="4">April - 2023</option>
+												<option value="5">May - 2023</option>
+												<option value="6">June - 2023</option>
+												<option value="7">July - 2023</option>
+												<option value="8">August - 2023</option>
+												<option value="9">September - 2023</option>
+												<option value="10">October - 2023</option>
+												<option value="11">November - 2023</option>
+												<option value="12">December - 2023</option>
 											</Form.Select>
 										</div>
 										<div className="col">
@@ -65,7 +137,9 @@ function Dashboard() {
 											</Button>{" "}
 										</div>
 									</div>
-									<div className="row chart-container">CHART DATA</div>
+									<div className="row chartjs-container">
+										<BarChart chartData={chartData} />
+									</div>
 								</div>
 								<div className="container">
 									<div className="row mt-5">
@@ -78,11 +152,10 @@ function Dashboard() {
 										</ul>
 									</div>
 									<div className="row table-container">
-										{" "}
-										<Table striped bordered hover>
+										<table striped bordered hover>
 											<thead>
 												<tr>
-													<th>No</th>
+													<th>ID</th>
 													<th>User Email</th>
 													<th>Car</th>
 													<th>Start Rent</th>
@@ -91,99 +164,33 @@ function Dashboard() {
 													<th>Category</th>
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>6</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>7</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>8</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>9</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>10</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-											</tbody>
-										</Table>
+
+											{Object.entries(orderList).length
+												? orderList.map((items) => (
+														<tbody>
+															<tr>
+																<td>
+																	<p>{items.id}</p>
+																</td>
+																<td>
+																	<p>{items.User.email}</p>
+																</td>
+																<td>Not Set</td>
+																<td>
+																	<p>{items.start_rent_at}</p>
+																</td>
+																<td>
+																	<p>{items.finish_rent_at}</p>
+																</td>
+																<td>
+																	<p>{items.total_price}</p>
+																</td>
+																<td>Not Set</td>
+															</tr>
+														</tbody>
+												  ))
+												: "not found"}
+										</table>
 									</div>
 									<div className="row">
 										<div className="col-1">

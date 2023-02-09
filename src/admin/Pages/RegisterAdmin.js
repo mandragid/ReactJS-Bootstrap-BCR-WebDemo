@@ -1,4 +1,4 @@
-
+import { API } from "../const/endpoint"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
@@ -26,7 +26,7 @@ const Register = () => {
             role: "Admin",
         }
     axios
-    .post("https://bootcamp-rent-cars.herokuapp.com/admin/auth/register" ,payload)
+    .post(API.REGISTER ,payload)
     .then((res) =>{
     Navigate("/")
     })

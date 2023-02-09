@@ -56,6 +56,10 @@
 	padding: 40px;
 }
 
+.regButton {
+	color: white !important;
+}
+
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 	.JudulHero {

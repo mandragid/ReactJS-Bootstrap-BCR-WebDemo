@@ -4,6 +4,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Mercy from "../img/mercy.png";
+import RegisterCustomer from "../Pages/RegisterCustomer";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function NavBar() {
   return (

@@ -22,7 +22,7 @@ import rootReducer from "../../Redux";
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function Dashboard() {
-	const [orderList, setOrderList] = useState();
+	const [orderList, setOrderList] = useState({});
 	console.log("Orders", orderList);
 
 	const [chartData, setChartData] = useState({
@@ -155,7 +155,7 @@ function Dashboard() {
 										<table striped bordered hover>
 											<thead>
 												<tr>
-													<th>No</th>
+													<th>ID</th>
 													<th>User Email</th>
 													<th>Car</th>
 													<th>Start Rent</th>
@@ -169,17 +169,27 @@ function Dashboard() {
 												? orderList.map((items) => (
 														<tbody>
 															<tr>
-																<td>1</td>
-																<td>{items.User.email}</td>
+																<td>
+																	<p>{items.id}</p>
+																</td>
+																<td>
+																	<p>{items.User.email}</p>
+																</td>
 																<td>Not Set</td>
-																<td>{items.start_rent_at}</td>
-																<td>{items.finish_rent_at}</td>
-																<td>{items.total_price}</td>
+																<td>
+																	<p>{items.start_rent_at}</p>
+																</td>
+																<td>
+																	<p>{items.finish_rent_at}</p>
+																</td>
+																<td>
+																	<p>{items.total_price}</p>
+																</td>
 																<td>Not Set</td>
 															</tr>
 														</tbody>
 												  ))
-												: null}
+												: "not found"}
 										</table>
 									</div>
 									<div className="row">

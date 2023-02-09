@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { API } from "../../const/endpoint";
 import AdminCarSplash from "../img/AdminCarSplash.png"
-import "../LoginAdmin.css"
 
 const Login = () => {
     const dispatch = useDispatch()

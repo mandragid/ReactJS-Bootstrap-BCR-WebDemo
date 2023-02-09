@@ -1,9 +1,9 @@
 import { useState } from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { API } from "../const/endpoint";
+import { API } from "../../const/endpoint";
 
 const Login = () => {
     const dispatch = useDispatch()

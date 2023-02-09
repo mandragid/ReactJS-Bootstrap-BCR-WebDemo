@@ -23,7 +23,7 @@ function NavBar() {
 								<Nav.Link href="#WhyUs">Why Us</Nav.Link>
 								<Nav.Link href="#Testimonial">Testimonial</Nav.Link>
 								<Nav.Link href="#FAQ">FAQ</Nav.Link>
-								<Button href="/Register" variant="success">
+								<Button href="/Register" variant="success" className="regButton">
 									Register
 								</Button>
 							</Nav>

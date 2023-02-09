@@ -1,9 +1,8 @@
-import { API } from "../const/endpoint"
+import { API } from "../../const/endpoint"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
-import NavBar from "../components/NavBar"
+import NavBar from "../../components/NavBar"
 import axios from "axios"
 
 const Register = () => {

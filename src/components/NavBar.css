@@ -57,18 +57,7 @@
 }
 
 .regButton {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	padding: 8px 12px;
-	gap: 10px;
-	font-size: 12px;
-	width: 140px;
-	height: 36px;
-
-	background: #5cb85f;
-	border-radius: 2px;
+	color: white !important;
 }
 
 /* // Large devices (desktops, 992px and up) */

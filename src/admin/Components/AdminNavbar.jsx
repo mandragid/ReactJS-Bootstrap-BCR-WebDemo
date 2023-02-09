@@ -8,10 +8,17 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./AdminNavbar.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function AdminNavbar() {
 	const { user } = useSelector((rootReducer) => rootReducer);
-	console.log(user);
+
+	const handleLogout = async () => {
+		const navigate = useNavigate;
+		await localStorage.removeItem("token");
+		navigate("/admin/login");
+	};
+
 	return (
 		<div>
 			<Navbar bg="light" expand="lg">
@@ -27,9 +34,7 @@ function AdminNavbar() {
 						<img className="ms-3 admin-user-logo" src="https://www.kindpng.com/picc/m/22-223910_circle-user-png-icon-transparent-png.png" alt="x" />
 						<span className="ms-2">{user.user}</span>{" "}
 						<DropdownButton className="ms-3" id="dropdown-basic-button" title="">
-							<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-							<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-							<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+							<Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
 						</DropdownButton>
 					</Navbar.Collapse>
 				</Container>

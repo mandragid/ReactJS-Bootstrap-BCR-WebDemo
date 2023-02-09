@@ -2,8 +2,6 @@ import { useState } from "react";
 import NavBar from "../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import axios from "axios";
-import { API } from "../const/endpoint";
 import { userAction } from "../Redux/userAction";
 import { useEffect } from "react";
 
@@ -21,13 +19,17 @@ const Login = () => {
 		setPassword(e.target.value);
 	};
 
-	const handleLogin = async () => {
+	const handleLogin = () => {
 		const payLoad = {
 			email: email,
 			password: password,
 		};
 		dispatch(userAction(payLoad));
 	};
+
+	useEffect(() => {
+		handleRedirect();
+	});
 
 	const handleRedirect = () => {
 		const token = localStorage.getItem("token");
@@ -37,10 +39,6 @@ const Login = () => {
 			}
 		}, 2000);
 	};
-
-	useEffect(() => {
-		handleRedirect();
-	});
 
 	return (
 		<div>

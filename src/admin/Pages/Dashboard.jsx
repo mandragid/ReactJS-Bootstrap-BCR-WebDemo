@@ -23,6 +23,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 function Dashboard() {
 	const [orderList, setOrderList] = useState();
+	console.log("Orders", orderList);
 
 	const [chartData, setChartData] = useState({
 		labels: [],
@@ -60,8 +61,7 @@ function Dashboard() {
 		axios
 			.get(API.GET_ORDERLIST, config)
 			.then((res) => {
-				setOrderList(res);
-				console.log(res);
+				setOrderList(res.data.orders);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -152,8 +152,7 @@ function Dashboard() {
 										</ul>
 									</div>
 									<div className="row table-container">
-										{" "}
-										<Table striped bordered hover>
+										<table striped bordered hover>
 											<thead>
 												<tr>
 													<th>No</th>
@@ -165,99 +164,23 @@ function Dashboard() {
 													<th>Category</th>
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>6</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>7</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>8</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>9</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-												<tr>
-													<td>10</td>
-													<td>User Email</td>
-													<td>Car</td>
-													<td>Start Rent</td>
-													<td>Finish Rent</td>
-													<td>Price</td>
-													<td>Category</td>
-												</tr>
-											</tbody>
-										</Table>
+
+											{Object.entries(orderList).length
+												? orderList.map((items) => (
+														<tbody>
+															<tr>
+																<td>1</td>
+																<td>{items.User.email}</td>
+																<td>Not Set</td>
+																<td>{items.start_rent_at}</td>
+																<td>{items.finish_rent_at}</td>
+																<td>{items.total_price}</td>
+																<td>Not Set</td>
+															</tr>
+														</tbody>
+												  ))
+												: null}
+										</table>
 									</div>
 									<div className="row">
 										<div className="col-1">

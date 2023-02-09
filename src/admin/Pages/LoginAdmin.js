@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { API } from "../../const/endpoint";
+import AdminCarSplash from "../img/AdminCarSplash.png"
+import "../LoginAdmin.css"
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -37,6 +39,10 @@ const Login = () => {
     return ( 
         <div>
             <NavBar />
+            <div className="splashImage">
+            <img src={AdminCarSplash}></img>
+            </div>
+            <div className="formHolder">
             {(
                     <div className="register-section">
                         <div>
@@ -51,7 +57,7 @@ const Login = () => {
                         </div>
                     </div>)
             }
-            
+            </div>
         </div>
         
      );

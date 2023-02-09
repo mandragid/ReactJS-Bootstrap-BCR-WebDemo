@@ -16,6 +16,8 @@ import { orderListTotal } from "../../const/OrderData";
 import axios from "axios";
 import { API } from "../../const/endpoint";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import rootReducer from "../../Redux";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -49,9 +51,14 @@ function Dashboard() {
 	}, []);
 
 	useEffect(() => {
-		const payload = localStorage.getItem("token");
+		const token = localStorage.getItem("token");
+		const config = {
+			headers: {
+				access_token: token,
+			},
+		};
 		axios
-			.get(API.GET_ORDERLIST, payload)
+			.get(API.GET_ORDERLIST, config)
 			.then((res) => {
 				setOrderList(res);
 				console.log(res);
@@ -59,7 +66,7 @@ function Dashboard() {
 			.catch((err) => {
 				console.log(err);
 			});
-	});
+	}, []);
 
 	return (
 		<div>

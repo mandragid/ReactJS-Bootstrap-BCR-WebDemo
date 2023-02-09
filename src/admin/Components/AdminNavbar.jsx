@@ -7,9 +7,11 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./AdminNavbar.css";
-import HomeLogo from "../img/Home.png";
+import { useSelector } from "react-redux";
 
 function AdminNavbar() {
+	const { user } = useSelector((rootReducer) => rootReducer);
+	console.log(user);
 	return (
 		<div>
 			<Navbar bg="light" expand="lg">
@@ -23,7 +25,7 @@ function AdminNavbar() {
 							<Button variant="outline-primary">Search</Button>
 						</Form>
 						<img className="ms-3 admin-user-logo" src="https://www.kindpng.com/picc/m/22-223910_circle-user-png-icon-transparent-png.png" alt="x" />
-						<span className="ms-2">Admin Name</span>{" "}
+						<span className="ms-2">{user.user}</span>{" "}
 						<DropdownButton className="ms-3" id="dropdown-basic-button" title="">
 							<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
 							<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>

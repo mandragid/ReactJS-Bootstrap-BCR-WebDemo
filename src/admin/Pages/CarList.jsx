@@ -3,8 +3,28 @@ import { Link } from "react-router-dom";
 import HomeLogo from "../img/Home_Logo.png";
 import CarsLogo from "../img/Cars_Logo.png";
 import "./Dashboard.css";
+import { useEffect } from "react";
+import axios from "axios";
+import { API } from "../../const/endpoint";
 
 function CarList() {
+	const token = localStorage.getItem("token");
+	const config = {
+		headers: {
+			access_token: token,
+		},
+	};
+	useEffect(() => {
+		axios
+			.get(API.GET_ADMIN_CARS, config)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	});
+
 	return (
 		<div className="container-fluid admin-dashboard">
 			<div className="row">

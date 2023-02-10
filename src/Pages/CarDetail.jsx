@@ -69,7 +69,7 @@ function CarDetail() {
       <div className="container-fluid packageDetail-and-card-carDetail-container">
         <div className="container MainContent">
           <div className="row">
-            <div className="col-12 col-sm-6 LeftSide order-2 order-sm-1">
+            <div className="col-12 col-sm-6 LeftSide order-2 order-sm-1 aboutPackage">
               <h1>Tentang Paket</h1>
               <h1>Include</h1>
               <ul>
@@ -103,18 +103,18 @@ function CarDetail() {
                 <div className="col GambarDetail">
                   <img src={car.image} alt="Gambar Mobil" />
                 </div>
-                <div className="col">
-                  <h1>{car.name}</h1>
-                  <img src={UsersIcon}></img>
+                <div className="col carContent">
+                  <h1 className="name-carDetail">{car.name}</h1>
+                  <img src={UsersIcon} className="userIcon-carDetail"></img>
                   {(() => {
                     if (car.category === "small") {
-                      return <h1>2-4 Orang</h1>;
+                      return <h1 className="category-carDetail">2-4 Orang</h1>;
                     } else if (car.category === "Medium") {
-                      return <h1>4-6 Orang</h1>;
+                      return <h1 className="category-carDetail">4-6 Orang</h1>;
                     } else if (car.category === "large") {
-                      return <h1>6-8 Orang</h1>;
+                      return <h1 className="category-carDetail">6-8 Orang</h1>;
                     } else {
-                      return <h1> - </h1>;
+                      return <h1 className="category-carDetail"> - </h1>;
                     }
                   })()}
                 </div>
@@ -136,11 +136,11 @@ function CarDetail() {
                     <img src={Icon_Calendar}></img>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col">
+                <div className="row totalPrice-container-carDetail">
+                  <div className="col total-carDetail">
                     <p>Total</p>
                   </div>
-                  <div className="col">
+                  <div className="col totalPrice-carDetail">
                     <p>{car.price}</p>
                   </div>
                 </div>

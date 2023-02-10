@@ -5,7 +5,7 @@ import SearchResult from "./Pages/SearchResult";
 import CarDetail from "./Pages/CarDetail";
 import LandingPage from "./Pages/LandingPage";
 import Dashboard from "./admin/Pages/Dashboard";
-import PaymentPage1 from "./Pages/Payment1Page";
+import PaymentPage1 from "./Pages/PaymentPage1";
 import Login from "./admin/Pages/LoginAdmin";
 import Register from "./admin/Pages/RegisterAdmin";
 import RegisterCustomer from "./Pages/RegisterCustomer";

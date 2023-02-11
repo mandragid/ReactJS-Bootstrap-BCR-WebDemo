@@ -1,0 +1,53 @@
+/* Payment Step 1 */
+.paymentStep-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 120px;
+  /* border: 1px solid; */
+}
+
+.paymentStepContent-container {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid; */
+}
+
+.paymentStep-left-content {
+  display: flex;
+}
+
+.paymentStep-right-content {
+  display: flex;
+  position: relative;
+  right: 80px;
+}
+
+.back-icon button {
+  border: none;
+  background-color: #f1f3ff;
+}
+
+.txt-pembayaran h1 {
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 5px;
+  padding-left: 15px;
+}
+
+.txt-paymentStep h3 {
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 7px;
+  padding-left: 7px;
+}
+
+.icon-number {
+  padding-left: 7px;
+}
+
+.icon-line {
+  padding-left: 7px;
+  padding-top: 1px;
+}

@@ -2,6 +2,9 @@ import { useState } from "react";
 import NavBar from "../../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import axios from "axios";
+import { API } from "../../const/endpoint";
+import AdminCarSplash from "../img/AdminCarSplash.png"
 import { userAction } from "../../Redux/userAction";
 import { useEffect } from "react";
 

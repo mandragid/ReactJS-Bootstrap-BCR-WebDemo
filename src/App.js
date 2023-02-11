@@ -5,6 +5,7 @@ import SearchResult from "./Pages/SearchResult";
 import CarDetail from "./Pages/CarDetail";
 import LandingPage from "./Pages/LandingPage";
 import Dashboard from "./admin/Pages/Dashboard";
+import PaymentPage1 from "./Pages/PaymentPage1";
 import Login from "./admin/Pages/LoginAdmin";
 import Register from "./admin/Pages/RegisterAdmin";
 import RegisterCustomer from "./Pages/RegisterCustomer";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/cari-mobil" element={<SearchCar />} />
           <Route path="/hasil-pencarian" element={<SearchResult />} />
           <Route path="/detail-paket/:id" element={<CarDetail />} />
+          <Route path="/payment1/:id" element={<PaymentPage1 />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/cars" element={<CarList />} />
           <Route path="/admin/Login" element={<Login />} />

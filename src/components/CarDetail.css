@@ -1,28 +1,145 @@
 .MainContent h1 {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .MainContent ul li {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 175%;
-	color: #8a8a8a;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 175%;
+  color: #8a8a8a;
 }
 
 .MainContent p {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* About Package */
+.MainContent {
+  width: 1200px;
+  /* border: 1px solid; */
+}
+
+.aboutPackage {
+  margin-right: 265px;
+  /* border: 1px solid; */
+}
+
+/* Card Car Detail */
+.card-carDetail-container {
+  border: 1px solid rgb(246, 238, 238);
+  width: 333px;
+  /* height: 400px; */
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  padding: 0;
 }
 
 .GambarDetail img {
-	height: 216px;
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.carContent .name-carDetail {
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.carContent .userIcon-carDetail {
+  padding-left: 20px;
+  width: 32px;
+}
+
+.carContent .category-carDetail {
+  font-size: 12px;
+  font-weight: 300;
+  position: relative;
+  bottom: 19px;
+  left: 40px;
+}
+
+.date-picker {
+  padding-left: 20px;
+  padding-right: 40px;
+  position: relative;
+}
+
+.date-picker h6 {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.date-picker .date {
+  width: 100%;
+  border: 1px solid #5cb85f;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.date-picker input.date {
+  font-size: 12px !important;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.icon-calendar-cardDetail {
+  position: absolute;
+  bottom: 3px;
+  left: 265px;
+  padding-top: 0 !important;
+}
+
+.icon-calendar-cardDetail img {
+  width: 15px;
+  padding-bottom: 3px;
+}
+
+.react-datepicker__close-icon {
+  padding-right: 100px !important;
+}
+
+.totalPrice-container-carDetail {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-top: 50px;
+}
+
+.total-carDetail p {
+  padding-left: 20px;
+}
+
+.totalPrice-carDetail p {
+  padding-left: 150px;
+}
+
+.btn-payment-cardDetail {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.btn-payment-cardDetail button {
+  width: 100%;
+  padding: 7px 0 7px 0;
+  background-color: #5cb85f;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
 }

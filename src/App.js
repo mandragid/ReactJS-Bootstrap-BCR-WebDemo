@@ -11,6 +11,7 @@ import Register from "./admin/Pages/RegisterAdmin";
 import RegisterCustomer from "./Pages/RegisterCustomer";
 import LoginCustomer from "./Pages/LoginCustomer";
 import CarList from "./admin/Pages/CarList";
+import AdminAddCar from "./admin/Pages/AdminAddCar";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/admin/cars" element={<CarList />} />
           <Route path="/admin/Login" element={<Login />} />
           <Route path="/admin/Register" element={<Register />} />
+          <Route path="/admin/addcar" element={<AdminAddCar />} />
           <Route path="/Login" element={<LoginCustomer />} />
           <Route path="/Register" element={<RegisterCustomer />} />
         </Routes>

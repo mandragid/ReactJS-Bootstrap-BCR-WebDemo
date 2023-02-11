@@ -50,6 +50,11 @@ function CarList() {
         <div className="col admin-nav ">
           <AdminNavbar />
           <div className="container carListCard">
+            <div>
+              <Link to={"/admin/addcar"}>
+                <button>Add Car</button>
+              </Link>
+            </div>
             {!!carData.length
               ? carData.map((item) => (
                   <div className="col-sm-12 col-md-6  ResultCard">
@@ -65,13 +70,23 @@ function CarList() {
                         magna aliqua.{" "}
                       </p>
                     </div>
-                    <div className="col">
-                      <Link to={`/detail-paket/`}>
+                    <div className="col d-flex">
+                      <Link to={"#"}>
                         <a
                           href="/detail-paket"
-                          className="btn btn-success text-center BtnPilihMobil"
+                          className="btn btn-success text-center "
                         >
-                          <h1 className="CaptPilihMobil">Pilih Mobil</h1>
+                          <h1 className="CaptPilihMobil">Delete Car</h1>
+                        </a>{" "}
+                      </Link>
+                    </div>
+                    <div className="col">
+                      <Link to={`/admin/addcar`}>
+                        <a
+                          href="/admin/addcar"
+                          className="btn btn-success text-center"
+                        >
+                          <h1 className="CaptPilihMobil">Edit Car</h1>
                         </a>{" "}
                       </Link>
                     </div>

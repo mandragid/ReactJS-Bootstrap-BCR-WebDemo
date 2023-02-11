@@ -8,7 +8,7 @@ function Filter(props) {
     <div>
       <div className="middlesection">
         <div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
-          <div className="container FormSewa d-flex align-items-center justify-content-center shadow p-5 mb-5 rounded">
+          <div className="container d-flex align-items-center justify-content-center shadow p-5 mb-5 rounded">
             <div className="row">
               <div className="col-sm-12 col-md-6 col-xl-2 col-xxl-2 text-center mb-3">
                 <p>Nama Mobil</p>

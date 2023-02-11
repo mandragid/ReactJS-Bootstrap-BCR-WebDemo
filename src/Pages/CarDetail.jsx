@@ -61,19 +61,21 @@ function CarDetail() {
       </div>
       {/* navbar end */}
       {/* search form */}
-      <div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
+      <div className="container-fluid d-flex justify-content-center align-items-center ">
         <Filter />
       </div>
       {/* search form end */}
       {/* main content */}
       <div className="container-fluid packageDetail-and-card-carDetail-container">
-        <div className="container MainContent">
+        <div className="container MainContent ">
           <div className="row">
-            <div className="col-12 col-sm-6 LeftSide order-2 order-sm-1 aboutPackage">
+            <div className="col-12 col-md-6 col-sm-6 LeftSide order-2 order-sm-1 ">
               <h1>Tentang Paket</h1>
               <h1>Include</h1>
               <ul>
-                <li>Apa saja yang termasuk dalam paket misal durasi max 12 jam</li>
+                <li>
+                  Apa saja yang termasuk dalam paket misal durasi max 12 jam
+                </li>
                 <li>Sudah termasuk bensin selama 12 jam</li>
                 <li>Sudah termasuk Tiket Wisata</li>
                 <li>Sudah termasuk pajak</li>
@@ -81,25 +83,37 @@ function CarDetail() {
               <h1>Exclude</h1>
               <ul>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
               </ul>
               <h1>Refund, Reschedule, Overtime</h1>
               <ul>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
               </ul>
             </div>
 
             {Object.entries(car).length ? (
-              <div className="col-12 col-sm-6 RightSide order-1 order-sm-2 card-carDetail-container">
+              <div className="col-12 col-md-6 col-sm-6 RightSide order-1 order-sm-2 card-carDetail-container">
                 <div className="col GambarDetail">
                   <img src={car.image} alt="Gambar Mobil" />
                 </div>
@@ -146,7 +160,9 @@ function CarDetail() {
                 </div>
                 <div className="btn-payment-cardDetail">
                   <Link to={`/payment1/${car.id}`}>
-                    <button onClick={handleButtonPaymentCardDetail}>Lanjutkan Pembayaran</button>
+                    <button onClick={handleButtonPaymentCardDetail}>
+                      Lanjutkan Pembayaran
+                    </button>
                   </Link>
                 </div>
               </div>

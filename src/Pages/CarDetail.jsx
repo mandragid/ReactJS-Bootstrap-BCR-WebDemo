@@ -61,19 +61,21 @@ function CarDetail() {
       </div>
       {/* navbar end */}
       {/* search form */}
-      <div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
+      <div className="container-fluid d-flex justify-content-center align-items-center ">
         <Filter />
       </div>
       {/* search form end */}
       {/* main content */}
       <div className="container-fluid packageDetail-and-card-carDetail-container">
-        <div className="container MainContent">
+        <div className="container MainContent ">
           <div className="row">
-            <div className="col-12 col-sm-6 LeftSide order-2 order-sm-1">
+            <div className="col-12 col-md-6 col-sm-6 LeftSide order-2 order-sm-1 ">
               <h1>Tentang Paket</h1>
               <h1>Include</h1>
               <ul>
-                <li>Apa saja yang termasuk dalam paket misal durasi max 12 jam</li>
+                <li>
+                  Apa saja yang termasuk dalam paket misal durasi max 12 jam
+                </li>
                 <li>Sudah termasuk bensin selama 12 jam</li>
                 <li>Sudah termasuk Tiket Wisata</li>
                 <li>Sudah termasuk pajak</li>
@@ -81,40 +83,52 @@ function CarDetail() {
               <h1>Exclude</h1>
               <ul>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
               </ul>
               <h1>Refund, Reschedule, Overtime</h1>
               <ul>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
+                <li>
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
+                  20.000/jam
+                </li>
                 <li>Tidak termasuk akomodasi penginapan</li>
               </ul>
             </div>
 
             {Object.entries(car).length ? (
-              <div className="col-12 col-sm-6 RightSide order-1 order-sm-2 card-carDetail-container">
+              <div className="col-12 col-md-6 col-sm-6 RightSide order-1 order-sm-2 card-carDetail-container">
                 <div className="col GambarDetail">
                   <img src={car.image} alt="Gambar Mobil" />
                 </div>
-                <div className="col">
-                  <h1>{car.name}</h1>
-                  <img src={UsersIcon}></img>
+                <div className="col carContent">
+                  <h1 className="name-carDetail">{car.name}</h1>
+                  <img src={UsersIcon} className="userIcon-carDetail"></img>
                   {(() => {
                     if (car.category === "small") {
-                      return <h1>2-4 Orang</h1>;
+                      return <h1 className="category-carDetail">2-4 Orang</h1>;
                     } else if (car.category === "Medium") {
-                      return <h1>4-6 Orang</h1>;
+                      return <h1 className="category-carDetail">4-6 Orang</h1>;
                     } else if (car.category === "large") {
-                      return <h1>6-8 Orang</h1>;
+                      return <h1 className="category-carDetail">6-8 Orang</h1>;
                     } else {
-                      return <h1> - </h1>;
+                      return <h1 className="category-carDetail"> - </h1>;
                     }
                   })()}
                 </div>
@@ -136,17 +150,19 @@ function CarDetail() {
                     <img src={Icon_Calendar}></img>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col">
+                <div className="row totalPrice-container-carDetail">
+                  <div className="col total-carDetail">
                     <p>Total</p>
                   </div>
-                  <div className="col">
+                  <div className="col totalPrice-carDetail">
                     <p>{car.price}</p>
                   </div>
                 </div>
                 <div className="btn-payment-cardDetail">
                   <Link to={`/payment1/${car.id}`}>
-                    <button onClick={handleButtonPaymentCardDetail}>Lanjutkan Pembayaran</button>
+                    <button onClick={handleButtonPaymentCardDetail}>
+                      Lanjutkan Pembayaran
+                    </button>
                   </Link>
                 </div>
               </div>

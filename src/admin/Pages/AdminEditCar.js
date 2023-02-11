@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { API } from "../../const/endpoint";
+import AdminNavbar from "../Components/AdminNavbar";
 
-const AdminAddCar = () => {
+const AdminEditCar = () => {
 	const [name, setName] = useState("");
 	const [category, setCategory] = useState("");
 	const [image, setImage] = useState("");
 	const [price, setPrice] = useState("");
+	const [carData, setCarData] = useState({});
+	const { id } = useParams();
 	const navigate = useNavigate();
 	const [errorMessage, setErrorMessage] = useState();
 
@@ -31,7 +33,27 @@ const AdminAddCar = () => {
 		console.log(e.target.files[0]);
 	};
 
-	const HandleCreate = async () => {
+	useEffect(() => {
+		getData();
+	}, []);
+
+	const getData = async () => {
+		const token = localStorage.getItem("token");
+		const config = {
+			headers: {
+				access_token: token,
+			},
+		};
+
+		try {
+			const res = await axios.get(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`, config);
+			setCarData(res.data);
+		} catch (error) {
+			setErrorMessage(error.response.message);
+		}
+	};
+
+	const handleEdit = async () => {
 		if (!name.length) {
 			setErrorMessage("Please input car name first.");
 		} else if (!category.length) {
@@ -45,18 +67,17 @@ const AdminAddCar = () => {
 					access_token: token,
 				},
 			};
-
 			const formData = new FormData();
 			formData.append("image", image);
 			formData.append("name", name);
 			formData.append("category", category);
 			formData.append("price", price);
 			formData.append("status", false);
+
 			try {
-				const res = await axios.post(API.POST_ADMIN_CAR, formData, config);
+				await axios.put(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`, formData, config);
 				navigate("/admin/cars");
 			} catch (error) {
-				setErrorMessage(error.response.statusText);
 				console.log(error.response);
 			}
 		}
@@ -64,17 +85,25 @@ const AdminAddCar = () => {
 
 	return (
 		<div>
-			<input onChange={handleName} placeholder="Name" />
-			<input onChange={handleCategory} placeholder="tipe mobil" />
-			<input onChange={handlePrice} placeholder="Harga" />
-			<input onChange={handleImage} type="file" />
-			<button>
-				<Link to="/admin/cars">Cancel</Link>
-			</button>
-			<button onClick={HandleCreate}>Save</button>
-			{!!errorMessage && <p>{errorMessage}</p>}
+			<AdminNavbar />
+
+			{Object.entries(carData).length ? (
+				<div>
+					<input onChange={handleName} defaultValue={carData.name} />
+					<input onChange={handleCategory} defaultValue={carData.category} />
+					<input onChange={handlePrice} defaultValue={carData.price} />
+					<input onChange={handleImage} type={"file"} placeholder={carData.image} />
+					<button>
+						<Link to="/discovery">Cancel</Link>
+					</button>
+					<button onClick={handleEdit}>Save</button>
+					{!!errorMessage && <p>{errorMessage}</p>}
+				</div>
+			) : (
+				"Data Tidak Ditemukan"
+			)}
 		</div>
 	);
 };
 
-export default AdminAddCar;
+export default AdminEditCar;

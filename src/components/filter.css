@@ -1,0 +1,22 @@
+.filter-container-in-carDetail {
+  position: relative;
+}
+
+.ContainerFormSewa {
+  padding: 0 !important;
+}
+
+.InnerContainerFormSewa {
+ margin-bottom: 0 !important;
+}
+
+.filter-container {
+  position: relative;
+  bottom: 100px;
+}
+
+
+.btnSearch-filterPage  {
+  padding-top: 23px;
+  /* border: 1px solid; */
+}

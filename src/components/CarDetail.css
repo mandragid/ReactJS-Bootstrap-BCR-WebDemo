@@ -23,6 +23,12 @@
   line-height: 20px;
 }
 
+.packageDetail-and-card-carDetail-container {
+  max-width: 1040px;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* About Package */
 .MainContent {
   width: 100%;

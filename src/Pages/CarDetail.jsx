@@ -61,14 +61,14 @@ function CarDetail() {
       </div>
       {/* navbar end */}
       {/* search form */}
-      <div className="container-fluid d-flex justify-content-center align-items-center ">
+      <div className="container-fluid d-flex justify-content-center align-items-center filter-container-in-carDetail">
         <Filter />
       </div>
       {/* search form end */}
       {/* main content */}
       <div className="container-fluid packageDetail-and-card-carDetail-container">
         <div className="container MainContent ">
-          <div className="row">
+          <div className="row packageDetail-and-card-carDetail-container">
             <div className="col-12 col-md-6 col-sm-6 LeftSide order-2 order-sm-1 ">
               <h1>Tentang Paket</h1>
               <h1>Include</h1>

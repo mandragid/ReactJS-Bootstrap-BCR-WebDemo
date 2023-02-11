@@ -7,7 +7,7 @@ const AdminEditCar = () => {
 	const [name, setName] = useState("");
 	const [category, setCategory] = useState("");
 	const [image, setImage] = useState("");
-	const [price, setPrice] = useState("");
+	const [price, setPrice] = useState();
 	const [carData, setCarData] = useState({});
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -48,6 +48,15 @@ const AdminEditCar = () => {
 		try {
 			const res = await axios.get(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`, config);
 			setCarData(res.data);
+			localStorage.setItem("carName", res.data.name);
+			localStorage.setItem("price", res.data.price);
+			localStorage.setItem("fileName", res.data.image);
+			localStorage.setItem("category", res.data.category);
+			setName(res.data.name);
+			setPrice(res.data.price);
+			setCategory(res.data.category);
+			setImage(localStorage.getItem("img"));
+			console.log("detailmobil", res.data);
 		} catch (error) {
 			setErrorMessage(error.response.message);
 		}
@@ -58,7 +67,7 @@ const AdminEditCar = () => {
 			setErrorMessage("Please input car name first.");
 		} else if (!category.length) {
 			setErrorMessage("Please input category first.");
-		} else if (!price.length) {
+		} else if (!price.toString.length) {
 			setErrorMessage("Please input price first.");
 		} else {
 			const token = localStorage.getItem("token");
@@ -89,12 +98,12 @@ const AdminEditCar = () => {
 
 			{Object.entries(carData).length ? (
 				<div>
-					<input onChange={handleName} defaultValue={carData.name} />
-					<input onChange={handleCategory} defaultValue={carData.category} />
-					<input onChange={handlePrice} defaultValue={carData.price} />
-					<input onChange={handleImage} type={"file"} placeholder={carData.image} />
+					<input onChange={handleName} defaultValue={localStorage.getItem("carName")} />
+					<input onChange={handleCategory} defaultValue={localStorage.getItem("category")} />
+					<input onChange={handlePrice} defaultValue={price} />
+					<input onChange={handleImage} type={"file"} placeholder={localStorage.getItem("img")} />
 					<button>
-						<Link to="/discovery">Cancel</Link>
+						<Link to="/admin/cars">Cancel</Link>
 					</button>
 					<button onClick={handleEdit}>Save</button>
 					{!!errorMessage && <p>{errorMessage}</p>}

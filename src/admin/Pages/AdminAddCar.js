@@ -28,6 +28,7 @@ const AdminAddCar = () => {
 
 	const handleImage = (e) => {
 		setImage(e.target.files[0]);
+		localStorage.setItem("img", e.target.files[0]);
 		console.log(e.target.files[0]);
 	};
 

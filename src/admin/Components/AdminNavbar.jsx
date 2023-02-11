@@ -13,14 +13,16 @@ import { useEffect } from "react";
 
 function AdminNavbar() {
   const { user } = useSelector((rootReducer) => rootReducer);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const userID = localStorage.getItem("user");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/admin/login");
+    setTimeout(() => {
+      navigate("/admin/login");
+    }, 2000);
   };
 
   //   const handleRedirect = () => {

@@ -44,10 +44,11 @@
 .card-carDetail-container {
   border: 1px solid rgb(246, 238, 238);
   width: 333px;
-  /* height: 400px; */
+  height: 550px;
   border-radius: 8px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
   padding: 0;
+  margin-bottom: 77px;
 }
 
 .GambarDetail img {

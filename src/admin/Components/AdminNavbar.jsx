@@ -15,8 +15,11 @@ function AdminNavbar() {
   const { user } = useSelector((rootReducer) => rootReducer);
   const navigate = useNavigate;
 
+  const userID = localStorage.getItem("user");
+
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     navigate("/admin/login");
   };
 
@@ -57,7 +60,7 @@ function AdminNavbar() {
               src="https://www.kindpng.com/picc/m/22-223910_circle-user-png-icon-transparent-png.png"
               alt="x"
             />
-            <span className="ms-2">{user.user}</span>{" "}
+            <span className="ms-2">{userID}</span>{" "}
             <DropdownButton
               className="ms-3"
               id="dropdown-basic-button"

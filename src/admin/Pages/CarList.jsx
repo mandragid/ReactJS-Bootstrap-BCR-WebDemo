@@ -49,7 +49,7 @@ function CarList() {
         </div>
         <div className="col admin-nav ">
           <AdminNavbar />
-          <div className="container">
+          <div className="container carListCard">
             {!!carData.length
               ? carData.map((item) => (
                   <div className="col-sm-12 col-md-6  ResultCard">

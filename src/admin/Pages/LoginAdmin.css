@@ -1,3 +1,90 @@
 .splashImage {
     width: 67%;
+    height: 100%;  
+    overflow: hidden;
+}
+
+.base {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+
+.rectangle {
+    width: 100px;
+    height: 34px;
+    left: 1013px;
+    top: 274px;
+    background: #CFD4ED;
+    margin-bottom: 20px;
+}
+.form-section {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: left;
+}
+
+
+.greetings h1 {
+
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.form-section-input input {
+
+    box-sizing: border-box;
+    left: 70.35%;
+    right: 3.96%;
+    top: 48.56%;
+    bottom: 47.19%;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+
+.form-section-input label {
+    height: 20px;
+    left: 70.35%;
+    right: 25.35%;
+    top: calc(50% - 20px/2 + 51.25px);
+    margin-bottom: 5px;
+    font-family: 'Arial';
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.form-section input {
+    width: 80%;
+}
+
+.form-section-input {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-button {
+
+    margin-top: 40px;
+    color: #FFFFFF;
+    width: 80%;
+    background: #0D28A6;
+    border-radius: 2px;
 }

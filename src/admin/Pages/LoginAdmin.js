@@ -7,6 +7,7 @@ import { API } from "../../const/endpoint";
 import AdminCarSplash from "../img/AdminCarSplash.png"
 import { userAction } from "../../Redux/userAction";
 import { useEffect } from "react";
+import "./LoginAdmin.css"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async() => {
     const payLoad = {
       email: email,
       password: password,
@@ -38,33 +39,47 @@ const Login = () => {
 
   return (
     <div>
-      <NavBar />
+      <div className="base">
+      <div className="splashImage" >
+        <img src={AdminCarSplash} />
+      </div>
       {
-        <div className="register-section">
-          <div>
-            <h1>Login Admin</h1>
+        <div className="form-section">
+          <div className="rectangle">
           </div>
-          <div className="register-input-bg">
+          <div className="greetings">
+            <h1>Welcome, Admin BCR</h1>
+          </div>
+          <div className="form-section-input">
+            <div className="input-block">
+            <label>Email</label>
             <input
               onChange={handleEmail}
               placeholder="input email"
               type="email"
               className="register-input"
             />
+            </div>
+            <div className="input-block">
+            <label>Password</label>
             <input
+              typeof="password"
               onChange={handlePassword}
               placeholder="input password"
               type="password"
               className="register-input"
             />
+            </div>
           </div>
-          <div className="register-button-bg">
+          <span></span>
+          <div className="sign-button">
             <button onClick={handleLogin} className="register-button">
-              login
+              Sign-In
             </button>
           </div>
         </div>
       }
+    </div>
     </div>
   );
 };

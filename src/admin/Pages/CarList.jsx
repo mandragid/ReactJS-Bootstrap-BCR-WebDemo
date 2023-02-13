@@ -7,18 +7,32 @@ import { useEffect } from "react";
 import axios from "axios";
 import { API } from "../../const/endpoint";
 import { useState } from "react";
+import DialogBoxCar from "../img/DialogBoxCar.png";
 
 function CarList() {
 	const [carData, setCardata] = useState([]);
 	const [errorMessage, setErrorMessage] = useState();
 
-	console.log("carData", carData);
-	const token = localStorage.getItem("token");
-	const config = {
-		headers: {
-			access_token: token,
-		},
+	const [dialogState, setDialogState] = useState({
+		open: false,
+		selectedId: null,
+	});
+
+	const handleOpen = (id) => {
+		setDialogState({
+			open: true,
+			selectedId: id,
+		});
 	};
+
+	const handleClose = (id) => {
+		setDialogState({
+			open: false,
+			selectedId: null,
+		});
+	};
+
+	console.log(dialogState);
 
 	useEffect(() => {
 		getData();
@@ -49,9 +63,12 @@ function CarList() {
 				access_token: token,
 			},
 		};
-
 		try {
-			const res = await axios.delete(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`, config);
+			await axios.delete(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${dialogState.selectedId}`, config);
+			setDialogState({
+				open: false,
+				selectedId: null,
+			});
 			getData();
 		} catch (error) {
 			console.log(error.response);
@@ -106,7 +123,7 @@ function CarList() {
 											</div>
 											<div className="row">
 												<div className="col-6 buttonDeleteCar">
-													<button onClick={() => handleDelete(item.id)}>Delete Car</button>
+													<button onClick={() => handleOpen(item.id)}>Delete Car</button>
 												</div>
 
 												<div className="col-6 buttonAddCar">
@@ -118,6 +135,30 @@ function CarList() {
 										</div>
 								  ))
 								: null}
+
+							{dialogState.open && (
+								<div className="container-fluid dialogBox">
+									<div className="row">
+										<div className="col">
+											<img src={DialogBoxCar} alt="" />
+										</div>
+									</div>
+									<div className="row">
+										<p>Menghapus Data Mobil</p>
+									</div>
+									<div className="row">
+										<p>Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?</p>
+									</div>
+									<div className="row">
+										<div className="col">
+											<button onClick={() => handleDelete(dialogState.selectedId)}>Ya</button>
+										</div>
+										<div className="col">
+											<button onClick={handleClose}>Tidak</button>
+										</div>
+									</div>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

@@ -8,6 +8,8 @@ import axios from "axios";
 import { API } from "../../const/endpoint";
 import { useState } from "react";
 import DialogBoxCar from "../img/DialogBoxCar.png";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 function CarList() {
   const [carData, setCardata] = useState([]);
@@ -32,7 +34,7 @@ function CarList() {
     });
   };
 
-  console.log(dialogState);
+  console.log("status delete", isDeleted);
 
   useEffect(() => {
     getData();
@@ -108,22 +110,27 @@ function CarList() {
                 </div>
               </div>
               <div className="row">
-                <p>Menghapus Data Mobil</p>
+                <p id="dataMobil">Menghapus Data Mobil</p>
               </div>
               <div className="row">
-                <p>
+                <p id="yakinHapus">
                   Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin
                   ingin menghapus?
                 </p>
               </div>
               <div className="row">
                 <div className="col">
-                  <button onClick={() => handleDelete(dialogState.selectedId)}>
+                  <button
+                    className="yesButton"
+                    onClick={() => handleDelete(dialogState.selectedId)}
+                  >
                     Ya
                   </button>
                 </div>
                 <div className="col">
-                  <button onClick={handleClose}>Tidak</button>
+                  <button className="noButton" onClick={handleClose}>
+                    Tidak
+                  </button>
                 </div>
               </div>
             </div>

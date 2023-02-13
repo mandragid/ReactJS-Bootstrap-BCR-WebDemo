@@ -9,13 +9,20 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import "./AdminNavbar.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 function AdminNavbar() {
   const { user } = useSelector((rootReducer) => rootReducer);
   const navigate = useNavigate();
-
+  const [carData, setCardata] = useState([]);
+  const [fName, setFname] = useState("");
+  const [fCategory, setFcategory] = useState("");
   const userID = localStorage.getItem("user");
+
+  const { name } = useSelector((rootReducer) => rootReducer);
+
+  console.log("handleName", name);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -25,16 +32,25 @@ function AdminNavbar() {
     }, 2000);
   };
 
-  //   const handleRedirect = () => {
-  //     const token = localStorage.getItem("token");
-  //     if (!token) {
-  //       navigate("/admin/login");
-  //     }
-  //   };
+  const handleChangeName = (e) => {
+    setFname(e.target.value);
+    console.log(e.target.value);
+  };
+  const handleChangeCategory = (e) => {
+    setFcategory(e.target.value);
+    console.log(e.target.value);
+  };
 
-  //   useEffect(() => {
-  //     handleRedirect();
-  //   });
+  const handleFilter = (e) => {
+    axios
+      .get(
+        `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${fName}&category=${fCategory}&maxPrice=&isRented=`
+      )
+      .then((res) => {
+        setCardata(res.data.cars);
+      })
+      .catch((err) => console.log(err.message));
+  };
 
   return (
     <div>
@@ -50,12 +66,15 @@ function AdminNavbar() {
             ></Nav>
             <Form className="d-flex">
               <Form.Control
+                onChange={handleChangeName}
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-primary">Search</Button>
+              <Button onClick={handleFilter} variant="outline-primary">
+                Search
+              </Button>
             </Form>
             <img
               className="ms-3 admin-user-logo"

@@ -146,8 +146,9 @@
 }
 
 .dialogBox {
-  margin: auto;
-  position: relative;
+  position: fixed;
+  top: 25%;
+  left: 35%;
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -156,8 +157,27 @@
   gap: 24px;
   background-color: white;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-  width: 387px;
-  height: 333px;
+  width: 400px;
+  height: 350px;
+  text-align: center;
+}
+
+.dialogBox p {
+  margin-top: -10px;
+}
+
+#dataMobil {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+#yakinHapus {
+  font-family: "Arial";
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .deleteMessage {
@@ -173,6 +193,7 @@
   width: 550px;
   height: 48px;
   top: 100px;
+  left: 100px;
 
   animation: hideAnimation 0s ease-in 5s;
   animation-fill-mode: forwards;
@@ -192,4 +213,46 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+}
+
+.yesButton {
+  background-color: #0d28a6;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  border-radius: 2px;
+  width: 87px;
+  height: 36px;
+  margin-top: -20px;
+  color: white;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.noButton {
+  background-color: white;
+  border: 1px solid #0d28a6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  border-radius: 2px;
+  width: 87px;
+  height: 36px;
+  margin-top: -20px;
+  color: #0d28a6;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }

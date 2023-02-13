@@ -82,8 +82,8 @@ function CarList() {
   };
 
   return (
-    <div className="container-fluid admin-dashboard">
-      <div className="row">
+    <div className="container-fluid ">
+      <div className="row admin-dashboards">
         <div className="col-1 sidebar">
           <div className="row">
             <Link to={"/admin/dashboard"}>
@@ -142,19 +142,19 @@ function CarList() {
           )}
 
           <div className="container carListCard">
-            <div className="addCar">
-              <div className="row">
+            <div className=" container topSectionContainer">
+              <div className="row justify-content-center">
                 <div className="col-6">
                   <h2>List Car</h2>
                 </div>
-                <div className="col-6 buttonAddCar">
+                <div className="col-6 buttonAddCar text-end">
                   <Link to={"/admin/addcar"}>
                     <button>+ Add New Car</button>
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="row">
+            <div className="cardContainer row">
               {!!carData.length
                 ? carData.map((item) => (
                     <div className="col-sm-12 col-md-6  ResultCard">
@@ -177,7 +177,7 @@ function CarList() {
                           </button>
                         </div>
 
-                        <div className="col-6 buttonAddCar">
+                        <div className="col-6 buttonEditCar">
                           <Link to={`/admin/edit-car/${item.id}`}>
                             <button>Edit Car</button>
                           </Link>

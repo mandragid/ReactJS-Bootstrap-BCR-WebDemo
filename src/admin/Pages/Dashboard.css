@@ -1,8 +1,8 @@
-.admin-dashboard {
-  background-color: #f4f5f7;
+/* .admin-dashboards {
+  background-color: #f1f3ff;
   position: absolute;
   z-index: 0;
-}
+} */
 
 .sidebar {
   background-color: #0d28a6;
@@ -44,6 +44,10 @@
 
 .admin-user-logo {
   width: 30px;
+}
+
+.cardContainer {
+  background-color: white;
 }
 
 .admin-dashboard ul li {
@@ -118,6 +122,21 @@
 }
 
 .buttonAddCar button {
+  justify-content: center;
+  background-color: #0d28a6;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+  border: none;
+  width: 143.5px;
+  height: 48px;
+  border-radius: 2px;
+}
+
+.buttonEditCar button {
   background-color: #5cb85f;
   font-family: "Arial";
   font-style: normal;
@@ -255,4 +274,8 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
+}
+
+.topSectionContainer {
+  margin-top: 20px;
 }

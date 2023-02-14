@@ -1,5 +1,5 @@
 const initialState = {
-  carlist: [],
+  carData: [],
   fName: "",
   fCategory: "",
 };
@@ -9,12 +9,16 @@ export const carReducers = (state = initialState, action) => {
     case "GET_ADMIN_CARS":
       return {
         ...initialState,
-        carlist: action.payload,
+        carData: action.payload,
       };
 
-      break;
+    case "GET_ALL_CARS":
+      return {
+        ...initialState,
+        carData: action.payload,
+      };
 
     default:
-      break;
+      return state;
   }
 };

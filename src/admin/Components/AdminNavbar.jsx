@@ -7,10 +7,12 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./AdminNavbar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import rootReducer from "../../Redux";
+import { handleFilter } from "../../Redux/carAction";
 
 function AdminNavbar() {
   const { user } = useSelector((rootReducer) => rootReducer);
@@ -20,9 +22,11 @@ function AdminNavbar() {
   const [fCategory, setFcategory] = useState("");
   const userID = localStorage.getItem("user");
 
+  const state = useSelector((rootReducer) => rootReducer);
   const { name } = useSelector((rootReducer) => rootReducer);
 
-  console.log("handleName", name);
+  const dispatch = useDispatch();
+  // console.log("handleName", name);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -34,22 +38,15 @@ function AdminNavbar() {
 
   const handleChangeName = (e) => {
     setFname(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
   const handleChangeCategory = (e) => {
     setFcategory(e.target.value);
     console.log(e.target.value);
   };
 
-  const handleFilter = (e) => {
-    axios
-      .get(
-        `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${fName}&category=${fCategory}&maxPrice=&isRented=`
-      )
-      .then((res) => {
-        setCardata(res.data.cars);
-      })
-      .catch((err) => console.log(err.message));
+  const Filter = () => {
+    dispatch(handleFilter(fName, fCategory));
   };
 
   return (
@@ -72,7 +69,7 @@ function AdminNavbar() {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button onClick={handleFilter} variant="outline-primary">
+              <Button onClick={Filter} variant="outline-primary">
                 Search
               </Button>
             </Form>

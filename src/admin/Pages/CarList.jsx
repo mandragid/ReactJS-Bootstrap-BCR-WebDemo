@@ -5,20 +5,23 @@ import CarsLogo from "../img/Cars_Logo.png";
 import "./Dashboard.css";
 import { useEffect } from "react";
 import axios from "axios";
-import { API } from "../../const/endpoint";
 import { useState } from "react";
 import DialogBoxCar from "../img/DialogBoxCar.png";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCars } from "../../Redux/carAction";
+import rootReducer from "../../Redux";
 
 function CarList() {
   const [carData, setCardata] = useState([]);
-  const [errorMessage, setErrorMessage] = useState();
   const [isDeleted, setIsDeleted] = useState(false);
   const [dialogState, setDialogState] = useState({
     open: false,
     selectedId: null,
   });
+  const dispatch = useDispatch();
+
+  const { cars } = useSelector((rootReducer) => rootReducer);
+  console.log("data Mobil", cars);
 
   const handleOpen = (id) => {
     setDialogState({
@@ -48,14 +51,7 @@ function CarList() {
       },
     };
 
-    try {
-      const res = await axios.get(API.GET_ADMIN_CARS, config);
-      setCardata(res.data.cars);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-      setErrorMessage("tidak ada data mobil yang dapat ditampilkan");
-    }
+    dispatch(getAllCars(config));
   };
 
   const handleDelete = async (id) => {
@@ -155,8 +151,8 @@ function CarList() {
               </div>
             </div>
             <div className="cardContainer row">
-              {!!carData.length
-                ? carData.map((item) => (
+              {!!cars.carData.length
+                ? cars.carData.map((item) => (
                     <div className="col-sm-12 col-md-6  ResultCard">
                       <div className="col CarImage">
                         <img src={item.image} />

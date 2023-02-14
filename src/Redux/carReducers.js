@@ -1,7 +1,5 @@
 const initialState = {
   carData: [],
-  fName: "",
-  fCategory: "",
 };
 
 export const carReducers = (state = initialState, action) => {

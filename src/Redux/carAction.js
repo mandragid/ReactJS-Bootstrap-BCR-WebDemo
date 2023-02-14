@@ -1,6 +1,5 @@
 import axios from "axios";
 import { API } from "../const/endpoint";
-import { useDispatch } from "react-redux";
 
 export const handleFilter = (fName, fCategory) => (dispatch) => {
   axios

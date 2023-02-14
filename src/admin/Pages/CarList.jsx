@@ -9,7 +9,7 @@ import { useState } from "react";
 import DialogBoxCar from "../img/DialogBoxCar.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCars } from "../../Redux/carAction";
-import rootReducer from "../../Redux";
+import { handleFilter } from "../../Redux/carAction";
 
 function CarList() {
   const [carData, setCardata] = useState([]);
@@ -19,7 +19,7 @@ function CarList() {
     selectedId: null,
   });
   const dispatch = useDispatch();
-
+  const fName = "";
   const { cars } = useSelector((rootReducer) => rootReducer);
   console.log("data Mobil", cars);
 
@@ -52,6 +52,12 @@ function CarList() {
     };
 
     dispatch(getAllCars(config));
+  };
+
+  const handleChangeCategory = (category) => {
+    const fCategory = category;
+    dispatch(handleFilter(fName, fCategory));
+    console.log("kategori mobil", fCategory);
   };
 
   const handleDelete = async (id) => {
@@ -147,6 +153,27 @@ function CarList() {
                   <Link to={"/admin/addcar"}>
                     <button>+ Add New Car</button>
                   </Link>
+                </div>
+              </div>
+              <div className="row categoryButton">
+                <div className="col-2">
+                  <button onClick={() => handleChangeCategory("")}>All</button>
+                </div>
+                <div className="col-2">
+                  {" "}
+                  <button onClick={() => handleChangeCategory("small")}>
+                    2-4 people
+                  </button>{" "}
+                </div>
+                <div className="col-2">
+                  <button onClick={() => handleChangeCategory("medium")}>
+                    4-6 people
+                  </button>
+                </div>
+                <div className="col-2">
+                  <button onClick={() => handleChangeCategory("large")}>
+                    6-8 people
+                  </button>
                 </div>
               </div>
             </div>

@@ -10,8 +10,6 @@ import "./AdminNavbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
-import rootReducer from "../../Redux";
 import { handleFilter } from "../../Redux/carAction";
 
 function AdminNavbar() {

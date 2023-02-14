@@ -23,8 +23,6 @@ function App() {
           <Route path="/hasil-pencarian" element={<SearchResult />} />
           <Route path="/detail-paket/:id" element={<CarDetail />} />
           <Route path="/payment1/:id" element={<PaymentPage1 />} />
-          <Route path="/admin/Login" element={<Login />} />
-          <Route path="/admin/Register" element={<Register />} />
           <Route path="/Login" element={<LoginCustomer />} />
           <Route path="/Register" element={<RegisterCustomer />} />
             <Route element={<ProtectedRouteAdmin/>}>

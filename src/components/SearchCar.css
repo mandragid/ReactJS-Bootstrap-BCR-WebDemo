@@ -1,131 +1,131 @@
 .body {
-	background-color: #e60000;
+  background-color: #e60000;
 }
 .HeroCM,
 .WrapperCM {
-	background-color: #f1f3ff;
+  background-color: #f1f3ff;
 }
 
 .LinkNav a {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 20px;
-	color: black;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: black;
 }
 
 .JudulHero {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 36px;
-	line-height: 150%;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
 }
 .CaptionHero {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .ButtonCariMobil {
-	position: relative;
-	padding: 8px 12px;
-	gap: 10px;
-	font-size: 12px;
-	width: 120px;
+  position: relative;
+  padding: 8px 12px;
+  gap: 10px;
+  font-size: 12px;
+  width: 120px;
 
-	margin-top: 15px;
-	background: #5cb85f;
-	border-radius: 2px;
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
+  margin-top: 15px;
+  background: #5cb85f;
+  border-radius: 2px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .Wrapper {
-	margin: 0 auto;
-	width: 100%;
+  margin: 0 auto;
+  width: 100%;
 
-	padding: 0;
+  padding: 0;
 }
 
 .HeroContent {
-	padding: 40px;
+  padding: 40px;
 }
 
 .FormSewa {
-	background-color: #ffffff;
-	width: 1200px;
-	margin-top: -50px;
-	border-radius: 10px;
+  background-color: #ffffff;
+  width: 1200px;
+  margin-top: -50px;
+  border-radius: 10px;
 }
 
 .FormSewa p {
-	margin-bottom: 1px;
-	margin-top: -10px;
+  margin-bottom: 1px;
+  margin-top: -10px;
 }
 
 .ContainerFormSewa {
-	background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
 
 .Button {
-	background-color: #5cb85f;
+  background-color: #5cb85f;
 }
 
 .container {
-	background-color: 0000;
+  background-color: 0000;
 }
 
 .Logos img {
-	width: 32px;
+  width: 32px;
 }
 
 .Footer {
-	margin-top: 200px;
-	background-color: rgb(255, 255, 255);
+  margin-top: 200px;
+  background-color: rgb(255, 255, 255);
 }
 
 .Footer p {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .topsection {
-	background-color: #ffffff;
+  background-color: #ffffff;
 }
 .bottomsection {
-	background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 #dropdown-basic-button {
-	background-color: #ffffff;
-	border-color: #ced4da;
-	color: #6c757d;
-	width: 100%;
+  background-color: #ffffff;
+  border-color: #ced4da;
+  color: #6c757d;
+  width: 100%;
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-	.JudulHero {
-		font-size: 42px;
-	}
+  .JudulHero {
+    font-size: 42px;
+  }
 
-	.TombolHero {
-		width: 150px;
-		font-size: 15px;
-	}
+  .TombolHero {
+    width: 150px;
+    font-size: 15px;
+  }
 
-	.BtnCariMobil {
-		margin-top: 14px;
-		height: 36px;
-	}
+  .BtnCariMobil {
+    margin-top: 14px;
+    height: 36px;
+  }
 }

@@ -1,3 +1,4 @@
+import "../components/filter.css"
 import React from "react";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
@@ -5,10 +6,10 @@ import Button from "react-bootstrap/Button";
 
 function Filter(props) {
   return (
-    <div>
+    <div className="filter-container">
       <div className="middlesection">
         <div className="container-fluid d-flex justify-content-center align-items-center ContainerFormSewa">
-          <div className="container FormSewa d-flex align-items-center justify-content-center shadow p-5 mb-5 rounded">
+          <div className="container d-flex align-items-center justify-content-center shadow p-5 mb-5 rounded InnerContainerFormSewa">
             <div className="row">
               <div className="col-sm-12 col-md-6 col-xl-2 col-xxl-2 text-center mb-3">
                 <p>Nama Mobil</p>
@@ -60,7 +61,7 @@ function Filter(props) {
                 </Form.Select>
               </div>
 
-              <div className="col-sm-12 col-md-12 col-xl-2 col-xxl-2 justify-content-center text-center mt-3">
+              <div className="col-sm-12 col-md-12 col-xl-2 col-xxl-2 justify-content-center text-center mt-3 btnSearch-filterPage">
                 {" "}
                 <Link to={"/hasil-pencarian"}>
                   {" "}

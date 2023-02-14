@@ -15,8 +15,11 @@ function AdminNavbar() {
   const { userReducer } = useSelector((rootReducer) => rootReducer);
   const navigate = useNavigate;
 
+  const userID = localStorage.getItem("user");
+
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     navigate("/admin/login");
   };
 

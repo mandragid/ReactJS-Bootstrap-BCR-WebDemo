@@ -118,7 +118,7 @@ function CarDetail() {
                   <img src={car.image} alt="Gambar Mobil" />
                 </div>
                 <div className="col carContent">
-                  <h1 className="name-carDetail">{car.name}</h1>
+                <h1>{car.name ? car.name.charAt(0).toUpperCase() + car.name.slice(1) : null}</h1>
                   <img src={UsersIcon} className="userIcon-carDetail"></img>
                   {(() => {
                     if (car.category === "small") {

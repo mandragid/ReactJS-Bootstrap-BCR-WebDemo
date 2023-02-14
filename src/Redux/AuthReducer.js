@@ -1,7 +1,11 @@
 const initialState = {
-    isLogin : false
+    isLogin : false,
+    loading : false,
+    user: "",
+    message: "",
+    name:"",
 }
-const authReducer  = (state = initialState, action) => {
+export const authReducer  = (state = initialState, action) => {
     switch (action.type) {
         case "CHECK_TOKEN_ADMIN":
             return{
@@ -15,10 +19,28 @@ const authReducer  = (state = initialState, action) => {
                 isLogin: action.payload.isLogin,
                 loading: action.payload.loading,
             }
+        
         default:
             return state
     }   
     
 }
 
-export default authReducer
+export const userReducer = (state = initialState, action) => {
+	switch (action.type) {
+		case "USER":
+			return {
+				...initialState,
+				user: action.payload.user,
+                isLogin: action.payload.isLogin,
+			};
+        case "ERROR":
+            return {
+                ...initialState,
+                message: action.payload,
+                name: action.payload,
+            }
+		default:
+			return state;
+	}
+};

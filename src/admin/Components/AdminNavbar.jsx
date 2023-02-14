@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function AdminNavbar() {
-  const { user } = useSelector((rootReducer) => rootReducer);
+  const { userReducer } = useSelector((rootReducer) => rootReducer);
   const navigate = useNavigate;
 
   const handleLogout = () => {
@@ -57,7 +57,7 @@ function AdminNavbar() {
               src="https://www.kindpng.com/picc/m/22-223910_circle-user-png-icon-transparent-png.png"
               alt="x"
             />
-            <span className="ms-2">{user.user}</span>{" "}
+            <span className="ms-2">{userReducer.user}</span>{" "}
             <DropdownButton
               className="ms-3"
               id="dropdown-basic-button"

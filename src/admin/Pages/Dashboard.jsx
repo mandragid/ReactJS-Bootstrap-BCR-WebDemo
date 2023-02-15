@@ -38,7 +38,7 @@ ChartJS.register(
 
 function Dashboard() {
   const [orderList, setOrderList] = useState({});
-  // console.log("Orders", orderList);
+  console.log("Orders", orderList);
 
   const [chartData, setChartData] = useState({
     labels: [],
@@ -192,12 +192,12 @@ function Dashboard() {
                                 <td>
                                   <p>{items.User.email}</p>
                                 </td>
-                                <td>Not Set</td>
+                                <td>{items.Car.name}</td>
                                 <td>
-                                  <p>{items.start_rent_at}</p>
+                                  <p>{items.start_rent_at.substr(0, 10)}</p>
                                 </td>
                                 <td>
-                                  <p>{items.finish_rent_at}</p>
+                                  <p>{items.finish_rent_at.substr(0, 10)}</p>
                                 </td>
                                 <td>
                                   <p>{items.total_price}</p>

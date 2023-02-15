@@ -20,6 +20,8 @@ function AdminNavbar() {
   const [fCategory, setFcategory] = useState("");
   const userID = localStorage.getItem("user");
 
+  // console.log("NAMA USER", userID);
+
   const state = useSelector((rootReducer) => rootReducer);
   const { name } = useSelector((rootReducer) => rootReducer);
 
@@ -45,6 +47,7 @@ function AdminNavbar() {
 
   const Filter = () => {
     dispatch(handleFilter(fName, fCategory));
+    console.log("NAMA USER", userID);
   };
 
   return (
@@ -76,7 +79,7 @@ function AdminNavbar() {
               src="https://www.kindpng.com/picc/m/22-223910_circle-user-png-icon-transparent-png.png"
               alt="x"
             />
-            <span className="ms-2">{user}</span>{" "}
+            <span className="ms-2">{userID}</span>{" "}
             <DropdownButton
               className="ms-3"
               id="dropdown-basic-button"

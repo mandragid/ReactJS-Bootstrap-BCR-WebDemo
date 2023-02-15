@@ -24,6 +24,9 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 function Dashboard() {
 	const [orderList, setOrderList] = useState({});
 	const [page, setPage] = useState();
+	const [limit, setLimit] = useState();
+
+	console.log(limit);
 
 	const [chartData, setChartData] = useState({
 		labels: [],
@@ -68,7 +71,11 @@ function Dashboard() {
 			});
 	}, []);
 
-	const handlePage = async (param) => {
+	const handleChangeLimit = (e) => {
+		setLimit(e.target.value);
+	};
+
+	const handlePage = async (page, limit) => {
 		const token = localStorage.getItem("token");
 		const config = {
 			headers: {
@@ -76,10 +83,10 @@ function Dashboard() {
 			},
 		};
 
-		await setPage(param);
+		await setPage(page);
 
 		axios
-			.get(`https://bootcamp-rent-cars.herokuapp.com/admin/v2/order?sort=created_at%3Adesc&page=${param}&pageSize=10`, config)
+			.get(`https://bootcamp-rent-cars.herokuapp.com/admin/v2/order?sort=created_at%3Adesc&page=${page}&pageSize=${limit}`, config)
 			.then((res) => {
 				setOrderList(res.data.orders);
 				console.log(res);
@@ -198,10 +205,10 @@ function Dashboard() {
 																</td>
 																<td>Not Set</td>
 																<td>
-																	<p>{items.start_rent_at}</p>
+																	<p>{items.start_rent_at.substr(0, 10)}</p>
 																</td>
 																<td>
-																	<p>{items.finish_rent_at}</p>
+																	<p>{items.finish_rent_at.substr(0, 10)}</p>
 																</td>
 																<td>
 																	<p>{items.total_price}</p>
@@ -224,33 +231,33 @@ function Dashboard() {
 									<div className="row">
 										<div className="col-1">
 											{" "}
-											<Form.Select aria-label="Default select example">
-												<option>10</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
+											<Form.Select onChange={handleChangeLimit} aria-label="Default select example">
+												<option value="10">10</option>
+												<option value="20">20</option>
+												<option value="30">30</option>
 											</Form.Select>
 										</div>
 										<div className="col-1">
 											{" "}
 											<Form.Select aria-label="Default select example">
-												<option>1</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
+												<option value="10">10</option>
+												<option value="20">20</option>
+												<option value="30">30</option>
 											</Form.Select>
 										</div>
 										<div className="col">
-											<Button variant="primary adminpage-btn">Go</Button>{" "}
+											<Button onClick={() => handlePage()} variant="primary adminpage-btn">
+												Go
+											</Button>{" "}
 										</div>
 										<div className="col d-flex justify-content-end">
 											<Pagination>
-												<Pagination.First onClick={() => handlePage(1)} />
+												<Pagination.First onClick={() => handlePage(1, 10)} />
 												<Pagination.Item active>{1}</Pagination.Item>
-												<Pagination.Item onClick={() => handlePage(2)}>{2}</Pagination.Item>
-												<Pagination.Item onClick={() => handlePage(3)}>{3}</Pagination.Item>
+												<Pagination.Item onClick={() => handlePage(2, 10)}>{2}</Pagination.Item>
+												<Pagination.Item onClick={() => handlePage(3, 10)}>{3}</Pagination.Item>
 												<Pagination.Ellipsis />
-												<Pagination.Item onClick={() => handlePage(9)}>{9}</Pagination.Item>
+												<Pagination.Item onClick={() => handlePage(9, 10)}>{9}</Pagination.Item>
 												<Pagination.Last />
 											</Pagination>
 										</div>

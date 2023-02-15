@@ -45,8 +45,8 @@ ChartJS.register(
 );
 
 function Dashboard() {
-  const [page, setPage] = useState();
-  const [limit, setLimit] = useState();
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   const [fName, setFname] = useState("");
   const dispatch = useDispatch();
   const userID = localStorage.getItem("user");
@@ -59,6 +59,10 @@ function Dashboard() {
   const handleChangeName = (e) => {
     setFname(e.target.value);
     // console.log(e.target.value);
+  };
+
+  const handleChangePage = (e) => {
+    setPage(e.target.value);
   };
 
   const handleLogout = () => {
@@ -115,8 +119,6 @@ function Dashboard() {
   };
 
   const handlePage = async (page, limit) => {
-    await setPage(page);
-    await setLimit(limit);
     console.log(page, limit);
     dispatch(handlePagination(page, limit));
   };
@@ -153,15 +155,19 @@ function Dashboard() {
                       style={{ maxHeight: "100px" }}
                       navbarScroll
                     ></Nav>
-                    <Form className="d-flex">
+                    <Form disabled className="d-flex" id="disabledInput">
                       <Form.Control
+                        disabled
                         onChange={handleChangeName}
                         type="search"
                         placeholder="Search"
                         className="me-2"
                         aria-label="Search"
+                        id="disabledInput"
                       />
-                      <Button variant="outline-primary">Search</Button>
+                      <Button disabled variant="outline-primary">
+                        Search
+                      </Button>
                     </Form>
                     <img
                       className="ms-3 admin-user-logo"
@@ -246,7 +252,15 @@ function Dashboard() {
                     </ul>
                   </div>
                   <div className="row table-container">
-                    <table striped bordered hover>
+                    <table
+                      id="dtBasicExample"
+                      class="table table-striped table-bordered table-sm"
+                      cellspacing="0"
+                      width="100%"
+                      striped
+                      bordered
+                      hover
+                    >
                       <thead>
                         <tr>
                           <th>ID</th>
@@ -306,17 +320,18 @@ function Dashboard() {
                         <option value="30">30</option>
                       </Form.Select>
                     </div>
-                    <div className="col-1">
+                    <div className="col-1 jumpTo">
                       {" "}
-                      <Form.Select aria-label="Default select example">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                      </Form.Select>
+                      <input
+                        onChange={handleChangePage}
+                        type="text"
+                        placeholder="0"
+                        defaultValue={1}
+                      />
                     </div>
                     <div className="col">
                       <Button
-                        onClick={() => handlePage()}
+                        onClick={() => handlePage(page, limit)}
                         variant="primary adminpage-btn"
                       >
                         Go

@@ -6,12 +6,14 @@ import CarDetail from "./Pages/CarDetail";
 import LandingPage from "./Pages/LandingPage";
 import Dashboard from "./admin/Pages/Dashboard";
 import PaymentPage1 from "./Pages/PaymentPage1";
-import Login from "./admin/Pages/LoginAdmin";
 import Register from "./admin/Pages/RegisterAdmin";
 import RegisterCustomer from "./Pages/RegisterCustomer";
 import LoginCustomer from "./Pages/LoginCustomer";
 import CarList from "./admin/Pages/CarList";
 import ProtectedRouteAdmin from "./hoc/ProtectedRouteAdmin";
+import Login from "./admin/Pages/LoginAdmin";
+import AdminAddCar from "./admin/Pages/AdminAddCar";
+import AdminEditCar from "./admin/Pages/AdminEditCar";
 
 function App() {
   return (
@@ -25,10 +27,13 @@ function App() {
           <Route path="/payment1/:id" element={<PaymentPage1 />} />
           <Route path="/Login" element={<LoginCustomer />} />
           <Route path="/Register" element={<RegisterCustomer />} />
-            <Route element={<ProtectedRouteAdmin/>}>
-              <Route path="/admin/cars" element={<CarList />} />
-              <Route path="/admin/dashboard" element={<Dashboard />} />
-            </Route>
+          <Route element={<ProtectedRouteAdmin />}>
+            <Route path="/admin/cars" element={<CarList />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/addcar" element={<AdminAddCar />} />
+            <Route path="/admin/edit-car/:id" element={<AdminEditCar />} />
+          </Route>
+          <Route path="/admin/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>

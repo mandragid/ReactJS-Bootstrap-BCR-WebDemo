@@ -1,5 +1,6 @@
 const initialState = {
   carData: [],
+  orderList: [],
 };
 
 export const carReducers = (state = initialState, action) => {
@@ -14,6 +15,12 @@ export const carReducers = (state = initialState, action) => {
       return {
         ...initialState,
         carData: action.payload,
+      };
+
+    case "GET_ORDER_LIST":
+      return {
+        ...initialState,
+        orderList: action.payload,
       };
 
     default:

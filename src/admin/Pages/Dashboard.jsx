@@ -2,13 +2,20 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import Table from "react-bootstrap/Table";
 import Pagination from "react-bootstrap/Pagination";
 import "./Dashboard.css";
 import HomeLogo from "../img/Home_Logo.png";
 import CarsLogo from "../img/Cars_Logo.png";
 import Rectangle from "../img/Rectangle.png";
-import AdminNavbar from "../Components/AdminNavbar";
+import { getOrderList, handlePagination } from "../../Redux/carAction";
+import {
+  Navbar,
+  Container,
+  Nav,
+  DropdownButton,
+  Dropdown,
+} from "react-bootstrap";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,9 +30,10 @@ import { useEffect, useState } from "react";
 import { orderListTotal } from "../../const/OrderData";
 import axios from "axios";
 import { API } from "../../const/endpoint";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import rootReducer from "../../Redux";
+import { carReducers } from "../../Redux/carReducers";
 
 ChartJS.register(
   CategoryScale,
@@ -37,8 +45,29 @@ ChartJS.register(
 );
 
 function Dashboard() {
-  const [orderList, setOrderList] = useState({});
-  console.log("Orders", orderList);
+  const [page, setPage] = useState();
+  const [limit, setLimit] = useState();
+  const [fName, setFname] = useState("");
+  const dispatch = useDispatch();
+  const userID = localStorage.getItem("user");
+  const navigate = useNavigate();
+
+  const { cars } = useSelector((rootReducer) => rootReducer);
+
+  console.log("list orderan", cars);
+
+  const handleChangeName = (e) => {
+    setFname(e.target.value);
+    // console.log(e.target.value);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setTimeout(() => {
+      navigate("/admin/login");
+    }, 2000);
+  };
 
   const [chartData, setChartData] = useState({
     labels: [],
@@ -66,22 +95,31 @@ function Dashboard() {
     });
   }, []);
 
-  useEffect(() => {
+  const OrderList = async () => {
     const token = localStorage.getItem("token");
     const config = {
       headers: {
         access_token: token,
       },
     };
-    axios
-      .get(API.GET_ORDERLIST, config)
-      .then((res) => {
-        setOrderList(res.data.orders);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    dispatch(getOrderList(config));
+  };
+
+  useEffect(() => {
+    OrderList();
   }, []);
+
+  const handleChangeLimit = (e) => {
+    setLimit(e.target.value);
+  };
+
+  const handlePage = async (page, limit) => {
+    await setPage(page);
+    await setLimit(limit);
+    console.log(page, limit);
+    dispatch(handlePagination(page, limit));
+  };
 
   return (
     <div>
@@ -104,7 +142,46 @@ function Dashboard() {
             </div>
           </div>
           <div className="col admin-nav">
-            <AdminNavbar />
+            <div>
+              <Navbar bg="light" expand="lg">
+                <Container fluid>
+                  <Navbar.Brand href="/admin/dashboard">BCR</Navbar.Brand>
+                  <Navbar.Toggle aria-controls="navbarScroll" />
+                  <Navbar.Collapse id="navbarScroll">
+                    <Nav
+                      className="m-auto"
+                      style={{ maxHeight: "100px" }}
+                      navbarScroll
+                    ></Nav>
+                    <Form className="d-flex">
+                      <Form.Control
+                        onChange={handleChangeName}
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                      />
+                      <Button variant="outline-primary">Search</Button>
+                    </Form>
+                    <img
+                      className="ms-3 admin-user-logo"
+                      src="https://www.kindpng.com/picc/m/22-223910_circle-user-png-icon-transparent-png.png"
+                      alt="x"
+                    />
+                    <span className="ms-2">{userID}</span>{" "}
+                    <DropdownButton
+                      className="ms-3"
+                      id="dropdown-basic-button"
+                      title=""
+                    >
+                      <Dropdown.Item onClick={handleLogout}>
+                        Logout
+                      </Dropdown.Item>
+                    </DropdownButton>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+            </div>
             <div className="row">
               <div className="col-1 nav-dash">Dashboard</div>
               <div className="col">
@@ -182,8 +259,8 @@ function Dashboard() {
                         </tr>
                       </thead>
 
-                      {Object.entries(orderList).length
-                        ? orderList.map((items) => (
+                      {Object.entries(cars.orderList).length
+                        ? cars.orderList.map((items) => (
                             <tbody>
                               <tr>
                                 <td>
@@ -192,7 +269,7 @@ function Dashboard() {
                                 <td>
                                   <p>{items.User.email}</p>
                                 </td>
-                                <td>{items.Car.name}</td>
+                                <td>Not Set</td>
                                 <td>
                                   <p>{items.start_rent_at.substr(0, 10)}</p>
                                 </td>
@@ -220,33 +297,45 @@ function Dashboard() {
                   <div className="row">
                     <div className="col-1">
                       {" "}
-                      <Form.Select aria-label="Default select example">
-                        <option>10</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                      <Form.Select
+                        onChange={handleChangeLimit}
+                        aria-label="Default select example"
+                      >
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
                       </Form.Select>
                     </div>
                     <div className="col-1">
                       {" "}
                       <Form.Select aria-label="Default select example">
-                        <option>1</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
                       </Form.Select>
                     </div>
                     <div className="col">
-                      <Button variant="primary adminpage-btn">Go</Button>{" "}
+                      <Button
+                        onClick={() => handlePage()}
+                        variant="primary adminpage-btn"
+                      >
+                        Go
+                      </Button>{" "}
                     </div>
                     <div className="col d-flex justify-content-end">
                       <Pagination>
-                        <Pagination.First />
+                        <Pagination.First onClick={() => handlePage(1, 10)} />
                         <Pagination.Item active>{1}</Pagination.Item>
-                        <Pagination.Item>{2}</Pagination.Item>
-                        <Pagination.Item>{3}</Pagination.Item>
+                        <Pagination.Item onClick={() => handlePage(2, 10)}>
+                          {2}
+                        </Pagination.Item>
+                        <Pagination.Item onClick={() => handlePage(3, 10)}>
+                          {3}
+                        </Pagination.Item>
                         <Pagination.Ellipsis />
-                        <Pagination.Item>{9}</Pagination.Item>
+                        <Pagination.Item onClick={() => handlePage(9, 10)}>
+                          {9}
+                        </Pagination.Item>
                         <Pagination.Last />
                       </Pagination>
                     </div>

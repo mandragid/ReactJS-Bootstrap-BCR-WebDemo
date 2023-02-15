@@ -1,305 +1,410 @@
 /* .admin-dashboards {
-  background-color: #f1f3ff;
-  position: absolute;
-  z-index: 0;
+	background-color: #f1f3ff;
+	height: 100%;
 } */
 
 .sidebar {
-  background-color: #0d28a6;
-  height: 886px;
-  width: 80px;
-}
-
-.home img {
-  width: 30px;
-  padding: 0;
-  margin: 0;
-}
-
-.home:hover {
-  background-color: #1f45f1;
-}
-
-.cars:hover {
-  background-color: #1f45f1;
-}
-
-.cars img {
-  width: 30px;
+	background-color: #0d28a6;
+	height: 1000px;
+	width: 80px;
 }
 
 .sidebar p {
-  color: white;
+	color: white;
+}
+
+.sidebarAdd {
+	background-color: #0d28a6;
+
+	width: 80px;
+}
+
+.sidebarAdd p {
+	color: white;
+}
+
+.home img {
+	width: 30px;
+	padding: 0;
+	margin: 0;
+}
+
+.home:hover {
+	background-color: #1f45f1;
+}
+
+.cars:hover {
+	background-color: #1f45f1;
+}
+
+.cars img {
+	width: 30px;
 }
 
 .nav-dash {
-  width: 220px;
-  height: 830px;
-  background-color: white;
+	width: 220px;
+	height: 830px;
+	background-color: white;
+}
+
+.nav-add {
+	background-color: white;
+	width: 220px;
+	height: 94vh;
 }
 
 .chart-container {
-  height: 300px;
+	height: 300px;
 }
 
 .admin-user-logo {
-  width: 30px;
+	width: 30px;
 }
 
 .cardContainer {
-  background-color: white;
+	background-color: white;
 }
 
 .admin-dashboard ul li {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 .admin-dashboard a {
-  text-decoration: none;
-  color: black;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 18px;
+	text-decoration: none;
+	color: black;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 18px;
 }
 
 .bread-title {
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 18px;
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 18px;
 }
 
 .header-title {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 #table-title {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
 }
 
 .adminpage-btn {
-  background-color: #0d28a6;
-  border-radius: 0px 2px 2px 0px;
-  margin-bottom: 70px;
+	background-color: #0d28a6;
+	border-radius: 0px 2px 2px 0px;
+	margin-bottom: 70px;
 }
 
 .header-title-container {
-  margin-top: 50px;
+	margin-top: 50px;
 }
 
 .carListCard {
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .buttonAddCar button {
-  background-color: #0d28a6;
-  color: white;
-  width: 124px;
-  height: 36px;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: #0d28a6;
+	color: white;
+	width: 124px;
+	height: 36px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .addCar {
-  display: flex;
-  justify-content: space-between !important;
-  width: 100%;
+	display: flex;
+	justify-content: space-between !important;
+	width: 100%;
 }
 
 .buttonAddCar button {
-  justify-content: center;
-  background-color: #0d28a6;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #ffffff;
-  border: none;
-  width: 143.5px;
-  height: 48px;
-  border-radius: 2px;
+	justify-content: center;
+	background-color: #0d28a6;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #ffffff;
+	border: none;
+	width: 143.5px;
+	height: 48px;
+	border-radius: 2px;
 }
 
 .buttonEditCar button {
-  background-color: #5cb85f;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #ffffff;
-  border: none;
-  width: 143.5px;
-  height: 48px;
-  border-radius: 2px;
+	background-color: #5cb85f;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #ffffff;
+	border: none;
+	width: 143.5px;
+	height: 48px;
+	border-radius: 2px;
 }
 
 .buttonDeleteCar button {
-  background-color: white;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #fa2c5a;
-  border: 1px solid #fa2c5a;
-  width: 143.5px;
-  height: 48px;
-  border-radius: 2px;
+	background-color: white;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #fa2c5a;
+	border: 1px solid #fa2c5a;
+	width: 143.5px;
+	height: 48px;
+	border-radius: 2px;
 }
 
 .dialogBox {
-  position: fixed;
-  top: 25%;
-  left: 35%;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px 32px;
-  gap: 24px;
-  background-color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  height: 350px;
-  text-align: center;
+	position: fixed;
+	top: 25%;
+	left: 35%;
+	z-index: 999;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 24px 32px;
+	gap: 24px;
+	background-color: white;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+	width: 400px;
+	height: 350px;
+	text-align: center;
 }
 
 .dialogBox p {
-  margin-top: -10px;
+	margin-top: -10px;
 }
 
 #dataMobil {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 #yakinHapus {
-  font-family: "Arial";
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .deleteMessage {
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 16px;
-  gap: 10px;
-  position: absolute;
-  width: 550px;
-  height: 48px;
-  top: 100px;
-  left: 100px;
+	background-color: black;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 12px 16px;
+	gap: 10px;
+	position: absolute;
+	width: 550px;
+	height: 48px;
+	top: 100px;
+	left: 100px;
 
-  animation: hideAnimation 0s ease-in 5s;
-  animation-fill-mode: forwards;
+	animation: hideAnimation 0s ease-in 5s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes hideAnimation {
-  to {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
+	to {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+	}
 }
 
 .deleteMessage h1 {
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 .yesButton {
-  background-color: #0d28a6;
-  border: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  border-radius: 2px;
-  width: 87px;
-  height: 36px;
-  margin-top: -20px;
-  color: white;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: #0d28a6;
+	border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	border-radius: 2px;
+	width: 87px;
+	height: 36px;
+	margin-top: -20px;
+	color: white;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .noButton {
-  background-color: white;
-  border: 1px solid #0d28a6;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  border-radius: 2px;
-  width: 87px;
-  height: 36px;
-  margin-top: -20px;
-  color: #0d28a6;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: white;
+	border: 1px solid #0d28a6;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	border-radius: 2px;
+	width: 87px;
+	height: 36px;
+	margin-top: -20px;
+	color: #0d28a6;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .topSectionContainer {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 .categoryButton button {
-  background-color: #ffffff;
-  color: #0d28a6;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  width: 102px;
-  height: 36px;
-  margin-left: -10px;
+	background-color: #ffffff;
+	color: #0d28a6;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	width: 102px;
+	height: 36px;
+	margin-left: -10px;
 
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .categoryButton {
-  margin: 0px;
+	margin: 0px;
+}
+
+.addCarPage {
+	background-color: #e5e5e5;
+	height: 100vh;
+}
+
+.addCarButton #saveAdd {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	background: #0d28a6;
+	color: white;
+	border-radius: 2px;
+	position: absolute;
+	width: 57px;
+	height: 36px;
+
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.addCarButton #cancelAdd {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	background: white;
+	color: #0d28a6;
+	border-radius: 2px;
+	position: absolute;
+	width: 57px;
+	height: 36px;
+	border: 2px solid #0d28a6;
+}
+
+#cancelAdd a {
+	text-decoration: none;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.addCarInput {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background-color: white;
+
+	height: 455px;
+	width: 90%;
+	margin-left: 20px;
+	padding: 20px;
+}
+
+.addCarInput input {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 9px 12px;
+	gap: 8px;
+	border: 1px solid #d0d0d0;
+	border-radius: 2px;
+	width: 339px;
+	height: 36px;
+}
+
+.optionSelect {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 9px 12px;
+	gap: 8px;
+
+	width: 360px;
+	height: 36px;
+}
+
+.addCarButton {
+	margin-top: 200px;
 }

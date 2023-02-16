@@ -54,7 +54,9 @@ function AdminNavbar() {
     <div>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="/admin/dashboard">BCR</Navbar.Brand>
+          <Navbar.Brand href="/admin/dashboard">
+            <p id="navTitle">BCR-Admin</p>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav

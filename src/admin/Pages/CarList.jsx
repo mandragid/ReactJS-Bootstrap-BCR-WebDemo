@@ -22,6 +22,7 @@ function CarList() {
   const fName = "";
   const { cars } = useSelector((rootReducer) => rootReducer);
   console.log("data Mobil", cars);
+  const [isActive, setIsActive] = useState(false);
 
   const handleOpen = (id) => {
     setDialogState({
@@ -63,6 +64,7 @@ function CarList() {
   const handleChangeCategory = (category) => {
     const fCategory = category;
     dispatch(handleFilter(fName, fCategory));
+    setIsActive(true);
     console.log("kategori mobil", fCategory);
   };
 
@@ -110,111 +112,146 @@ function CarList() {
         </div>
         <div className="col admin-nav ">
           <AdminNavbar />
-          {dialogState.open && (
-            <div className="container-fluid dialogBox">
-              <div className="row">
-                <div className="col">
-                  <img src={DialogBoxCar} alt="" />
-                </div>
-              </div>
-              <div className="row">
-                <p id="dataMobil">Menghapus Data Mobil</p>
-              </div>
-              <div className="row">
-                <p id="yakinHapus">
-                  Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin
-                  ingin menghapus?
-                </p>
-              </div>
-              <div className="row">
-                <div className="col">
-                  <button
-                    className="yesButton"
-                    onClick={() => handleDelete(dialogState.selectedId)}
-                  >
-                    Ya
-                  </button>
-                </div>
-                <div className="col">
-                  <button className="noButton" onClick={handleClose}>
-                    Tidak
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-          {isDeleted && (
-            <div className="container deleteMessage">
-              <h1>Data Berhasil Dihapus</h1>
-            </div>
-          )}
-
-          <div className="container carListCard">
-            <div className=" container topSectionContainer">
-              <div className="row justify-content-center">
-                <div className="col-6">
-                  <h2>List Car</h2>
-                </div>
-                <div className="col-6 buttonAddCar text-end">
-                  <Link to={"/admin/addcar"}>
-                    <button>+ Add New Car</button>
-                  </Link>
-                </div>
-              </div>
-              <div className="row categoryButton">
-                <div className="col-2">
-                  <button onClick={() => handleChangeCategory("")}>All</button>
-                </div>
-                <div className="col-2">
-                  {" "}
-                  <button onClick={() => handleChangeCategory("small")}>
-                    2-4 people
-                  </button>{" "}
-                </div>
-                <div className="col-2">
-                  <button onClick={() => handleChangeCategory("medium")}>
-                    4-6 people
-                  </button>
-                </div>
-                <div className="col-2">
-                  <button onClick={() => handleChangeCategory("large")}>
-                    6-8 people
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="cardContainer row">
-              {!!cars.carData.length
-                ? cars.carData.map((item) => (
-                    <div className="col-sm-12 col-md-6  ResultCard">
-                      <div className="col CarImage">
-                        <img src={item.image} />
-                      </div>
-                      <div className="col">
-                        <p className="NamaMobil">{item.name}</p>
-                        <p className="HargaMobil">{item.price}</p>
-                        <p className="DescMobil">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.{" "}
-                        </p>
-                      </div>
-                      <div className="row">
-                        <div className="col-6 buttonDeleteCar">
-                          <button onClick={() => handleOpen(item.id)}>
-                            Delete Car
-                          </button>
-                        </div>
-
-                        <div className="col-6 buttonEditCar">
-                          <Link to={`/admin/edit-car/${item.id}`}>
-                            <button>Edit Car</button>
-                          </Link>
-                        </div>
-                      </div>
+          <div className="row">
+            <div className="col-1 nav-dash">Dashboard</div>
+            <div className="col dashbooorr">
+              {dialogState.open && (
+                <div className="container-fluid dialogBox">
+                  <div className="row">
+                    <div className="col">
+                      <img src={DialogBoxCar} alt="" />
                     </div>
-                  ))
-                : null}
+                  </div>
+                  <div className="row">
+                    <p id="dataMobil">Menghapus Data Mobil</p>
+                  </div>
+                  <div className="row">
+                    <p id="yakinHapus">
+                      Setelah dihapus, data mobil tidak dapat dikembalikan.
+                      Yakin ingin menghapus?
+                    </p>
+                  </div>
+                  <div className="row">
+                    <div className="col">
+                      <button
+                        className="yesButton"
+                        onClick={() => handleDelete(dialogState.selectedId)}
+                      >
+                        Ya
+                      </button>
+                    </div>
+                    <div className="col">
+                      <button className="noButton" onClick={handleClose}>
+                        Tidak
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {isDeleted && (
+                <div className="container deleteMessage">
+                  <h1>Data Berhasil Dihapus</h1>
+                </div>
+              )}
+
+              <div className="container carListCard">
+                <div className=" container topSectionContainer">
+                  <div className="row justify-content-center">
+                    <div className="col-6">
+                      <h2>List Car</h2>
+                    </div>
+                    <div className="col-6 buttonAddCar text-end">
+                      <Link to={"/admin/addcar"}>
+                        <button>+ Add New Car</button>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="row ">
+                    <div className="col-2">
+                      <button
+                        className={
+                          isActive
+                            ? "row categoryButtonA "
+                            : "row categoryButton "
+                        }
+                        onClick={() => handleChangeCategory("")}
+                      >
+                        All
+                      </button>
+                    </div>
+                    <div className="col-2">
+                      {" "}
+                      <button
+                        className={
+                          isActive
+                            ? "row categoryButtonA "
+                            : "row categoryButton "
+                        }
+                        onClick={() => handleChangeCategory("small")}
+                      >
+                        2-4 people
+                      </button>{" "}
+                    </div>
+                    <div className="col-2">
+                      <button
+                        className={
+                          isActive
+                            ? "row categoryButtonA "
+                            : "row categoryButton "
+                        }
+                        onClick={() => handleChangeCategory("medium")}
+                      >
+                        4-6 people
+                      </button>
+                    </div>
+                    <div className="col-2">
+                      <button
+                        className={
+                          isActive
+                            ? "row categoryButtonA "
+                            : "row categoryButton "
+                        }
+                        onClick={() => handleChangeCategory("large")}
+                      >
+                        6-8 people
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="cardContainer row">
+                  {!!cars.carData.length
+                    ? cars.carData.map((item) => (
+                        <div className="col-sm-12 col-md-6  ResultCard ResultCardAdmin">
+                          <div className="col CarImage">
+                            <img src={item.image} />
+                          </div>
+                          <div className="col">
+                            <p className="NamaMobil">{item.name}</p>
+                            <p className="HargaMobil">{item.price}</p>
+                            <p className="DescMobil">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit, sed do eiusmod tempor incididunt ut labore
+                              et dolore magna aliqua.{" "}
+                            </p>
+                          </div>
+                          <div className="row">
+                            <div className="col-6 buttonDeleteCar">
+                              <button onClick={() => handleOpen(item.id)}>
+                                Delete Car
+                              </button>
+                            </div>
+
+                            <div className="col-6 buttonEditCar">
+                              <Link to={`/admin/edit-car/${item.id}`}>
+                                <button>Edit Car</button>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    : null}
+                </div>
+              </div>
             </div>
           </div>
         </div>

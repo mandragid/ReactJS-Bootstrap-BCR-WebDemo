@@ -111,7 +111,70 @@ const AdminAddCar = () => {
                   <div className="row">
                     <p>Add New Car</p>
                   </div>
+                  <div className="addCarInput d-flex ">
+                    <div className="row">
+                      <div className="col-3">
+                        <p>Nama/Tipe Mobil</p>
+                      </div>
+                      <div className="col">
+                        <input
+                          onChange={handleName}
+                          placeholder="Input Nama/Tipe Mobil"
+                        />
+                      </div>
+                    </div>
 
+                    <div className="row">
+                      <div className="col-3">
+                        <p>Harga</p>
+                      </div>
+                      <div className="col">
+                        <input
+                          onChange={handlePrice}
+                          placeholder="Input Harga Sewa Mobil"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-3">
+                        <p>Foto</p>
+                      </div>
+                      <div className="col">
+                        <input
+                          onChange={handleImage}
+                          class="form-control"
+                          type="file"
+                        />
+                        <p>File size max. 2MB</p>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-3">
+                        <p>Kategori</p>
+                      </div>
+                      <div className="optionSelect">
+                        <Form.Select onChange={handleCategory}>
+                          <option value="">Pilih Kategori Mobil</option>
+                          <option value="small">Small</option>
+                          <option value="medium">Medium</option>
+                          <option value="large">Large</option>
+                        </Form.Select>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col">
+                        <p>Created at: </p>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <p>Updated at: </p>
+                      </div>
+                    </div>
+                  </div>
                   <div className="addCarButton">
                     <div className="row">
                       <div className="col-1">

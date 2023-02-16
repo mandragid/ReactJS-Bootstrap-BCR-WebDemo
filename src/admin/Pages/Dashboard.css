@@ -1,7 +1,7 @@
-/* .admin-dashboards {
-	background-color: #f1f3ff;
-	height: 100%;
-} */
+.admin-dashboards {
+  background-color: #f1f3ff;
+  height: 100%;
+}
 
 .sidebar {
   background-color: #0d28a6;
@@ -11,6 +11,19 @@
 
 .sidebar p {
   color: white;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#navTitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .sidebarAdd {
@@ -57,12 +70,12 @@
   height: 300px;
 }
 
-.admin-user-logo {
-  width: 30px;
+.chartjs-container {
+  height: 400px;
 }
 
-.cardContainer {
-  background-color: white;
+.admin-user-logo {
+  width: 30px;
 }
 
 .admin-dashboard ul li {
@@ -116,6 +129,10 @@
 .carListCard {
   display: flex;
   flex-wrap: wrap;
+}
+
+.ResultCardAdmin {
+  background-color: white;
 }
 
 .buttonAddCar button {
@@ -299,8 +316,28 @@
   width: 40px;
 }
 
-.categoryButton button {
+.categoryButton {
   background-color: #ffffff;
+  color: #aeb7e1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  width: 102px;
+  height: 36px;
+  margin-left: -10px;
+  border: 2px solid #aeb7e1;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.categoryButtonA {
+  background-color: #cfd4ed;
   color: #0d28a6;
   display: flex;
   flex-direction: row;
@@ -311,7 +348,7 @@
   width: 102px;
   height: 36px;
   margin-left: -10px;
-
+  border: 2px solid #aeb7e1;
   font-family: "Arial";
   font-style: normal;
   font-weight: 700;
@@ -384,6 +421,11 @@
   width: 90%;
   margin-left: 20px;
   padding: 20px;
+}
+
+.CarImage {
+  max-height: 200px;
+  overflow: auto;
 }
 
 .addCarInput input {

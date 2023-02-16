@@ -1,34 +1,37 @@
 import "../components/paymentStep.css";
 import BackIcon from "../img/fi_arrow-left.png";
-import Number1BlueIcon from "../img/icon_number-1-blue.png";
-import Number2Icon from "../img/icon_number-2.png";
+import CheckIcon from "../img/fi_check.png";
+import Number2BlueIcon from "../img/icon_number-2-blue.png";
 import Number3Icon from "../img/icon_number-3.png";
 import LineIcon from "../img/icon_line.png";
 import { useNavigate } from "react-router-dom";
 
-const PaymentStep1 = () => {
-  // Function to go back to the previous page
-  const navigate = useNavigate();
+const PaymentStep2 = () => {
+  const Navigate = useNavigate()
   const goBack = () => {
-    navigate(-1);
-  };
-
+    Navigate(-1)
+  }
   return (
     <div className="paymentStep-container">
       <div className="paymentStepContent-container">
         <div className="paymentStep-left-content">
           <div className="back-icon">
-            <button onClick={goBack}>
-              <img src={BackIcon} alt="back-icon"></img>
+            <button>
+              <img src={BackIcon} alt="back-icon" onClick={goBack}></img>
             </button>
           </div>
-          <div className="txt-pembayaran">
-            <h1>Pembayaran</h1>
+          <div className="bankChosen-container">
+            <div className="txt-pembayaran bankChosen">
+              <h1>BCA Transfer</h1>
+            </div>
+            <div className="orderId">
+              <h6>Order ID: 86754231</h6>
+            </div>
           </div>
         </div>
         <div className="paymentStep-right-content">
-          <div className="icon-number icon-number1">
-            <img src={Number1BlueIcon} alt="number-1-icon"></img>
+          <div className="checklist-icon">
+            <img src={CheckIcon} alt="checklist-icon"></img>
           </div>
           <div className="txt-paymentStep">
             <h3>Pilih Metode</h3>
@@ -37,7 +40,7 @@ const PaymentStep1 = () => {
             <img src={LineIcon} alt="line-icon"></img>
           </div>
           <div className="icon-number icon-number2">
-            <img src={Number2Icon} alt="number-2-icon"></img>
+            <img src={Number2BlueIcon} alt="number-2-icon"></img>
           </div>
           <div className="txt-paymentStep">
             <h3>Bayar</h3>
@@ -57,4 +60,4 @@ const PaymentStep1 = () => {
   );
 };
 
-export default PaymentStep1;
+export default PaymentStep2;

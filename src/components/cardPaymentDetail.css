@@ -1,0 +1,219 @@
+.cardPaymentDetail-container {
+  width: 405px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.cardPaymentDetail-heading {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.cardPaymentDetail-heading h1 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cardPaymentDetail-subHeading {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.carCapacity-container {
+  display: flex;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.cardPaymentDetail-icon-user img {
+  width: 15px;
+}
+
+.carCapacity h6 {
+  font-size: 10px;
+  font-weight: 400;
+  padding-left: 10px;
+  position: absolute;
+  top: 7px;
+}
+
+/* Accordion Total */
+.accordion-header-cardPayment button.accordion-button {
+  background: #fff !important;
+}
+
+.accordion-cardPayment {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+
+.accordion-header-cardPayment {
+  background: #fff !important;
+  border: none !important;
+  border-color: #fff !important;
+}
+
+.accordion-header-cardPayment .accordion-button:not(.collapsed) {
+  box-shadow: none !important;
+  border-color: #fff !important;
+}
+
+.accordion-header-cardPayment .accordion-button.collapsed::after {
+  position: relative;
+  right: 250px;
+}
+
+.accordion-header-cardPayment .accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-icon);
+  position: relative;
+  right: 250px;
+}
+
+.accordion-header-cardPayment .accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.accordion-body-cardPayment {
+  padding: 0 !important;
+  border-top: none !important;
+  background-color: #fff !important;
+}
+
+.firstTotal-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 15px;
+  padding-top: 50px;
+}
+
+.firstSubHeading {
+  display: flex;
+  position: relative;
+}
+
+.firstSubHeading h6 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.firstSubHeading img {
+  position: absolute;
+  left: 50px;
+  bottom: 5px;
+}
+
+.first-boldPrice {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #000 !important;
+  position: relative;
+  left: 240px;
+}
+
+.price h6 {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.rentDays-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.cardPayment-include-container-1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardPayment-include {
+  padding-right: 20px;
+}
+
+.firstInclude h6 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #5cb85f;
+}
+
+.cardPayment-include-container-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondInclude h6 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #5cb85f;
+}
+
+.cardPayment-ul {
+  padding-left: 52px;
+}
+
+.cardPayment-ul li {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.lineIcon-container {
+  display: flex;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+.secondTotal-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-boldPrice h6 {
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 40px;
+  padding-right: 5px;
+}
+
+.btn-cardPaymentDetail-off {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.btn-cardPaymentDetail-off button {
+  font-size: 14px;
+  font-weight: 700;
+  width: 360px;
+  background-color: #def1df;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+
+.btn-cardPaymentDetail-on {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.btn-cardPaymentDetail-on button {
+  font-size: 14px;
+  font-weight: 700;
+  width: 360px;
+  background-color: #5cb85f;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+

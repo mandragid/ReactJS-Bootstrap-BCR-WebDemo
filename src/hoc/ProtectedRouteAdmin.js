@@ -4,23 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { AuthCheck } from "../Redux/authAction";
 
 const ProtectedRouteAdmin = () => {
-    
-    const {authReducer} = useSelector((rootReducer) => rootReducer)
-    const dispatch = useDispatch()
-    //part 1
-    
-    useEffect(() => {
-        dispatch(AuthCheck())
-    }, [authReducer.isLogin])
+  const { authReducer } = useSelector((rootReducer) => rootReducer);
+  const dispatch = useDispatch();
+  //part 1
 
-    //part 2
-    if (authReducer.loading) {
-        return ("loading...")
-    }
+  useEffect(() => {
+    dispatch(AuthCheck());
+  }, [authReducer.isLogin]);
 
-    //part3
-    console.log("hasil", authReducer.isLogin)
-    return authReducer.isLogin ? <Outlet /> : <Navigate to={'/admin/Login'} />;
-}
+  //part 2
+  if (authReducer.loading) {
+    return "loading...";
+  }
+
+  //part3
+  console.log("hasil", authReducer.isLogin);
+  return authReducer.isLogin ? <Outlet /> : <Navigate to={"/admin/Login"} />;
+};
 
 export default ProtectedRouteAdmin;

@@ -51,3 +51,10 @@
   padding-left: 7px;
   padding-top: 1px;
 }
+
+/* Payment Step 2 */
+.orderId h6 {
+  font-size: 12px;
+  font-weight: 400;
+  padding-left: 15px;
+}

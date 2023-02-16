@@ -1,6 +1,49 @@
-/* Payment Page1 */
+/* Payment Page */
 .empty-header {
   background-color: #f1f3ff;
   width: 100%;
   height: 250px;
+}
+
+/* Payment1 */
+.outer-containerForBankPayment-and-CardPaymentDetail {
+  display: flex;
+  justify-content: center;
+  /* width: 1200px; */
+  height: auto;
+  /* border: 1px solid; */
+}
+
+.inner-containerForBankPayment-and-CardPaymentDetail {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid; */
+}
+
+/* Payment2 */
+.outer-container-for-payBefore-and-paymentConfirmation {
+  display: flex;
+  justify-content: center;
+}
+
+.inner-container-for-payBefore-and-paymentConfirmation {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid; */
+}
+
+.outer-containerFortransferPayment-and-paymentInstruction {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 55px;
+}
+
+.inner-containerFortransferPayment-and-paymentInstruction {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
 }

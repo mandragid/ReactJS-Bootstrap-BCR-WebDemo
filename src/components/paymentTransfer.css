@@ -1,0 +1,108 @@
+.paymentTransfer-container {
+  width: 605px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+}
+
+.heading-paymentTransfer h1 {
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.bankLogo-paymentTransfer {
+  width: 61px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  text-align: center;
+  padding-top: 7px;
+}
+
+.bankLogo-paymentTransfer h6 {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.container-for-bankName-and-sender-paymentTransfer {
+  position: relative;
+  left: 80px;
+  bottom: 20px;
+  width: 200px;
+  /* border: 1px solid; */
+}
+
+.bankName-paymentTransfer h6 {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.senderName h6 {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.heading-account-number h6 {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.account-number {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #3c3c3c;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.number {
+  padding-top: 5px;
+  padding-left: 15px;
+  /* border: 1px solid; */
+}
+
+.number p {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.btn-copy-container {
+  padding-right: 2px;
+  padding-bottom: 2px;
+}
+
+.btn-copy {
+  background-color: #fff;
+  border: none;
+}
+
+.btn-copy img {
+  width: 15px;
+}
+
+.heading-moneyToSend h6 {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.moneyToSend {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #3c3c3c;
+  border-radius: 2px;
+}
+
+.money {
+  padding-top: 5px;
+  padding-left: 15px;
+}
+
+.money p {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 0;
+}

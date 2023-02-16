@@ -1,0 +1,76 @@
+.bankPayment-container {
+  width: 750px;
+  height: 345px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.15);
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.heading-container {
+  margin-bottom: 20px
+}
+
+.heading-container h1 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.bankPayment-sub-heading-container {
+  margin-bottom: 50px;
+}
+
+.bankPayment-sub-heading-container h3 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+
+.bank-container {
+  display: flex;
+  margin-bottom: 5px;
+  position: relative;
+  /* border: 1px solid; */
+}
+
+.greenCheck-on {
+  position: absolute;
+  left: 480px;
+  /* border: 1px solid; */
+}
+
+.greenCheck-off {
+  display: none;
+}
+
+.iconLine2-container {
+  margin-bottom: 5px;
+}
+
+.bank-name {
+  border: 1px solid #D0D0D0;
+  width: 60px;
+  padding-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bank-name h6 {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.txt-bank-container {
+  padding-left: 10px;
+  padding-top: 10px;
+  cursor: pointer;
+  /* border: 1px solid; */
+}
+
+.txt-bank-container h6 {
+  font-size: 12px;
+  font-weight: 400;
+}

@@ -6,7 +6,7 @@ import SplashLoginCustomer from "../img/SplashLoginCustomer.png"
 import axios from "axios";
 import { API } from "../const/endpoint";
 
-const LoginCustomer = () => {
+const RegisterCustomer = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ const LoginCustomer = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = async() => {
+  const handleRegister = async() => {
     const payLoad = {
       email: email,
       password: password,
@@ -48,8 +48,8 @@ const LoginCustomer = () => {
 
 
    return (
-      <div className="base">
-        <div className="form-section">
+      <div className="register-base">
+        <div className="register-form-section">
           {
           !!userReducer.message.length ? (
             <div>
@@ -58,13 +58,13 @@ const LoginCustomer = () => {
             </label>  
             </div>
           ) : (null)} 
-          <div className="form-section-input">
-            <div className="greetings">
-            <div className="rectangle">
+          <div className="register-form-section-input">
+            <div className="register-greetings">
+            <div className="register-rectangle">
           </div>
             <h1>Sign Up</h1>
           </div>
-          <div className="input-block">
+          <div className="register-input-block">
             <label>Name</label>
             <input
               onChange={handleName}
@@ -72,7 +72,7 @@ const LoginCustomer = () => {
               type="email"
               className="register-input"
             />
-            <div className="input-block">
+            <div className="register-input-block">
             <label>Email</label>
             <input
               onChange={handleEmail}
@@ -81,7 +81,7 @@ const LoginCustomer = () => {
               className="register-input"
             />
             </div>
-            <div className="input-block">
+            <div className="register-input-block">
             <label>Password</label>
             <input
               typeof="password"
@@ -93,23 +93,21 @@ const LoginCustomer = () => {
             </div>
           </div>
           <span></span>
-          <div className="sign-button">
-            <button onClick={handleLogin} className="login-button">
+          <div className="register-sign-button">
+            <button onClick={handleRegister} className="register-button">
               Sign-In
             </button>
           </div>
-          <div className="link-text">
-            <h3>Don't have an account ? <a href="/login">Sign Up for Free</a></h3>
+          <div className="register-link-text">
+            <h3>Already have an account ? <a href="/register">Sign In here</a></h3>
           </div>
         </div>
       </div>
-      <div className="splash-login-customer">
-          <div className="splash-image">
+      <div className="splash-register-customer">
             <img src={SplashLoginCustomer}/>
-        </div>
       </div>
     </div>
   );
 };
 
-export default LoginCustomer
+export default RegisterCustomer

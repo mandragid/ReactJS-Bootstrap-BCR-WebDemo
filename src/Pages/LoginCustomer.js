@@ -42,13 +42,13 @@ const LoginCustomer = () => {
 
 
    return (
-    <div className="html-base">
-      <div className="base">
-        <div className="form-section">
-          <div className="rectangle">
+      <div className="login-base">
+        <div className="login-form-section">
+          
+          <div className="login-greetings">
+            <div className="login-rectangle">
           </div>
-          <div className="greetings">
-            <h1>Welcome Back!</h1>
+          <h1>Welcome Back!</h1>
           </div>
           {
           !!userReducer.message.length ? (
@@ -58,14 +58,14 @@ const LoginCustomer = () => {
             </label>  
             </div>
           ) : (null)} 
-          <div className="form-section-input">
-            <div className="input-block">
+          <div className="login-form-section-input">
+            <div className="login-input-block">
             <label>Email</label>
             <input
               onChange={handleEmail}
               placeholder="input email"
               type="email"
-              className="register-input"
+              className="login-input"
             />
             </div>
             <div className="input-block">
@@ -75,31 +75,24 @@ const LoginCustomer = () => {
               onChange={handlePassword}
               placeholder="input password"
               type="password"
-              className="register-input"
+              className="login-input"
             />
-            </div>
-          </div>
-          <span></span>
-          <div className="sign-button">
             <button onClick={handleLogin} className="login-button">
               Sign-In
             </button>
+            </div>
           </div>
           <div>
-            <h3>Already have an account ? <a href="/register">Sign In here</a></h3>
+            <h3>Don't have an account ? <a href="/register">Sign Up for Free</a></h3>
           </div>
         </div>
         <div className="splash-login-customer">
           <div className="splash-content">
-          <div className="splash-text">
-          <h1>BINAR CAR RENTAL</h1>
-          </div>
           <div className="splash-image">
       <img src={SplashLoginCustomer}/>
       </div>
       </div>
       </div>
-    </div>
     </div>
   );
 };

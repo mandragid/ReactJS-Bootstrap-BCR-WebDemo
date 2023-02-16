@@ -1,32 +1,23 @@
-.html-base {
+.login-base {
+    display: flex;
+    width: 100%;
     height: 100%;
+    flex-direction: row;
+    margin: 0px 0px 0px 0px;
 }
 
-.splash-login-customer {
+.login-form-section {
     width: 50%;
     height: 100%;
-    background-color: #0D28A6;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    padding: 0px 0px 0px 100px;
-    position: relative;
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
 }
 
-.splash-content {
-    height: 100%;
-    width: 100%;
-    margin-top: 15%;
-    margin-left: 10%;
-}
-
-.base {
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-.rectangle {
+.login-rectangle {
     width: 100px;
     height: 34px;
     left: 1013px;
@@ -34,16 +25,8 @@
     background: #CFD4ED;
     margin-bottom: 20px;
 }
-.form-section {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    align-items: left;
-}
 
-.greetings h1 {
+.login-greetings h1 {
 
     font-family: 'Arial';
     font-style: normal;
@@ -52,7 +35,16 @@
     line-height: 36px;
 }
 
-.form-section-input input {
+.splash-login-customer {
+    width: 50%;
+    height: 100%;
+    background-color: #0D28A6;
+    padding: 0px 0px 0px 0px;;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-form-section-input input {
 
     box-sizing: border-box;
     left: 70.35%;
@@ -65,15 +57,20 @@
     border-radius: 5px;
 }
 
-.input-block {
+.login-input-block {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     padding-top: 10px;
 }
 
+.login-form-section-input {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+}
 
-.form-section-input label {
+.login-form-section-input label {
     height: 20px;
     left: 70.35%;
     right: 25.35%;
@@ -84,21 +81,11 @@
     line-height: 20px;
 }
 
-.form-section input {
-    width: 80%;
-}
-
-.form-section-input {
-    align-items: left;
-    display: flex;
-    flex-direction: column;
-}
-
-.login-button {
+.login-button{
 
     margin-top: 40px;
     color: #FFFFFF;
-    width: 80%;
+    width: 100%;
     background: #0D28A6;
     border-radius: 2px;
 }

@@ -215,7 +215,7 @@
 }
 
 .deleteMessage {
-  background-color: black;
+  background-color: #73ca5c;
   color: white;
   display: flex;
   flex-direction: row;

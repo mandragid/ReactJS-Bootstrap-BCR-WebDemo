@@ -145,12 +145,12 @@ const AdminEditCar = () => {
                       List Cars
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active href="/admin/addcar">
-                      <span className="bread-title">Add New Car</span>
+                      <span className="bread-title">Edit Car</span>
                     </Breadcrumb.Item>
                   </Breadcrumb>
                   <div className="container">
                     <div className="row">
-                      <p>Add New Car</p>
+                      <p>Edit Car</p>
                     </div>
                     {Object.entries(carData).length ? (
                       <div className="addCarInput d-flex ">

@@ -43,6 +43,12 @@ function CarList() {
     getData();
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsDeleted(false);
+    }, 6000);
+  }, [isDeleted]);
+
   const getData = async () => {
     const token = localStorage.getItem("token");
     const config = {
@@ -72,12 +78,12 @@ function CarList() {
         `https://bootcamp-rent-cars.herokuapp.com/admin/car/${dialogState.selectedId}`,
         config
       );
-      setDialogState({
+      await setDialogState({
         open: false,
         selectedId: null,
       });
-      setIsDeleted(true);
-      getData();
+      await setIsDeleted(true);
+      await getData();
     } catch (error) {
       console.log(error.response);
     }

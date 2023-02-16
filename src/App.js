@@ -6,6 +6,7 @@ import CarDetail from "./Pages/CarDetail";
 import LandingPage from "./Pages/LandingPage";
 import Dashboard from "./admin/Pages/Dashboard";
 import PaymentPage1 from "./Pages/PaymentPage1";
+import PaymentPage2 from "./Pages/PaymentPage2";
 import Login from "./admin/Pages/LoginAdmin";
 import Register from "./admin/Pages/RegisterAdmin";
 import RegisterCustomer from "./Pages/RegisterCustomer";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/hasil-pencarian" element={<SearchResult />} />
           <Route path="/detail-paket/:id" element={<CarDetail />} />
           <Route path="/payment1/:id" element={<PaymentPage1 />} />
+          <Route path="/payment2/:id/" element={<PaymentPage2 />} />
           <Route path="/Login" element={<LoginCustomer />} />
           <Route path="/Register" element={<RegisterCustomer />} />
             <Route element={<ProtectedRouteAdmin/>}>

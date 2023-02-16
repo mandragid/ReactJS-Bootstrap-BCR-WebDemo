@@ -16,7 +16,7 @@ const PaymentPage1 = () => {
       <div className="outer-containerForBankPayment-and-CardPaymentDetail">
         <div className="inner-containerForBankPayment-and-CardPaymentDetail">
           <BankPayment />
-          <CardPaymentDetail />
+          <CardPaymentDetail  />
         </div>
       </div>
       <Footer />

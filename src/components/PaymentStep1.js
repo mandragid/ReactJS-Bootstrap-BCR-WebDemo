@@ -7,6 +7,7 @@ import LineIcon from "../img/icon_line.png";
 import { useNavigate } from "react-router-dom";
 
 const PaymentStep1 = () => {
+  // Function to go back to the previous page
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);

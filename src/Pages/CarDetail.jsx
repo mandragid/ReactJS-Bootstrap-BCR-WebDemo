@@ -3,39 +3,81 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
-// import Form from "react-bootstrap/Form";
+import Filter from "../components/Filter";
 import Facebook from "../img/facebook.png";
 import Instagram from "../img/instagram.png";
 import Twitter from "../img/twitter.png";
 import Email from "../img/email.png";
 import Twitch from "../img/twitch.png";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Filter from "../components/Filter";
-import DatePicker from "react-datepicker";
-import { Link } from "react-router-dom";
 import UsersIcon from "../img/fi_users.png";
 import Icon_Calendar from "../img/fi_calendar.png";
+import axios from "axios";
+import { API } from "../const/endpoint";
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { addDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import moment from "moment/moment";
 
 function CarDetail() {
+  // Get car id
   const { id } = useParams();
   const [car, setCar] = useState({});
+  const [orderId, setOrderId] = useState(0);
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
+  const dateStart = moment(localStorage.getItem("startDate"));
+  const dateEnd = moment(localStorage.getItem("endDate"));
+  // Store car id to variable
+  const carId = id;
 
+  // On Button 'Lanjutkan Pembayaran'
   const handleButtonPaymentCardDetail = () => {
+    // Set dates and order id to local storage
     localStorage.setItem("startDate", startDate);
     localStorage.setItem("endDate", endDate);
+    localStorage.setItem("orderId", orderId);
+
+    // Get login Token
+    const config = {
+      headers: {
+        access_token: localStorage.getItem("token"),
+      },
+    };
+
+    // Payload format to get Order ID
+    const payload = {
+      start_rent_at: dateStart.format().substr(0, 10),
+      finish_rent_at: dateEnd.format().substr(0, 10),
+      car_id: carId,
+    };
+    // console.log(payload);
+
+    // Post API, payload and config to get orderID
+    axios
+      .post(API.POST_CUSTOMER_ORDER, payload, config)
+      .then((res) => {
+        console.log(res);
+        setOrderId(res.data.id);
+      })
+      .catch((err) => console.log(err.message));
   };
 
+  // Remove dates and order id when user back to this page or refresh this page
+  useEffect(() => {
+    localStorage.removeItem("startDate");
+    localStorage.removeItem("endDate");
+    localStorage.removeItem("orderId");
+  }, []);
+  // console.log(orderId);
+
+  // Get Chosen car from Search Page by id
   useEffect(() => {
     axios
       .get(`https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`)
       .then((res) => {
+        // console.log(res);
         setCar(res.data);
       })
       .catch((err) => console.log(err.message));
@@ -73,9 +115,7 @@ function CarDetail() {
               <h1>Tentang Paket</h1>
               <h1>Include</h1>
               <ul>
-                <li>
-                  Apa saja yang termasuk dalam paket misal durasi max 12 jam
-                </li>
+                <li>Apa saja yang termasuk dalam paket misal durasi max 12 jam</li>
                 <li>Sudah termasuk bensin selama 12 jam</li>
                 <li>Sudah termasuk Tiket Wisata</li>
                 <li>Sudah termasuk pajak</li>
@@ -83,42 +123,31 @@ function CarDetail() {
               <h1>Exclude</h1>
               <ul>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>
-                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
-                  20.000/jam
-                </li>
+                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
                 <li>Tidak termasuk akomodasi penginapan</li>
               </ul>
               <h1>Refund, Reschedule, Overtime</h1>
               <ul>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>
-                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
-                  20.000/jam
-                </li>
+                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
                 <li>Tidak termasuk akomodasi penginapan</li>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>
-                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
-                  20.000/jam
-                </li>
+                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
                 <li>Tidak termasuk akomodasi penginapan</li>
                 <li>Tidak termasuk biaya makan sopir Rp. 75.000/hari</li>
-                <li>
-                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp.
-                  20.000/jam
-                </li>
+                <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp. 20.000/jam</li>
                 <li>Tidak termasuk akomodasi penginapan</li>
               </ul>
             </div>
 
+            {/* Card Car Detail */}
             {Object.entries(car).length ? (
               <div className="col-12 col-md-6 col-sm-6 RightSide order-1 order-sm-2 card-carDetail-container">
                 <div className="col GambarDetail">
                   <img src={car.image} alt="Gambar Mobil" />
                 </div>
                 <div className="col carContent">
-                <h1>{car.name ? car.name.charAt(0).toUpperCase() + car.name.slice(1) : null}</h1>
+                  <h1 className="name-carDetail">{car.name ? car.name.charAt(0).toUpperCase() + car.name.slice(1) : null}</h1>
                   <img src={UsersIcon} className="userIcon-carDetail"></img>
                   {(() => {
                     if (car.category === "small") {
@@ -132,6 +161,8 @@ function CarDetail() {
                     }
                   })()}
                 </div>
+
+                {/* Date Picker */}
                 <div className="date-picker">
                   <h6>Tentukan Lama Sewa Mobil (Max 7 Hari)</h6>
                   <DatePicker
@@ -139,30 +170,31 @@ function CarDetail() {
                     selectsRange={true}
                     startDate={startDate}
                     endDate={endDate}
+                    minDate={new Date()}
+                    maxDate={addDays(startDate, 7)}
                     placeholderText="Pilih Tanggal Mulai dan Akhir Sewa"
                     onChange={(update) => {
                       setDateRange(update);
                     }}
                     isClearable={true}
                   />
-
+                  {/* Calendar Icon on Date Picker */}
                   <div className="icon-calendar-cardDetail">
                     <img src={Icon_Calendar}></img>
                   </div>
                 </div>
+                
+                {/* Car rent price per day */}
                 <div className="row totalPrice-container-carDetail">
-                  <div className="col total-carDetail">
-                    <p>Total</p>
-                  </div>
-                  <div className="col totalPrice-carDetail">
-                    <p>{car.price}</p>
-                  </div>
+                  <h1 className="totalPrice-carDetail">Harga</h1>
+                  <h1 className="totalPriceNumber-carDetail">Rp {car.price}</h1>
                 </div>
-                <div className="btn-payment-cardDetail">
-                  <Link to={`/payment1/${car.id}`}>
-                    <button onClick={handleButtonPaymentCardDetail}>
-                      Lanjutkan Pembayaran
-                    </button>
+
+                {/* Protect 'Lanjutkan Pembayaran' Button */}
+                <div className={startDate && endDate ? "btn-payment-cardDetail-on" : "btn-payment-cardDetail-off"}>
+                  {/* Navigate to payment1 page and Transfer orderId  */}
+                  <Link to={`/payment1/${orderId}`} className={startDate && endDate ? "" : "disabledLink"}>
+                    <button onClick={handleButtonPaymentCardDetail}>Lanjutkan Pembayaran</button>
                   </Link>
                 </div>
               </div>

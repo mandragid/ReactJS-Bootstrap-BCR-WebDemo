@@ -27,9 +27,23 @@
   font-weight: 400;
 }
 
+
+
 .bank-container {
   display: flex;
   margin-bottom: 5px;
+  position: relative;
+  /* border: 1px solid; */
+}
+
+.greenCheck-on {
+  position: absolute;
+  left: 480px;
+  /* border: 1px solid; */
+}
+
+.greenCheck-off {
+  display: none;
 }
 
 .iconLine2-container {

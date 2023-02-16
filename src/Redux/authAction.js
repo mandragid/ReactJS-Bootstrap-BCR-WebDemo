@@ -3,7 +3,7 @@ import { API } from "../const/endpoint";
 
 export let formstatus = "";
 
-export const AuthCheck = (payload) => (dispatch) => {
+export const AuthCheck = () => (dispatch) => {
   const token = localStorage.getItem("token");
   if (!token) {
     dispatch({

@@ -13,7 +13,6 @@ import RegisterCustomer from "./Pages/RegisterCustomer";
 import LoginCustomer from "./Pages/LoginCustomer";
 import CarList from "./admin/Pages/CarList";
 import ProtectedRouteAdmin from "./hoc/ProtectedRouteAdmin";
-import Login from "./admin/Pages/LoginAdmin";
 import AdminAddCar from "./admin/Pages/AdminAddCar";
 import AdminEditCar from "./admin/Pages/AdminEditCar";
 

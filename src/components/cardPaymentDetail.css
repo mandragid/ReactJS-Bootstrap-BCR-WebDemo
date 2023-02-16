@@ -181,41 +181,39 @@
   padding-right: 5px;
 }
 
-.btn-cardPaymentDetail-off{
+.btn-cardPaymentDetail-off {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  padding-left: 15px;
 }
 
 .btn-cardPaymentDetail-off button {
+  font-size: 14px;
+  font-weight: 700;
   width: 360px;
   background-color: #def1df;
   color: #fff;
   border: none;
   border-radius: 2px;
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 
 .btn-cardPaymentDetail-on {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  padding-left: 15px;
 }
 
 .btn-cardPaymentDetail-on button {
+  font-size: 14px;
+  font-weight: 700;
   width: 360px;
   background-color: #5cb85f;
   color: #fff;
   border: none;
   border-radius: 2px;
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 
-.paymentButton-container button span {
-  font-size: 14px;
-  font-weight: 700;
-}

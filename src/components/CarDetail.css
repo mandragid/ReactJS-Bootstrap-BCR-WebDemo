@@ -115,7 +115,7 @@
 .icon-calendar-cardDetail {
   position: absolute;
   bottom: 4px;
-  left: 260px;
+  left: 255px;
   padding-top: 0 !important;
 }
 
@@ -125,7 +125,8 @@
 }
 
 .react-datepicker__close-icon {
-  padding-right: 100px !important;
+  padding-right: 85px !important;
+  
 }
 
 .totalPrice-container-carDetail {
@@ -196,11 +197,11 @@
 }
 
 /* Responsive under 375px */
-@media screen and (max-width: 374px) {
+@media screen and (min-width:360px) and (max-width: 375px) {
   .icon-calendar-cardDetail {
     position: absolute;
     bottom: 4px;
-    left: 245px;
+    left: 255px;
     padding-top: 0 !important;
   }
 

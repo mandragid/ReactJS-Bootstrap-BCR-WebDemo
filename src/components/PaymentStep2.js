@@ -4,15 +4,20 @@ import CheckIcon from "../img/fi_check.png";
 import Number2BlueIcon from "../img/icon_number-2-blue.png";
 import Number3Icon from "../img/icon_number-3.png";
 import LineIcon from "../img/icon_line.png";
+import { useNavigate } from "react-router-dom";
 
 const PaymentStep2 = () => {
+  const Navigate = useNavigate()
+  const goBack = () => {
+    Navigate(-1)
+  }
   return (
     <div className="paymentStep-container">
       <div className="paymentStepContent-container">
         <div className="paymentStep-left-content">
           <div className="back-icon">
             <button>
-              <img src={BackIcon} alt="back-icon"></img>
+              <img src={BackIcon} alt="back-icon" onClick={goBack}></img>
             </button>
           </div>
           <div className="bankChosen-container">

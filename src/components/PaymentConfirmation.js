@@ -2,6 +2,7 @@ import "../components/paymentConfirmation.css";
 import dropzonePreview from "../img/dropzone-preview.png";
 import React, { useCallback, useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
+import { Link } from "react-router-dom";
 
 const thumbsContainer = {
   display: "flex",
@@ -118,7 +119,9 @@ const PaymentConfirmation = (props) => {
                     <aside style={thumbsContainer}>{thumbs}</aside>
                   </div>
                   <div className="btn-upload-paymentConfirmation">
-                    <button>Upload</button>
+                    <Link to={`/Ticket`}>
+                      <button>Upload</button>
+                    </Link>
                   </div>
                 </section>
               </div>

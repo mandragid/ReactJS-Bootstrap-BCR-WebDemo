@@ -1,7 +1,10 @@
 import "../components/paymentTransfer.css";
 import copyToClipboard from "../img/fi_copy.png";
+import React, { useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const PaymentTransfer = () => {
+  // const [inputValue, setInputValue] = useState("");
   return (
     <div className="paymentTransfer-container">
       <div className="heading-paymentTransfer">
@@ -26,9 +29,11 @@ const PaymentTransfer = () => {
           <p>54104257877</p>
         </div>
         <div className="btn-copy-container">
-          <button className="btn-copy btn-copy-accountNumber">
-            <img src={copyToClipboard} alt="icon-copy-to-clipboard"></img>
-          </button>
+          <CopyToClipboard text={54104257877}>
+            <button className="btn-copy btn-copy-accountNumber">
+              <img src={copyToClipboard} alt="icon-copy-to-clipboard"></img>
+            </button>
+          </CopyToClipboard>
         </div>
       </div>
       <div className="heading-moneyToSend">
@@ -39,9 +44,11 @@ const PaymentTransfer = () => {
           <p>Rp 3.500.000</p>
         </div>
         <div className="btn-copy-container">
-          <button className="btn-copy btn-copy-moneyToSend">
-            <img src={copyToClipboard} alt="icon-copy-to-clipboard"></img>
-          </button>
+          <CopyToClipboard text={`Rp 3.500.000`}>
+            <button className="btn-copy btn-copy-moneyToSend">
+              <img src={copyToClipboard} alt="icon-copy-to-clipboard"></img>
+            </button>
+          </CopyToClipboard>
         </div>
       </div>
     </div>

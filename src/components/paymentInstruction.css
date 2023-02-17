@@ -1,0 +1,42 @@
+.paymentInstruction-container {
+  width: 605px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+}
+
+.mainHeading-paymentInstruction h1 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.paymentMethod-container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  /* border: 1px solid; */
+}
+
+.paymentMethod-container h6 {
+  border-bottom: 1px solid #5cb85f;
+  /* border: 1px solid; */
+  width: 135px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.instructions {
+  /* border: 1px solid; */
+  width: 430px;
+}
+
+.instructions ul li {
+  font-size: 12px;
+  font-weight: 400;
+}

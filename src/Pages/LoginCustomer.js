@@ -1,60 +1,100 @@
 import { useState } from "react";
-import NavBar from "../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import "./LoginCustomer.css"
+import SplashLoginCustomer from "../img/SplashLoginCustomer.png"
 import axios from "axios";
 import { API } from "../const/endpoint";
 
 const LoginCustomer = () => {
-    const dispatch = useDispatch()
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const Navigate = useNavigate()
+    const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {userReducer} = useSelector((rootReducer) => rootReducer)
+  const {authReducer} = useSelector((rootReducer) => rootReducer)
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-    }
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
 
-    const handlePassword = (e) => { 
-        setPassword(e.target.value)
-    }
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
 
-    const handleLogin = async() => {
-        const payLoad = {
-            email: email,
-            password: password
-        }
-        axios
-            .post(API.LOGIN_CUSTOMER, payLoad)
-            .then((ress) => {
-                console.log(ress)
-                localStorage.setItem("token", ress.data.access_token);
-                Navigate("/discovery")
-            })
-            .catch((err) => console.log(err.message))
-    }
+  const handleLogin = async() => {
+    const payLoad = {
+      email: email,
+      password: password,
+    };
+    axios
+      .post(API.LOGIN_CUSTOMER, payLoad)
+      .then((res) => {
+          console.log(res)
+          localStorage.setItem("token", res.data.access_token);
+      })
+      .catch((err) => console.log(err.message))
     
-    return ( 
-        <div>
-            <NavBar />
-            {(
-                    <div className="register-section">
-                        <div>
-                            <h1>Login Customer</h1>
-                        </div>
-                        <div className='register-input-bg'>
-                            <input onChange={handleEmail} placeholder='input email'type='email' className='register-input'/>
-                            <input onChange={handlePassword} placeholder='input password' type='password' className='register-input'/>
-                        </div>
-                        <div className='register-button-bg'>
-                            <button onClick={handleLogin} className='register-button'>login</button>
-                        </div>
-                    </div>)
-            }
-            
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  };
+
+
+   return (
+      <div className="login-base">
+        <div className="login-form-section">
+          
+          <div className="login-greetings">
+            <div className="login-rectangle">
+          </div>
+          <h1>Welcome Back!</h1>
+          </div>
+          {
+          !!userReducer.message.length ? (
+            <div>
+            <label>
+            Masukkan username dan password yang benar. Perhatikan penggunaan huruf kapital.
+            </label>  
+            </div>
+          ) : (null)} 
+          <div className="login-form-section-input">
+            <div className="login-input-block">
+            <label>Email</label>
+            <input
+              onChange={handleEmail}
+              placeholder="input email"
+              type="email"
+              className="login-input"
+            />
+            </div>
+            <div className="input-block">
+            <label>Password</label>
+            <input
+              typeof="password"
+              onChange={handlePassword}
+              placeholder="input password"
+              type="password"
+              className="login-input"
+            />
+            <button onClick={handleLogin} className="login-button">
+              Sign-In
+            </button>
+            </div>
+          </div>
+          <div className="login-link-text">
+            <h3>Don't have an account ? <a href="/register">Sign Up for Free</a></h3>
+          </div>
         </div>
-        
-     );
-}
+        <div className="splash-login-customer">
+          <div className="splash-content">
+          <div className="splash-image">
+      <img src={SplashLoginCustomer}/>
+      </div>
+      </div>
+      </div>
+    </div>
+  );
+};
 
 export default LoginCustomer

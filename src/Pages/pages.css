@@ -25,6 +25,8 @@
 .outer-container-for-payBefore-and-paymentConfirmation {
   display: flex;
   justify-content: center;
+  position: relative;
+  /* border: 1px solid; */
 }
 
 .inner-container-for-payBefore-and-paymentConfirmation {
@@ -37,13 +39,19 @@
 .outer-containerFortransferPayment-and-paymentInstruction {
   display: flex;
   justify-content: center;
-  position: relative;
-  bottom: 55px;
+  height: 500px;
+  margin-bottom: 150px;
+  /* border: 1px solid; */
 }
 
 .inner-containerFortransferPayment-and-paymentInstruction {
-  width: 1200px;
+  width: 607px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  position: absolute;
+  top: 480px;
+  right: 752px;
+  /* border: 1px solid; */
 }
+
+

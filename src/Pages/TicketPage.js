@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/Footer";
-import useFileDownloader from "../hooks/useFileDownloader";
-import success from "../image/success.png";
+import useFileDownloader from "../hoc/useFileDownloader";
+import success from "../img/success.png";
 import { Link } from "react-router-dom";
 
 const files = [

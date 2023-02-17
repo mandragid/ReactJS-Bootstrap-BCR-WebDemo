@@ -1,0 +1,144 @@
+.paymentConfirmation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 505px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.txt-paymentConfirmation h1 {
+  font-size: 14px;
+  font-weight: 400;
+  padding-bottom: 50px;
+  /* border: 1px solid; */
+}
+
+.btn-paymentConfirmation button {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #5cb85f;
+  border: none;
+  border-radius: 2px;
+  width: 440px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.uploadPaymentProofDeadline-container {
+  display: flex;
+  justify-content: space-between;
+  width: 505px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* border: 1px solid; */
+}
+
+.firstHeading-uploadPaymentProofDeadline h1 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.firstP-uploadPaymentProofDeadline {
+  padding-left: 30px;
+  padding-right: 30px;
+  /* border: 1px solid; */
+}
+
+.firstP-uploadPaymentProofDeadline p {
+  font-size: 14px;
+  font-weight: 400;
+  /* border: 1px solid; */
+}
+
+.secondHeading-uploadPaymentProofDeadline {
+  width: 505px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* border: 1px solid; */
+}
+
+.secondHeading-uploadPaymentProofDeadline h1 {
+  font-size: 14px;
+  font-weight: 700;
+  /* border: 1px solid; */
+}
+
+.secondP-uploadPaymentProofDeadline {
+  padding-left: 30px;
+  padding-right: 30px;
+  /* border: 1px solid; */
+}
+
+.secondP-uploadPaymentProofDeadline p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Dropzone */
+.dropzone-outer-container {
+  margin-top: 20px;
+  width: 505px;
+  /* border: 1px solid; */
+}
+
+.dropzone-inner-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.dropzone-upload-container {
+  width: 300px;
+  text-align: center;
+  /* border: 1px solid; */
+}
+
+.select-image-dropzone {
+  /* border: 1px solid; */
+}
+
+.select-image-dropzone button {
+  width: 180px;
+  margin-top: 20px;
+  font-size: 14px; 
+  font-weight: 700;
+  color: #000;
+  background-color: #FFF;
+  border: 1px solid rgb(246, 238, 238) !important;
+  border-radius: 4px !important;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-upload-paymentConfirmation {
+  cursor: pointer;
+}
+
+.btn-upload-paymentConfirmation button {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #5cb85f !important;
+  border: none;
+  border-radius: 2px;
+  width: 440px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+aside {
+  position: absolute;
+  bottom: 63px;
+  right: 91px;
+  width: 300px !important;
+  height: 163px;
+  border-radius: 4x;
+  /* border: 1px solid; */
+}

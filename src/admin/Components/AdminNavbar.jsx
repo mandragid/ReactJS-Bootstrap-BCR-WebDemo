@@ -7,32 +7,48 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./AdminNavbar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useState } from "react";
+import { handleFilter } from "../../Redux/carAction";
 
 function AdminNavbar() {
-  const { userReducer } = useSelector((rootReducer) => rootReducer);
-  const navigate = useNavigate;
-
+  const { user } = useSelector((rootReducer) => rootReducer);
+  const navigate = useNavigate();
+  const [carData, setCardata] = useState([]);
+  const [fName, setFname] = useState("");
+  const [fCategory, setFcategory] = useState("");
   const userID = localStorage.getItem("user");
+
+  // console.log("NAMA USER", userID);
+
+  const state = useSelector((rootReducer) => rootReducer);
+  const { name } = useSelector((rootReducer) => rootReducer);
+
+  const dispatch = useDispatch();
+  // console.log("handleName", name);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/admin/login");
+    setTimeout(() => {
+      navigate("/admin/login");
+    }, 2000);
   };
 
-  //   const handleRedirect = () => {
-  //     const token = localStorage.getItem("token");
-  //     if (!token) {
-  //       navigate("/admin/login");
-  //     }
-  //   };
+  const handleChangeName = (e) => {
+    setFname(e.target.value);
+    // console.log(e.target.value);
+  };
+  const handleChangeCategory = (e) => {
+    setFcategory(e.target.value);
+    console.log(e.target.value);
+  };
 
-  //   useEffect(() => {
-  //     handleRedirect();
-  //   });
+  const Filter = () => {
+    dispatch(handleFilter(fName, fCategory));
+    console.log("NAMA USER", userID);
+  };
 
   return (
     <div>
@@ -48,19 +64,22 @@ function AdminNavbar() {
             ></Nav>
             <Form className="d-flex">
               <Form.Control
+                onChange={handleChangeName}
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-primary">Search</Button>
+              <Button onClick={Filter} variant="outline-primary">
+                Search
+              </Button>
             </Form>
             <img
               className="ms-3 admin-user-logo"
               src="https://www.kindpng.com/picc/m/22-223910_circle-user-png-icon-transparent-png.png"
               alt="x"
             />
-            <span className="ms-2">{userReducer.user}</span>{" "}
+            <span className="ms-2">{userID}</span>{" "}
             <DropdownButton
               className="ms-3"
               id="dropdown-basic-button"

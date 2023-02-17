@@ -139,15 +139,21 @@ const AdminEditCar = () => {
 							<div className="col">
 								<div className="row breadCrumb p-3">
 									<Breadcrumb>
-										<Breadcrumb.Item href="#">Cars</Breadcrumb.Item>
-										<Breadcrumb.Item href="/admin/cars">List Cars</Breadcrumb.Item>
+										<Breadcrumb.Item href="#">
+											<span id="addCarBreadCrumbText">Cars</span>
+										</Breadcrumb.Item>
+										<Breadcrumb.Item href="/admin/cars">
+											<span id="addCarBreadCrumbText">List Cars</span>
+										</Breadcrumb.Item>
 										<Breadcrumb.Item active href="/admin/addcar">
-											<span className="bread-title">Edit Car</span>
+											<span className="bread-title">
+												<span>Edit Car</span>
+											</span>
 										</Breadcrumb.Item>
 									</Breadcrumb>
 									<div className="container">
 										<div className="row">
-											<p>Edit Car</p>
+											<p id="addNewCarP">Edit Car</p>
 										</div>
 										{Object.entries(carData).length ? (
 											<div className="addCarInput d-flex ">

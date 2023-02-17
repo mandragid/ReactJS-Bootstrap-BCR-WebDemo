@@ -185,7 +185,7 @@ function CarList() {
 										</div>
 									</div>
 									<div className="row ">
-										<div className="col-2">
+										<div className="col-1 filterCategoryButton">
 											<button
 												className={isAllActive ? "row categoryButtonA " : "row categoryButton "}
 												onClick={() => {
@@ -196,7 +196,7 @@ function CarList() {
 												All
 											</button>
 										</div>
-										<div className="col-2">
+										<div className="col-1">
 											{" "}
 											<button
 												className={isSmallActive ? "row categoryButtonA " : "row categoryButton "}
@@ -208,7 +208,7 @@ function CarList() {
 												2-4 people
 											</button>{" "}
 										</div>
-										<div className="col-2">
+										<div className="col-1">
 											<button
 												className={isMediumActive ? "row categoryButtonA " : "row categoryButton "}
 												onClick={() => {
@@ -219,7 +219,7 @@ function CarList() {
 												4-6 people
 											</button>
 										</div>
-										<div className="col-2">
+										<div className="col-1">
 											<button
 												className={isLargeActive ? "row categoryButtonA " : "row categoryButton "}
 												onClick={() => {
@@ -232,7 +232,7 @@ function CarList() {
 										</div>
 									</div>
 								</div>
-								<div className="cardContainer row">
+								<div className="cardContainer row justify-content-center">
 									{!!cars.carData.length
 										? cars.carData.map((item) => (
 												<div className="col-sm-12 col-md-6  ResultCard ResultCardAdmin">

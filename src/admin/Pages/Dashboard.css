@@ -129,10 +129,35 @@
 .carListCard {
 	display: flex;
 	flex-wrap: wrap;
+	margin-left: 0;
+}
+
+#dashboardTitle {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #8a8a8a;
+}
+
+.dashboardSubtitle {
+	background-color: #cfd4ed;
+	width: 100%;
+	color: #000000;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .ResultCardAdmin {
 	background-color: white;
+}
+
+.filterCategoryButton {
+	margin: 0px;
 }
 
 .buttonAddCar button {
@@ -501,6 +526,8 @@
 .CarImage {
 	max-height: 300px;
 	overflow: auto;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 .addCarInput input {

@@ -102,14 +102,14 @@ const AdminAddCar = () => {
 							<div className="row breadCrumb p-3">
 								<Breadcrumb>
 									<Breadcrumb.Item href="#">
-										<p id="addCarBreadCrumbText">Cars</p>
+										<span id="addCarBreadCrumbText">Cars</span>
 									</Breadcrumb.Item>
 									<Breadcrumb.Item href="/admin/cars">
-										<p id="addCarBreadCrumbText">List Cars</p>
+										<span id="addCarBreadCrumbText">List Cars</span>
 									</Breadcrumb.Item>
 									<Breadcrumb.Item active href="/admin/addcar">
-										<span className="bread-title">
-											<p>Add New Car</p>
+										<span>
+											<span>Add New Car</span>
 										</span>
 									</Breadcrumb.Item>
 								</Breadcrumb>
@@ -172,6 +172,7 @@ const AdminAddCar = () => {
 										</div>
 									</div>
 									<div className="addCarButton">
+										{!!errorMessage && <p>{errorMessage}</p>}
 										<div className="row">
 											<div className="col-1">
 												<button id="cancelAdd">
@@ -184,8 +185,6 @@ const AdminAddCar = () => {
 												</button>
 											</div>
 										</div>
-
-										{!!errorMessage && <p>{errorMessage}</p>}
 									</div>
 								</div>
 							</div>

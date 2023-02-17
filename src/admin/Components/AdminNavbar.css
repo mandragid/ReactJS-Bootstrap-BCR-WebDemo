@@ -1,72 +1,80 @@
 .admin-dashboard {
-	background-color: #f4f5f7;
+  background-color: #f4f5f7;
 }
 
 .sidebar {
-	background-color: #0d28a6;
-	height: 886px;
-	width: 80px;
+  background-color: #0d28a6;
+  height: 886px;
+  width: 80px;
+}
+
+#navTitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .nav-dash {
-	width: 220px;
-	height: 830px;
-	background-color: white;
+  width: 220px;
+  height: 830px;
+  background-color: white;
 }
 
 .chart-container {
-	height: 300px;
-	width: 1000px;
+  height: 300px;
+  width: 1000px;
 }
 
 .admin-user-logo {
-	width: 30px;
+  width: 30px;
 }
 
 .admin-dashboard ul li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 .admin-dashboard a {
-	text-decoration: none;
-	color: black;
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 12px;
-	line-height: 18px;
+  text-decoration: none;
+  color: black;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .bread-title {
-	font-family: "Rubik";
-	font-style: normal;
-	font-weight: 300;
-	font-size: 12px;
-	line-height: 18px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .header-title {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 #table-title {
-	font-family: "Arial";
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 30px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 .adminpage-btn {
-	background-color: #0d28a6;
-	border-radius: 0px 2px 2px 0px;
-	margin-bottom: 70px;
+  background-color: #0d28a6;
+  border-radius: 0px 2px 2px 0px;
+  margin-bottom: 70px;
 }
 
 .header-title-container {
-	margin-top: 50px;
+  margin-top: 50px;
 }

@@ -25,7 +25,7 @@ const CardPaymentDetail = () => {
   const rentDuration = endDateOnly - startDateOnly;
   const navigate = useNavigate();
   const state = useSelector((rootReducer) => rootReducer);
- 
+  console.log(state);
 
   // Previously, tried to get the chosen bank from localStorage
   // useEffect(() => {
@@ -35,20 +35,22 @@ const CardPaymentDetail = () => {
   //   // setSelectedBank(localStorage.getItem("Mandiri"));
   // }, []);
 
-  const config = {
-    headers: {
-      access_token: localStorage.getItem("token"),
-    },
-  };
+  useEffect(() => {
+    const config = {
+      headers: {
+        access_token: localStorage.getItem("token"),
+      },
+    };
 
-  axios
-    .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`,config)
-    .then((res) => {
-      // console.log(res);
-      setCar(res.data.Car);
-      setTotalPrice(res.data.total_price);
-    })
-    .catch((err) => console.log(err.message));
+    axios
+      .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
+      .then((res) => {
+        // console.log(res);
+        setCar(res.data.Car);
+        setTotalPrice(res.data.total_price);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
 
   const handleBayar = () => {
     // Get login token

@@ -16,7 +16,7 @@ const BankPayment = () => {
   const dispatch = useDispatch();
   // Receive data from redux
   const state = useSelector((rootReducer) => rootReducer);
-  // console.log(state);
+  console.log(state);
 
     // Previously, remove the chosen bank from local storage when this page refreshed
   // useEffect(() => {

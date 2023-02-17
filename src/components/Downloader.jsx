@@ -74,7 +74,7 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
     // eslint-disable-next-line
   }, []);
 
-  const formatBytes = (bytes) => `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+  const formatBytes = (bytes) => `${(bytes / (1024 * 1024)).toFixed(3)} MB`;
 
   return (
     <li className="list-group-item">

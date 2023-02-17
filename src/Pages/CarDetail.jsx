@@ -23,14 +23,19 @@ import moment from "moment/moment";
 function CarDetail() {
   // Get car id
   const { id } = useParams();
+  // Store car id to variable
+  const carId = id;
   const [car, setCar] = useState({});
   const [orderId, setOrderId] = useState(0);
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
-  const dateStart = moment(localStorage.getItem("startDate"));
-  const dateEnd = moment(localStorage.getItem("endDate"));
-  // Store car id to variable
-  const carId = id;
+  const dateStart = moment(startDate).format();
+  const dateEnd = moment(endDate).format();
+  const justStartDate = dateStart.substr(8, 2);
+  const justEndDate = dateEnd.substr(8, 2);
+  const rentDurations = justEndDate - justStartDate;
+  // console.log(rentDurations);
+  const totalPrice = car.price * rentDurations;
 
   // On Button 'Lanjutkan Pembayaran'
   const handleButtonPaymentCardDetail = () => {
@@ -48,8 +53,8 @@ function CarDetail() {
 
     // Payload format to get Order ID
     const payload = {
-      start_rent_at: dateStart.format().substr(0, 10),
-      finish_rent_at: dateEnd.format().substr(0, 10),
+      start_rent_at: dateStart.substr(0, 10),
+      finish_rent_at: dateEnd.substr(0, 10),
       car_id: carId,
     };
     // console.log(payload);
@@ -71,7 +76,7 @@ function CarDetail() {
     localStorage.removeItem("orderId");
   }, []);
   // console.log(orderId);
-
+  console.log(typeof car.price);
   // Get Chosen car from Search Page by id
   useEffect(() => {
     axios
@@ -183,11 +188,19 @@ function CarDetail() {
                     <img src={Icon_Calendar}></img>
                   </div>
                 </div>
-                
+
                 {/* Car rent price per day */}
                 <div className="row totalPrice-container-carDetail">
-                  <h1 className="totalPrice-carDetail">Harga</h1>
-                  <h1 className="totalPriceNumber-carDetail">Rp {car.price}</h1>
+                  <h1 className="totalPrice-carDetail">Total</h1>
+                  {(() => {
+                    if (rentDurations === 0) {
+                      return <h1 className="totalPriceNumber-carDetail">Rp {car.price}</h1>;
+                    } else if (!totalPrice) {
+                      return <h1 className="totalPriceNumber-carDetail">Rp 0</h1>;
+                    } else if (rentDurations > 0) {
+                      return <h1 className="totalPriceNumber-carDetail">Rp {car.price * rentDurations}</h1>;
+                    }
+                  })()}
                 </div>
 
                 {/* Protect 'Lanjutkan Pembayaran' Button */}

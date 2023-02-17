@@ -13,9 +13,9 @@ const PayBefore = () => {
           </div>
         </div>
         <div className="deadline-container">
-          <div className="deadline-hour"></div>
-          <div className="deadline-minute"></div>
-          <div className="deadline-second"></div>
+          <div className="deadline-hour">12</div>
+          <div className="deadline-minute">59</div>
+          <div className="deadline-second">59</div>
         </div>
       </div>
     </div>

@@ -15,30 +15,28 @@ import CarList from "./admin/Pages/CarList";
 import ProtectedRouteAdmin from "./hoc/ProtectedRouteAdmin";
 import AdminAddCar from "./admin/Pages/AdminAddCar";
 import AdminEditCar from "./admin/Pages/AdminEditCar";
-import TicketPage from "./Pages/TicketPage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/cari-mobil" element={<SearchCar />} />
-        <Route path="/hasil-pencarian" element={<SearchResult />} />
-        <Route path="/detail-paket/:id" element={<CarDetail />} />
-        <Route path="/payment1/:id" element={<PaymentPage1 />} />
-        <Route path="/payment2/:id/" element={<PaymentPage2 />} />
-        <Route path="/Login" element={<LoginCustomer />} />
-        <Route path="/Register" element={<RegisterCustomer />} />
-        <Route path="/Ticket/:id/" element={<TicketPage />} />
-        <Route element={<ProtectedRouteAdmin />}>
-          <Route path="/admin/cars" element={<CarList />} />
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/admin/addcar" element={<AdminAddCar />} />
-          <Route path="/admin/edit-car/:id" element={<AdminEditCar />} />
-        </Route>
-        <Route path="/admin/login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/cari-mobil" element={<SearchCar />} />
+          <Route path="/hasil-pencarian" element={<SearchResult />} />
+          <Route path="/detail-paket/:id" element={<CarDetail />} />
+          <Route path="/payment1/:id" element={<PaymentPage1 />} />
+          <Route path="/payment2/:id/" element={<PaymentPage2 />} />
+          <Route path="/Login" element={<LoginCustomer />} />
+          <Route path="/Register" element={<RegisterCustomer />} />
+          <Route element={<ProtectedRouteAdmin />}>
+            <Route path="/admin/cars" element={<CarList />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/addcar" element={<AdminAddCar />} />
+            <Route path="/admin/edit-car/:id" element={<AdminEditCar />} />
+          </Route>
+          <Route path="/admin/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 

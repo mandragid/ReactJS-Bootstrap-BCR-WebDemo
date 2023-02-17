@@ -70,7 +70,6 @@ function CarDetail() {
     };
     // console.log(payload);
 
-<<<<<<< HEAD
     // Post API, payload and config to get orderID
     axios
       .post(API.POST_CUSTOMER_ORDER, payload, config)
@@ -80,9 +79,7 @@ function CarDetail() {
         navigate(`/payment1/${res.data.id}/`);
       })
       .catch((err) => console.log(err.message));
-=======
     
->>>>>>> feat.Authentication
   };
 
   // Remove dates and order id when user back to this page or refresh this page

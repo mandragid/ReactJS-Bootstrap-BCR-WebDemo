@@ -11,7 +11,6 @@ const OrderDetail = () => {
   const [car, setCar] = useState([]);
   const startDate = moment(localStorage.getItem("startDate"));
   const endDate = moment(localStorage.getItem("endDate"));
- 
 
   useEffect(() => {
     // Get login token
@@ -25,7 +24,6 @@ const OrderDetail = () => {
     axios
       .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
       .then((res) => {
-        console.log("Order Detail Line 28", res);
         setCar(res.data.Car);
       })
       .catch((err) => console.log(err.message));

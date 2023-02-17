@@ -5,7 +5,7 @@ import lineIcon from "../img/icon_line-3.png";
 import axios from "axios";
 import { API } from "../const/endpoint";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import rootReducer from "../Redux";
 import moment from "moment/moment";
@@ -23,6 +23,7 @@ const CardPaymentDetail = () => {
   const startDateOnly = dateStart.format().substr(8, 2);
   const endDateOnly = dateEnd.format().substr(8, 2);
   const rentDuration = endDateOnly - startDateOnly;
+  const navigate = useNavigate()
   const state = useSelector((rootReducer) => rootReducer);
   // console.log(state);
 
@@ -34,7 +35,7 @@ const CardPaymentDetail = () => {
   //   // setSelectedBank(localStorage.getItem("Mandiri"));
   // }, []);
 
-  useEffect(() => {
+  const handleBayar = () => {
     // Get login token
     const config = {
       headers: {
@@ -49,9 +50,10 @@ const CardPaymentDetail = () => {
         // console.log(res);
         setCar(res.data.Car);
         setTotalPrice(res.data.total_price);
+        navigate(`/payment2/${res.data.id}/`);
       })
       .catch((err) => console.log(err.message));
-  }, []);
+  };
 
   return (
     <div className="cardPaymentDetail-container">
@@ -140,11 +142,11 @@ const CardPaymentDetail = () => {
                   return (
                     <div className="btn-cardPaymentDetail-on">
                       {/* Navigate to payment2 page and transfer orderId */}
-                      <Link to={`/payment2/${orderId}/`}>
-                        <button>
-                          <span>Bayar</span>
-                        </button>
-                      </Link>
+                      {/* <Link to={`/payment2/${orderId}/`}>
+                      </Link> */}
+                      <button onClick={handleBayar}>
+                        <span>Bayar</span>
+                      </button>
                     </div>
                   );
                 } else {

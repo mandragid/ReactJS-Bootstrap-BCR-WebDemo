@@ -1,8 +1,9 @@
 import "../components/paymentConfirmation.css";
 import dropzonePreview from "../img/dropzone-preview.png";
 import React, { useCallback, useState, useEffect } from "react";
+import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import { Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const thumbsContainer = {
   display: "flex",
@@ -34,7 +35,11 @@ const img = {
 };
 
 const PaymentConfirmation = (props) => {
+  const { id } = useParams();
   const [paymentConfirmed, setPaymentConfirmed] = useState(false);
+  const [orderId, setOrderId] = useState(0);
+  // const [image, setImage] = useState("");
+  const navigate = useNavigate();
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -50,7 +55,7 @@ const PaymentConfirmation = (props) => {
       );
     },
   });
-  console.log(files);
+  console.log("INI GAMBAR YANG DIPILIH", files[0]);
 
   // To delete selected image
   // const deleteFile = () => {
@@ -81,6 +86,28 @@ const PaymentConfirmation = (props) => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     // return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
   }, []);
+
+  const handleUpload = () => {
+    const config = {
+      headers: {
+        access_token: localStorage.getItem("token"),
+      },
+    };
+
+    console.log(config);
+
+    const formData = new FormData();
+    formData.append("slip", files[0]);
+    axios
+      .put(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}/slip`, formData, config)
+      .then((res) => {
+        console.log("Payment Confirmation", res);
+        setOrderId(res.data.id);
+        // console.log(res.data.id);
+        navigate(`/Ticket/${id}`);
+      })
+      .catch((err) => console.log(err.message));
+  };
 
   return (
     <div className="paymentConfirmation-container">
@@ -119,9 +146,7 @@ const PaymentConfirmation = (props) => {
                     <aside style={thumbsContainer}>{thumbs}</aside>
                   </div>
                   <div className="btn-upload-paymentConfirmation">
-                    <Link to={`/Ticket`}>
-                      <button>Upload</button>
-                    </Link>
+                    <button onClick={handleUpload}>Upload</button>
                   </div>
                 </section>
               </div>
@@ -138,39 +163,6 @@ const PaymentConfirmation = (props) => {
           }
         })()}
       </div>
-      {/* <div className="uploadPaymentProofDeadline-container">
-        <div className="firstHeading-uploadPaymentProofDeadline">
-          <h1>Konfirmasi Pembayaran</h1>
-        </div>
-        <div className="deadline-uploadPaymentProofDeadline">
-          <h5>12 : 12</h5>
-        </div>
-      </div>
-      <div className="firstP-uploadPaymentProofDeadline">
-        <p>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
-      </div>
-      <div className="secondHeading-uploadPaymentProofDeadline">
-        <h1>Upload Bukti Pembayaran</h1>
-      </div>
-      <div className="secondP-uploadPaymentProofDeadline">
-        <p>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
-      </div> */}
-
-      {/* <section className="container dropzone-outer-container">
-        <div className="dropzone-inner-container">
-          <div {...getRootProps({ className: "dropzone dropzone-upload-container" })}>
-            <input {...getInputProps()} />
-            <img src={dropzonePreview}></img>
-            <div className="select-image-dropzone">
-              <button>Click or Drop Here</button>
-            </div>
-          </div>
-          <aside style={thumbsContainer}>{thumbs}</aside>
-        </div>
-        <div className="btn-upload-paymentConfirmation">
-          <button >Upload</button>
-        </div>
-      </section> */}
     </div>
   );
 };

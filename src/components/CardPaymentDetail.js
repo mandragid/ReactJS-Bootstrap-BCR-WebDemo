@@ -23,7 +23,7 @@ const CardPaymentDetail = () => {
   const startDateOnly = dateStart.format().substr(8, 2);
   const endDateOnly = dateEnd.format().substr(8, 2);
   const rentDuration = endDateOnly - startDateOnly;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const state = useSelector((rootReducer) => rootReducer);
   // console.log(state);
 
@@ -35,13 +35,28 @@ const CardPaymentDetail = () => {
   //   // setSelectedBank(localStorage.getItem("Mandiri"));
   // }, []);
 
+  const config = {
+    headers: {
+      access_token: localStorage.getItem("token"),
+    },
+  };
+
+  axios
+    .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
+    .then((res) => {
+      // console.log(res);
+      setCar(res.data.Car);
+      setTotalPrice(res.data.total_price);
+    })
+    .catch((err) => console.log(err.message));
+
   const handleBayar = () => {
     // Get login token
-    const config = {
-      headers: {
-        access_token: localStorage.getItem("token"),
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     access_token: localStorage.getItem("token"),
+    //   },
+    // };
 
     // Get car data by id
     axios
@@ -58,14 +73,14 @@ const CardPaymentDetail = () => {
   return (
     <div className="cardPaymentDetail-container">
       <div className="cardPaymentDetail-heading firstHeading">
-        <h1>{car.name}</h1>
+        <h1>{car.name ? car.name.charAt(0).toUpperCase() + car.name.slice(1) : "-"}</h1>
       </div>
       <div className="carCapacity-container">
         <div className="cardPaymentDetail-icon-user">
           <img src={carCapacity}></img>
         </div>
         <div className="carCapacity">
-          <h6>{car.category}</h6>
+          <h6>{car.category ? car.category.charAt(0).toUpperCase() + car.category.slice(1) : "-"}</h6>
         </div>
       </div>
       {/* Card's Accordion  */}

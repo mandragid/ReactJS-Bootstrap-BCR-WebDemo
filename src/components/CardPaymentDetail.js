@@ -35,14 +35,14 @@ const CardPaymentDetail = () => {
   //   // setSelectedBank(localStorage.getItem("Mandiri"));
   // }, []);
 
-  const config = {
-    headers: {
-      access_token: localStorage.getItem("token"),
-    },
-  };
+  // const config = {
+  //   headers: {
+  //     access_token: localStorage.getItem("token"),
+  //   },
+  // };
 
   axios
-    .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
+    .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`)
     .then((res) => {
       // console.log(res);
       setCar(res.data.Car);
@@ -52,11 +52,11 @@ const CardPaymentDetail = () => {
 
   const handleBayar = () => {
     // Get login token
-    // const config = {
-    //   headers: {
-    //     access_token: localStorage.getItem("token"),
-    //   },
-    // };
+    const config = {
+      headers: {
+        access_token: localStorage.getItem("token"),
+      },
+    };
 
     // Get car data by id
     axios

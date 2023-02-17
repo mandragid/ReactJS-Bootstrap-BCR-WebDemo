@@ -1,7 +1,7 @@
-/* .admin-dashboards {
-	background-color: #f1f3ff;
-	height: 100%;
-} */
+.admin-dashboards {
+  background-color: #f1f3ff;
+  height: 100%;
+}
 
 .sidebar {
   background-color: #0d28a6;
@@ -11,6 +11,19 @@
 
 .sidebar p {
   color: white;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#navTitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .sidebarAdd {
@@ -57,12 +70,12 @@
   height: 300px;
 }
 
-.admin-user-logo {
-  width: 30px;
+.chartjs-container {
+  height: 400px;
 }
 
-.cardContainer {
-  background-color: white;
+.admin-user-logo {
+  width: 30px;
 }
 
 .admin-dashboard ul li {
@@ -116,6 +129,35 @@
 .carListCard {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 0;
+}
+
+#dashboardTitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8a8a8a;
+}
+
+.dashboardSubtitle {
+  background-color: #cfd4ed;
+  width: 100%;
+  color: #000000;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ResultCardAdmin {
+  background-color: white;
+}
+
+.filterCategoryButton {
+  margin: 0px;
 }
 
 .buttonAddCar button {
@@ -215,7 +257,7 @@
 }
 
 .deleteMessage {
-  background-color: black;
+  background-color: #000000;
   color: white;
   display: flex;
   flex-direction: row;
@@ -227,7 +269,33 @@
   width: 550px;
   height: 48px;
   top: 100px;
-  left: 100px;
+  left: 700px;
+
+  animation: hideAnimation 0s ease-in 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+.editMessage {
+  background-color: #73ca5c;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+  position: absolute;
+  width: 550px;
+  height: 48px;
+  top: 100px;
+  left: 700px;
 
   animation: hideAnimation 0s ease-in 5s;
   animation-fill-mode: forwards;
@@ -241,6 +309,13 @@
   }
 }
 
+.editMessage h1 {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
 .deleteMessage h1 {
   font-family: "Rubik";
   font-style: normal;
@@ -299,8 +374,28 @@
   width: 40px;
 }
 
-.categoryButton button {
+.categoryButton {
   background-color: #ffffff;
+  color: #aeb7e1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  width: 102px;
+  height: 36px;
+  margin-left: -10px;
+  border: 2px solid #aeb7e1;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.categoryButtonA {
+  background-color: #cfd4ed;
   color: #0d28a6;
   display: flex;
   flex-direction: row;
@@ -311,7 +406,7 @@
   width: 102px;
   height: 36px;
   margin-left: -10px;
-
+  border: 2px solid #aeb7e1;
   font-family: "Arial";
   font-style: normal;
   font-weight: 700;
@@ -336,6 +431,27 @@
   padding: 8px 12px;
   gap: 10px;
   background: #0d28a6;
+  color: white;
+  border-radius: 2px;
+  position: absolute;
+  width: 57px;
+  height: 36px;
+
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.addCarButton #saveAddDisabled {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  background: #868686;
   color: white;
   border-radius: 2px;
   position: absolute;
@@ -384,6 +500,34 @@
   width: 90%;
   margin-left: 20px;
   padding: 20px;
+}
+
+#addNewCarP {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+#addCarBreadCrumbText {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.breadCrumb a {
+  text-decoration: none;
+}
+
+.CarImage {
+  max-height: 300px;
+  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .addCarInput input {

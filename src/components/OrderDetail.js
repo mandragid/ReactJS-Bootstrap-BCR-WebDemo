@@ -25,7 +25,7 @@ const OrderDetail = () => {
     axios
       .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
       .then((res) => {
-        // console.log(res);
+        console.log("Order Detail Line 28", res);
         setCar(res.data.Car);
       })
       .catch((err) => console.log(err.message));

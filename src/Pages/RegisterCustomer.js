@@ -103,7 +103,7 @@ const RegisterCustomer = () => {
             </div>
         </div>
           <div className="register-link-text">
-            <h3>Already have an account ? <a href="/register">Sign In here</a></h3>
+            <h3>Already have an account ? <a href="/login">Sign In here</a></h3>
             </div>
       </div>
       

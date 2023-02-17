@@ -6,6 +6,7 @@ import { AuthCheck } from "../Redux/authAction";
 const ProtectedRouteAdmin = () => {
   const { authReducer } = useSelector((rootReducer) => rootReducer);
   const dispatch = useDispatch();
+  console.log("auth", authReducer);
   //part 1
 
   useEffect(() => {

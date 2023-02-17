@@ -93,21 +93,29 @@ const AdminAddCar = () => {
 					<AdminNavbar />
 					<div className="row">
 						<div className="col-1 nav-add">
-							<p>Cars</p>
+							<Link to={`/admin/cars`}>
+								<p>Cars</p>
+							</Link>
 							<p>List Cars</p>
 						</div>
 						<div className="col">
 							<div className="row breadCrumb p-3">
 								<Breadcrumb>
-									<Breadcrumb.Item href="#">Cars</Breadcrumb.Item>
-									<Breadcrumb.Item href="/admin/cars">List Cars</Breadcrumb.Item>
+									<Breadcrumb.Item href="#">
+										<span id="addCarBreadCrumbText">Cars</span>
+									</Breadcrumb.Item>
+									<Breadcrumb.Item href="/admin/cars">
+										<span id="addCarBreadCrumbText">List Cars</span>
+									</Breadcrumb.Item>
 									<Breadcrumb.Item active href="/admin/addcar">
-										<span className="bread-title">Add New Car</span>
+										<span>
+											<span>Add New Car</span>
+										</span>
 									</Breadcrumb.Item>
 								</Breadcrumb>
 								<div className="container">
 									<div className="row">
-										<p>Add New Car</p>
+										<p id="addNewCarP">Add New Car</p>
 									</div>
 									<div className="addCarInput d-flex ">
 										<div className="row">
@@ -164,6 +172,7 @@ const AdminAddCar = () => {
 										</div>
 									</div>
 									<div className="addCarButton">
+										{!!errorMessage && <p>{errorMessage}</p>}
 										<div className="row">
 											<div className="col-1">
 												<button id="cancelAdd">
@@ -176,8 +185,6 @@ const AdminAddCar = () => {
 												</button>
 											</div>
 										</div>
-
-										{!!errorMessage && <p>{errorMessage}</p>}
 									</div>
 								</div>
 							</div>

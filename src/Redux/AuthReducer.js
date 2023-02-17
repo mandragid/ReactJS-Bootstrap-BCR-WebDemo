@@ -1,6 +1,6 @@
 const initialState = {
     isLogin : false,
-    loading : false,
+    loading : true,
     user: "",
     message: "",
     name:"",

@@ -14,6 +14,7 @@ const RegisterCustomer = () => {
     const dispatch = useDispatch();
     const {userReducer} = useSelector((rootReducer) => rootReducer)
     const {authReducer} = useSelector((rootReducer) => rootReducer)
+    const [fail, setFail] = useState("")
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -37,12 +38,13 @@ const RegisterCustomer = () => {
       .post(API.REGISTER_CUSTOMER, payLoad)
       .then((res) => {
         console.log(res)
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       })
-      .catch((err) => console.log(err.message))
+      .catch((err) => setFail(err.message))
     
-    setTimeout(() => {
-      navigate("/login");
-    }, 2000);
+    
   }
   console.log("user" ,userReducer.user)
 
@@ -51,14 +53,6 @@ const RegisterCustomer = () => {
       <div className="register-base">
         <div className="register-coloumn">
         <div className="register-form-section">
-          {
-          !!userReducer.message.length ? (
-            <div>
-            <label>
-            Masukkan username dan password yang benar. Perhatikan penggunaan huruf kapital.
-            </label>  
-            </div>
-          ) : (null)} 
           <div className="register-form-section-input">
             <div className="register-greetings">
             <div className="register-rectangle">
@@ -66,6 +60,14 @@ const RegisterCustomer = () => {
             <h1>Sign Up</h1>
           </div>
           <div className="register-input-block">
+            {
+          !!fail ? (
+            <div className="fail-reg">
+            <label>
+            Masukkan username dan password yang benar. Perhatikan penggunaan huruf kapital.
+            </label>  
+            </div>
+          ) : (null)} 
             <label>Name</label>
             <input
               onChange={handleName}

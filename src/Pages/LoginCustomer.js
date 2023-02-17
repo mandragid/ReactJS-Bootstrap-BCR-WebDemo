@@ -8,12 +8,10 @@ import { API } from "../const/endpoint";
 
 const LoginCustomer = () => {
     const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const {userReducer} = useSelector((rootReducer) => rootReducer)
-  const {authReducer} = useSelector((rootReducer) => rootReducer)
-
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [wrong, setWrong] = useState ("")
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -32,12 +30,11 @@ const LoginCustomer = () => {
       .then((res) => {
           console.log(res)
           localStorage.setItem("token", res.data.access_token);
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
       })
-      .catch((err) => console.log(err.message))
-    
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+      .catch((err) => setWrong(true))
   };
 
 
@@ -50,15 +47,16 @@ const LoginCustomer = () => {
           </div>
           <h1>Welcome Back!</h1>
           </div>
+          <div className="login-form-section-input">
           {
-          !!userReducer.message.length ? (
-            <div>
+          !!wrong ? (
+            <div className="wrong-login">
             <label>
             Masukkan username dan password yang benar. Perhatikan penggunaan huruf kapital.
             </label>  
             </div>
           ) : (null)} 
-          <div className="login-form-section-input">
+          
             <div className="login-input-block">
             <label>Email</label>
             <input

@@ -1,0 +1,121 @@
+.downloader {
+    width: 100px;
+    min-height: 128px;
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    max-height: 700px;
+}
+
+.downloader .card-header {
+    color: #fff;
+    background-color: #0D28A6;
+}
+
+.downloader .card .list-group {
+    max-height: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.btn-download {
+    border: 1px solid #0D28A6;
+    border-radius: 2px;
+    padding: 8px 12px;
+    gap: 10px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    position: absolute;
+    width: 97px;
+    height: 36px;
+    left: 484px;
+    top: 24px;
+}
+
+
+/* E-Ticket */
+.card-ticket { 
+    width: 605px;
+    height: 290px;
+    margin: auto;
+}
+
+.card-body-ticket {
+    width: 605px;
+    height: 290px;
+}
+
+.card-body-ticket a {
+    font-family: 'Arial';
+    color: #0D28A6;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px
+}
+
+.card-body-ticket img {
+    width: 557px;
+    height: 162px;
+}
+
+.card-body-ticket h4 {
+    position: absolute;
+    width: 299px;
+    height: 20px;
+    right: 400px;
+    top: 24px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.card-body-ticket h5 {
+    position: absolute;
+    right: 508px;
+    top: 20.69%;
+    bottom: 72.41%;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.card-img-top {
+    position: absolute;
+    width: 557px;
+    height: 162px;
+    left: 24px;
+    top: 104px;
+}
+
+.payment-alert img {
+    width: 48px;
+    height: 48px;  
+    display: flex;
+    margin: auto;
+}
+
+.payment-alert h3{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    padding-top: 10px;
+}
+
+.payment-alert p {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #8A8A8A;
+}

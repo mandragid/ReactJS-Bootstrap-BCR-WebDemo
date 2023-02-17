@@ -34,10 +34,8 @@ function CarDetail() {
   const justStartDate = dateStart.substr(8, 2);
   const justEndDate = dateEnd.substr(8, 2);
   const rentDurations = justEndDate - justStartDate;
-  // console.log(typeof rentDurations);
+  // console.log(rentDurations);
   const totalPrice = car.price * rentDurations;
-  console.log(totalPrice);
-  // console.log(typeof car.price);
 
   // On Button 'Lanjutkan Pembayaran'
   const handleButtonPaymentCardDetail = () => {
@@ -195,9 +193,11 @@ function CarDetail() {
                 <div className="row totalPrice-container-carDetail">
                   <h1 className="totalPrice-carDetail">Total</h1>
                   {(() => {
-                    if (!totalPrice) {
+                    if (rentDurations === 0) {
+                      return <h1 className="totalPriceNumber-carDetail">Rp {car.price}</h1>;
+                    } else if (!totalPrice) {
                       return <h1 className="totalPriceNumber-carDetail">Rp 0</h1>;
-                    } else {
+                    } else if (rentDurations > 0) {
                       return <h1 className="totalPriceNumber-carDetail">Rp {car.price * rentDurations}</h1>;
                     }
                   })()}

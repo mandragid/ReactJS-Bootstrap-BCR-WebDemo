@@ -40,7 +40,16 @@ function CarDetail() {
   // set order id outside function, if set inside need to double click
   localStorage.setItem("orderId", orderId);
   // On Button 'Lanjutkan Pembayaran'
-  const handleButtonPaymentCardDetail = () => {
+  const handleButtonPaymentCardDetail = async() => {
+    // Post API, payload and config to get orderID
+    await axios
+      .post(API.POST_CUSTOMER_ORDER, payload, config)
+      .then((res) => {
+        console.log(res);
+        setOrderId(res.data.id);
+      })
+      .catch((err) => console.log(err.message));
+    
     // Set dates and order id to local storage
     localStorage.setItem("startDate", startDate);
     localStorage.setItem("endDate", endDate);
@@ -61,6 +70,7 @@ function CarDetail() {
     };
     // console.log(payload);
 
+<<<<<<< HEAD
     // Post API, payload and config to get orderID
     axios
       .post(API.POST_CUSTOMER_ORDER, payload, config)
@@ -70,6 +80,9 @@ function CarDetail() {
         navigate(`/payment1/${res.data.id}/`);
       })
       .catch((err) => console.log(err.message));
+=======
+    
+>>>>>>> feat.Authentication
   };
 
   // Remove dates and order id when user back to this page or refresh this page

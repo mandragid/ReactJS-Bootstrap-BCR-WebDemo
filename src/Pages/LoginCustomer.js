@@ -30,7 +30,8 @@ const LoginCustomer = () => {
     axios
       .post(API.LOGIN_CUSTOMER, payLoad)
       .then((res) => {
-          navigate("/login")
+          console.log(res)
+          localStorage.setItem("token", res.data.access_token);
       })
       .catch((err) => console.log(err.message))
     
@@ -38,7 +39,6 @@ const LoginCustomer = () => {
       navigate("/");
     }, 2000);
   };
-  console.log("user" ,userReducer.user)
 
 
    return (
@@ -82,7 +82,7 @@ const LoginCustomer = () => {
             </button>
             </div>
           </div>
-          <div>
+          <div className="login-link-text">
             <h3>Don't have an account ? <a href="/register">Sign Up for Free</a></h3>
           </div>
         </div>

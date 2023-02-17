@@ -18,7 +18,6 @@ import AdminEditCar from "./admin/Pages/AdminEditCar";
 
 function App() {
   return (
-    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -38,7 +37,6 @@ function App() {
           <Route path="/admin/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

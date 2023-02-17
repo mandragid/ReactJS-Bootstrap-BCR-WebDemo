@@ -11,10 +11,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-self: center;
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
+    margin: auto;
+    align-items: center;
 }
 
 .login-rectangle {
@@ -61,13 +59,14 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    padding-top: 10px;
+    padding-top: 10px;;
 }
 
 .login-form-section-input {
     align-items: left;
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .login-form-section-input label {
@@ -88,4 +87,26 @@
     width: 100%;
     background: #0D28A6;
     border-radius: 2px;
+}
+
+.login-greetings{
+    width: 50%;
+}
+
+.login-link-text h3{
+
+font-family: 'Arial';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.login-link-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
 }

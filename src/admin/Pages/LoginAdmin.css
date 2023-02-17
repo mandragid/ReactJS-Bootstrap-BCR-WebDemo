@@ -1,5 +1,5 @@
 .splashImage {
-    width: 67%;
+    width: 60%;
     height: 100%;  
     overflow: hidden;
 }
@@ -11,6 +11,11 @@
 }
 
 
+.splashImage img {
+    height: 100%;
+    width: 100%;
+}
+
 .rectangle {
     width: 100px;
     height: 34px;
@@ -20,12 +25,14 @@
     margin-bottom: 20px;
 }
 .form-section {
-    width: 33%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-self: center;
     align-items: left;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 
@@ -71,7 +78,7 @@
 }
 
 .form-section input {
-    width: 80%;
+    width: 100%;
 }
 
 .form-section-input {
@@ -87,4 +94,28 @@
     width: 80%;
     background: #0D28A6;
     border-radius: 2px;
+}
+
+.wrong-input-alert {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 16px;
+    height: 60px;
+    left: 0%;
+    right: 0%;
+    top: calc(50% - 60px/2 - 58.09px);
+    background: rgba(208, 12, 26, 0.1);
+    border-radius: 5px;
+    align-items: center;
+}
+
+.wrong-input-alert label {
+font-family: 'Arial';
+font-size: auto;
+line-height: 18px;
+color: #D00C1A;
+flex: none;
+order: 1;
+flex-grow: 1;
 }

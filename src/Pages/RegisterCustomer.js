@@ -36,7 +36,7 @@ const RegisterCustomer = () => {
     axios
       .post(API.REGISTER_CUSTOMER, payLoad)
       .then((res) => {
-          navigate("/login")
+        console.log(res)
       })
       .catch((err) => console.log(err.message))
     
@@ -49,6 +49,7 @@ const RegisterCustomer = () => {
 
    return (
       <div className="register-base">
+        <div className="register-coloumn">
         <div className="register-form-section">
           {
           !!userReducer.message.length ? (
@@ -95,13 +96,15 @@ const RegisterCustomer = () => {
           <span></span>
           <div className="register-sign-button">
             <button onClick={handleRegister} className="register-button">
-              Sign-In
+              Sign-Up
             </button>
-          </div>
+            </div>
+        </div>
           <div className="register-link-text">
             <h3>Already have an account ? <a href="/register">Sign In here</a></h3>
-          </div>
-        </div>
+            </div>
+      </div>
+      
       </div>
       <div className="splash-register-customer">
             <img src={SplashLoginCustomer}/>

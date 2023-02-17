@@ -47,14 +47,14 @@ const Login = () => {
           <div className="greetings">
             <h1>Welcome, Admin BCR</h1>
           </div>
-          {/* {!!userReducer.message.length ? (
-            <div>
+          {!!userReducer.message.length ? (
+            <div className="wrong-input-alert">
               <label>
                 Masukkan username dan password yang benar. Perhatikan penggunaan
                 huruf kapital.
               </label>
             </div>
-          ) : null} */}
+          ) : null}
           <div className="form-section-input">
             <div className="input-block">
               <label>Email</label>

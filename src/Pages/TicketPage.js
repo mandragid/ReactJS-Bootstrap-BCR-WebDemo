@@ -1,27 +1,64 @@
 import React from "react";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
+import PaymentStep3 from "../components/PaymentStep3";
 import useFileDownloader from "../hoc/useFileDownloader";
 import success from "../img/success.png";
 import { Link } from "react-router-dom";
-
-const files = [
-  {
-    thumb:
-      "https://images.unsplash.com/photo-1604264849633-67b1ea2ce0a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80 750w",
-    file:
-      "https://images.unsplash.com/photo-1604264849633-67b1ea2ce0a4?rnd=" +
-      Math.random(),
-    filename: "images.jpg",
-  }
-];
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import {saveAs} from "file-saver";
 
 const TicketPage = () => {
   const [downloadFile, downloaderComponentUI] = useFileDownloader();
+  const [car, setCar] = useState('')
+  const [ticket, setTicket] = useState('')
+  console.log(ticket)
+
+const orderId = 2190
+console.log(orderId);
+
+  const files = [
+    {
+      thumb:
+      ticket,
+      file:
+        ticket +
+        Math.random(),
+      filename: "images.jpg",
+    }
+  ];
+  console.log(files)
 
   const download = (file) => downloadFile(file);
 
+  useEffect(() => {
+    const config = {
+        headers: {
+          access_token: localStorage.getItem("token"),
+        },
+      };
+    axios
+      .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${orderId}`,config)
+      .then((res) => {
+        setTicket(res.data.slip);
+        setCar(res.data.Car.name)
+        console.log(res)
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
+
+    const handleClick = ()=>{
+        let url = ticket
+        saveAs(url, ticket);
+    }
+
   return (
     <>
+    <NavBar />
+      <div className="empty-header"></div>
+      <PaymentStep3 />
         <div className="payment-alert">
           <img src={success} alt="success"></img>
           <h3>Pembayaran Berhasil!</h3>
@@ -35,9 +72,9 @@ const TicketPage = () => {
                 <div className="card card-ticket">
                   <div className="card-body card-body-ticket" key={idx}>
                   <h4>Invoice</h4>
-                  <h5>*no invoice</h5>
-                  <Link className="btn-download" alt="download" onClick={() => download(file)}>
-                    Download
+                  <h5>{car}</h5>
+                  <Link className="btn-download" alt="download" onClick={handleClick}>
+                    Unduh
                   </Link>
                     <img className="card-img-top" alt="card-img" src={file.thumb} />
                   </div>

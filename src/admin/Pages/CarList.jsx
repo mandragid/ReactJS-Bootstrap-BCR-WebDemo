@@ -21,8 +21,11 @@ function CarList() {
   const dispatch = useDispatch();
   const fName = "";
   const { cars } = useSelector((rootReducer) => rootReducer);
-  console.log("data Mobil", cars);
-  const [isActive, setIsActive] = useState(false);
+  // console.log("data Mobil", cars);
+  const [isAllActive, setIsAllActive] = useState(false);
+  const [isSmallActive, setIsSmallActive] = useState(false);
+  const [isMediumActive, setIsMediumActive] = useState(false);
+  const [isLargeActive, setIsLargeActive] = useState(false);
 
   const handleOpen = (id) => {
     setDialogState({
@@ -38,7 +41,7 @@ function CarList() {
     });
   };
 
-  console.log("status delete", isDeleted);
+  // console.log("status delete", isDeleted);
 
   useEffect(() => {
     getData();
@@ -49,6 +52,31 @@ function CarList() {
       setIsDeleted(false);
     }, 6000);
   }, [isDeleted]);
+
+  const handleAll = () => {
+    setIsAllActive(true);
+    setIsMediumActive(false);
+    setIsSmallActive(false);
+    setIsLargeActive(false);
+  };
+  const handleMedium = () => {
+    setIsAllActive(false);
+    setIsMediumActive(true);
+    setIsSmallActive(false);
+    setIsLargeActive(false);
+  };
+  const handleSmall = () => {
+    setIsAllActive(false);
+    setIsMediumActive(false);
+    setIsSmallActive(true);
+    setIsLargeActive(false);
+  };
+  const handleLarge = () => {
+    setIsAllActive(false);
+    setIsMediumActive(false);
+    setIsSmallActive(false);
+    setIsLargeActive(true);
+  };
 
   const getData = async () => {
     const token = localStorage.getItem("token");
@@ -64,7 +92,6 @@ function CarList() {
   const handleChangeCategory = (category) => {
     const fCategory = category;
     dispatch(handleFilter(fName, fCategory));
-    setIsActive(true);
     console.log("kategori mobil", fCategory);
   };
 
@@ -166,59 +193,71 @@ function CarList() {
                       </Link>
                     </div>
                   </div>
-                  <div className="row containerButtonFilter ">
-                    <div className="col-2">
+                  <div className="row ">
+                    <div className="col-lg-1 col-sm-2 filterCategoryButton">
                       <button
                         className={
-                          isActive
+                          isAllActive
                             ? "row categoryButtonA "
                             : "row categoryButton "
                         }
-                        onClick={() => handleChangeCategory("")}
+                        onClick={() => {
+                          handleAll();
+                          handleChangeCategory("");
+                        }}
                       >
                         All
                       </button>
                     </div>
-                    <div className="col-2">
+                    <div className="col-lg-1 col-sm-2">
                       {" "}
                       <button
                         className={
-                          isActive
+                          isSmallActive
                             ? "row categoryButtonA "
                             : "row categoryButton "
                         }
-                        onClick={() => handleChangeCategory("small")}
+                        onClick={() => {
+                          handleSmall();
+                          handleChangeCategory("small");
+                        }}
                       >
                         2-4 people
                       </button>{" "}
                     </div>
-                    <div className="col-2">
+                    <div className="col-lg-1 col-sm-2">
                       <button
                         className={
-                          isActive
+                          isMediumActive
                             ? "row categoryButtonA "
                             : "row categoryButton "
                         }
-                        onClick={() => handleChangeCategory("medium")}
+                        onClick={() => {
+                          handleMedium();
+                          handleChangeCategory("medium");
+                        }}
                       >
                         4-6 people
                       </button>
                     </div>
-                    <div className="col-2">
+                    <div className="col-lg-1 col-sm-2">
                       <button
                         className={
-                          isActive
+                          isLargeActive
                             ? "row categoryButtonA "
                             : "row categoryButton "
                         }
-                        onClick={() => handleChangeCategory("large")}
+                        onClick={() => {
+                          handleLarge();
+                          handleChangeCategory("large");
+                        }}
                       >
                         6-8 people
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="cardContainer row">
+                <div className="cardContainer row justify-content-center">
                   {!!cars.carData.length
                     ? cars.carData.map((item) => (
                         <div className="col-sm-12 col-md-6  ResultCard ResultCardAdmin">

@@ -38,7 +38,16 @@ function CarDetail() {
   const totalPrice = car.price * rentDurations;
 
   // On Button 'Lanjutkan Pembayaran'
-  const handleButtonPaymentCardDetail = () => {
+  const handleButtonPaymentCardDetail = async() => {
+    // Post API, payload and config to get orderID
+    await axios
+      .post(API.POST_CUSTOMER_ORDER, payload, config)
+      .then((res) => {
+        console.log(res);
+        setOrderId(res.data.id);
+      })
+      .catch((err) => console.log(err.message));
+    
     // Set dates and order id to local storage
     localStorage.setItem("startDate", startDate);
     localStorage.setItem("endDate", endDate);
@@ -59,14 +68,7 @@ function CarDetail() {
     };
     // console.log(payload);
 
-    // Post API, payload and config to get orderID
-    axios
-      .post(API.POST_CUSTOMER_ORDER, payload, config)
-      .then((res) => {
-        console.log(res);
-        setOrderId(res.data.id);
-      })
-      .catch((err) => console.log(err.message));
+    
   };
 
   // Remove dates and order id when user back to this page or refresh this page

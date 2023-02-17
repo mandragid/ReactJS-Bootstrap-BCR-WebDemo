@@ -1,7 +1,9 @@
 import axios from "axios";
 import { API } from "../const/endpoint";
+import { useNavigate } from "react-router";
 
 export let formstatus = "";
+
 
 export const AuthCheck = (payload) => (dispatch) => {
   const token = localStorage.getItem("token");
@@ -46,10 +48,11 @@ export const AuthCheckCustomer = (payload) => (dispatch) => {
 };
 
 export const userAction = (payLoad) => (dispatch) => {
+  
   axios
     .post(API.LOGIN, payLoad)
     .then((ress) => {
-      console.log(ress);
+      console.log(ress)
       localStorage.setItem("token", ress.data.access_token);
       localStorage.setItem("user", ress.data.email);
       dispatch({
@@ -59,9 +62,10 @@ export const userAction = (payLoad) => (dispatch) => {
           isLogin: true,
         },
       });
-      console.log("result", ress);
+      useNavigate("/admin/dashboard");
     })
     .catch((err) => {
+      console.log(err)
       dispatch({
         type: "ERROR",
         payload: err.response.data.message,

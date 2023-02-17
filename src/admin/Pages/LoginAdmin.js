@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userReducer } = useSelector((rootReducer) => rootReducer);
-  const { authReducer } = useSelector((rootReducer) => rootReducer);
+  const token = localStorage.getItem("token")
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -29,12 +29,20 @@ const Login = () => {
       password: password,
     };
     await dispatch(userAction(payLoad));
+  };
+  
+  useEffect(() => {
+    handleRedirect();
+  });
 
+  const handleRedirect = () => {
+    const token = localStorage.getItem("token");
     setTimeout(() => {
-      navigate("/admin/dashboard");
+      if (!!token) {
+        navigate("/admin/dashboard");
+      }
     }, 2000);
   };
-  // console.log("user", userReducer.user);
 
   return (
     <div>

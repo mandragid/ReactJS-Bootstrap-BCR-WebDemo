@@ -15,7 +15,6 @@ import CarList from "./admin/Pages/CarList";
 import ProtectedRouteAdmin from "./hoc/ProtectedRouteAdmin";
 import AdminAddCar from "./admin/Pages/AdminAddCar";
 import AdminEditCar from "./admin/Pages/AdminEditCar";
-import TicketPage from "./Pages/TicketPage";
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
           <Route path="/payment2/:id/" element={<PaymentPage2 />} />
           <Route path="/Login" element={<LoginCustomer />} />
           <Route path="/Register" element={<RegisterCustomer />} />
-          <Route path="/Ticket" element={<TicketPage />} />
           <Route element={<ProtectedRouteAdmin />}>
             <Route path="/admin/cars" element={<CarList />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />

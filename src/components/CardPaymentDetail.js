@@ -90,7 +90,7 @@ const CardPaymentDetail = () => {
         <Accordion.Item eventKey="0" className="accordion-item">
           <Accordion.Header className="accordion-header-cardPayment">
             <span className="txt-heading heading-accordion accordion-cardPayment">Total</span>
-            <span className="first-boldPrice">Rp {totalPrice}</span>
+            <span className="first-boldPrice">Rp {car.price * rentDuration}</span>
           </Accordion.Header>
           <Accordion.Body className="body accordion-body-cardPayment">
             <div className="cardPaymentDetail-heading secondHeading">
@@ -105,7 +105,7 @@ const CardPaymentDetail = () => {
                 </ul>
               </div>
               <div className="price">
-                <h6>{totalPrice}</h6>
+                <h6>{car.price * rentDuration}</h6>
               </div>
             </div>
             <div className="otherCost-container">
@@ -148,7 +148,7 @@ const CardPaymentDetail = () => {
                 <h1>Total</h1>
               </div>
               <div className=" second-boldPrice">
-                <h6>{totalPrice}</h6>
+                <h6>{car.price * rentDuration}</h6>
               </div>
             </div>
 

@@ -73,7 +73,7 @@ const TicketPage = () => {
                     <Link className="btn-download" alt="download" onClick={handleClick}>
                       Unduh
                     </Link>
-                    <img className="card-img-top" alt="card-img" src={file.thumb} />
+                    <img className="card-img-top" alt="invoice" src={file.thumb} />
                   </div>
                 </div>
               </div>

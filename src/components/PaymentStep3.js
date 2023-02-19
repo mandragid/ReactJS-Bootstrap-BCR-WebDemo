@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const PaymentStep3 = () => {
   const Navigate = useNavigate()
   const goBack = () => {
-    Navigate(-1)
+    Navigate("/cari-mobil")
   }
   return (
     <div className="paymentStep-container">
@@ -40,7 +40,7 @@ const PaymentStep3 = () => {
             <img src={LineIcon} alt="line-icon"></img>
           </div>
           <div className="icon-number icon-number2">
-            <img src={Number2BlueIcon} alt="number-2-icon"></img>
+            <img src={CheckIcon} alt="checklist-icon"></img>
           </div>
           <div className="txt-paymentStep">
             <h3>Bayar</h3>
@@ -49,7 +49,7 @@ const PaymentStep3 = () => {
             <img src={LineIcon} alt="line-icon"></img>
           </div>
           <div className="icon-number icon-number3">
-            <img src={Number3BlueIcon} alt="number-3-icon"></img>
+            <img src={CheckIcon} alt="checklist-icon"></img>
           </div>
           <div className="txt-paymentStep">
             <h3>Tiket</h3>

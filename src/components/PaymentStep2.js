@@ -40,7 +40,7 @@ const PaymentStep2 = () => {
             <img src={LineIcon} alt="line-icon"></img>
           </div>
           <div className="icon-number icon-number2">
-            <img src={Number2BlueIcon} alt="number-2-icon"></img>
+            <img src={CheckIcon} alt="checklist-icon"></img>
           </div>
           <div className="txt-paymentStep">
             <h3>Bayar</h3>

@@ -22,7 +22,7 @@ const CardPaymentDetail = () => {
   const dateEnd = moment(localStorage.getItem("endDate"));
   const startDateOnly = dateStart.format().substr(8, 2);
   const endDateOnly = dateEnd.format().substr(8, 2);
-  const rentDuration = endDateOnly - startDateOnly;
+  const rentDuration = endDateOnly - startDateOnly + 1;
   const navigate = useNavigate();
   const state = useSelector((rootReducer) => rootReducer);
   console.log(state);
@@ -90,7 +90,17 @@ const CardPaymentDetail = () => {
         <Accordion.Item eventKey="0" className="accordion-item">
           <Accordion.Header className="accordion-header-cardPayment">
             <span className="txt-heading heading-accordion accordion-cardPayment">Total</span>
-            <span className="first-boldPrice">Rp {car.price * rentDuration}</span>
+            {(() => {
+              if (rentDuration === 0) {
+                return <span className="first-boldPrice">Rp {car.price}</span>;
+              } else if (!totalPrice) {
+                return <span className="first-boldPrice">Rp 0</span>;
+              } else if (rentDuration < 0) {
+                return <span className="first-boldPrice">Rp {car.price * (rentDuration + parseInt(startDateOnly))}</span>;
+              } else if (rentDuration > 0) {
+                return <span className="first-boldPrice">Rp {car.price * rentDuration}</span>;
+              }
+            })()}
           </Accordion.Header>
           <Accordion.Body className="body accordion-body-cardPayment">
             <div className="cardPaymentDetail-heading secondHeading">
@@ -100,12 +110,28 @@ const CardPaymentDetail = () => {
               <div className="cardPaymentDetail-subHeading second-subHeading">
                 <ul>
                   <li>
-                    Sewa Mobil {car.price} x {rentDuration} hari
+                    Sewa Mobil {car.price} x
+                    {(() => {
+                      if (rentDuration < 0) {
+                        return <span className="rentDurations-Accordion">{rentDuration + parseInt(startDateOnly)}</span>;
+                      }
+                    })()}{" "}
+                    hari
                   </li>
                 </ul>
               </div>
               <div className="price">
-                <h6>{car.price * rentDuration}</h6>
+                {(() => {
+                  if (rentDuration === 0) {
+                    return <h6>Rp {car.price}</h6>;
+                  } else if (!totalPrice) {
+                    return <h6>Rp 0</h6>;
+                  } else if (rentDuration < 0) {
+                    return <h6>Rp {car.price * (rentDuration + parseInt(startDateOnly))}</h6>;
+                  } else if (rentDuration > 0) {
+                    return <h6>Rp {car.price * rentDuration}</h6>;
+                  }
+                })()}
               </div>
             </div>
             <div className="otherCost-container">
@@ -148,7 +174,17 @@ const CardPaymentDetail = () => {
                 <h1>Total</h1>
               </div>
               <div className=" second-boldPrice">
-                <h6>{car.price * rentDuration}</h6>
+                {(() => {
+                  if (rentDuration === 0) {
+                    return <h6>Rp {car.price}</h6>;
+                  } else if (!totalPrice) {
+                    return <h6>Rp 0</h6>;
+                  } else if (rentDuration < 0) {
+                    return <h6>Rp {car.price * (rentDuration + parseInt(startDateOnly))}</h6>;
+                  } else if (rentDuration > 0) {
+                    return <h6>Rp {car.price * rentDuration}</h6>;
+                  }
+                })()}
               </div>
             </div>
 

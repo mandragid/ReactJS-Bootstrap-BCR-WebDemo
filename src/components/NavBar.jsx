@@ -3,12 +3,32 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Mercy from "../img/mercy.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import RegisterCustomer from "../Pages/RegisterCustomer";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { useEffect } from "react";
+import { AuthCheckCustomer } from "../Redux/authAction";
 
 function NavBar() {
+	const {authReducer} = useSelector((state)=>state)
+    const dispatch = useDispatch()
+    const Navigate = useNavigate()
+    
+	useEffect(() => {
+        dispatch(AuthCheckCustomer())
+    }, []);
+
+    const handleLogout = (() => {
+        localStorage.removeItem("token")
+        dispatch({
+            type:"LOGOUT",
+            payload: false,
+        })
+        Navigate("/")
+    })
+	console.log(authReducer.isLogin)
 	return (
 		<div className="container-fluid Wrapper">
 			{/* Navigation Bar */}
@@ -23,9 +43,16 @@ function NavBar() {
 								<Nav.Link href="#WhyUs">Why Us</Nav.Link>
 								<Nav.Link href="#Testimonial">Testimonial</Nav.Link>
 								<Nav.Link href="#FAQ">FAQ</Nav.Link>
+								{authReducer.isLogin == false ? (
 								<Button href="/Register" variant="success" className="regButton">
-									Register
+								Register
 								</Button>
+								) : ( 
+								<Button onClick={handleLogout} href="/" variant="success" className="regButton">
+								Log-out
+								</Button>
+								)}
+								
 							</Nav>
 						</Navbar.Collapse>
 					</Container>

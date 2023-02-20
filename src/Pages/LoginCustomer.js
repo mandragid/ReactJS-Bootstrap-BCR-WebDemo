@@ -5,6 +5,8 @@ import "./LoginCustomer.css"
 import SplashLoginCustomer from "../img/SplashLoginCustomer.png"
 import axios from "axios";
 import { API } from "../const/endpoint";
+import { authReducer } from "../Redux/AuthReducer";
+import rootReducer from "../Redux";
 
 const LoginCustomer = () => {
     const [email, setEmail] = useState("");
@@ -12,7 +14,9 @@ const LoginCustomer = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [wrong, setWrong] = useState ("")
-  const handleEmail = (e) => {
+    const {authReducer} = useSelector((rootReducer) => rootReducer)
+    
+    const handleEmail = (e) => {
     setEmail(e.target.value);
   };
 
@@ -30,6 +34,7 @@ const LoginCustomer = () => {
       .then((res) => {
           console.log(res)
           localStorage.setItem("token", res.data.access_token);
+          {authReducer.isLogin = true}
           setTimeout(() => {
             navigate("/");
           }, 2000);

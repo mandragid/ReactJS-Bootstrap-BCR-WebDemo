@@ -11,9 +11,8 @@ const PaymentInstruction = () => {
   const bankMandiri = localStorage.getItem("Mandiri");
 
   useEffect(() => {
-    setPayment1(true)
-  }, [])
-  
+    setPayment1(true);
+  }, []);
 
   const handlePayment1 = () => {
     setPayment1(true);
@@ -78,17 +77,25 @@ const PaymentInstruction = () => {
           return (
             <div>
               <div className="paymentMethod-container">
-                <div className={payment1 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment1}>ATM BNI</h6>
+                <div className="payment1">
+                  <h6 className={payment1 ? "bank-active" : "bank-inactive"} onClick={handlePayment1}>
+                    ATM BNI
+                  </h6>
                 </div>
-                <div className={payment2 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment2}>M-BNI</h6>
+                <div className="payment2">
+                  <h6 className={payment2 ? "bank-active" : "bank-inactive"} onClick={handlePayment2}>
+                    M-BNI
+                  </h6>
                 </div>
-                <div className={payment3 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment3}>BNI Tapcash</h6>
+                <div className="payment3">
+                  <h6 className={payment3 ? "bank-active" : "bank-inactive"} onClick={handlePayment3}>
+                    BNI Tapcash
+                  </h6>
                 </div>
-                <div className={payment4 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment4}>Internet Banking</h6>
+                <div className="payment4">
+                  <h6 className={payment4 ? "bank-active" : "bank-inactive"} onClick={handlePayment4}>
+                    Internet Banking
+                  </h6>
                 </div>
               </div>
             </div>
@@ -97,17 +104,25 @@ const PaymentInstruction = () => {
           return (
             <div>
               <div className="paymentMethod-container">
-                <div className={payment1 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment1}>ATM Mandiri</h6>
+                <div className="payment1">
+                  <h6 className={payment1 ? "bank-active" : "bank-inactive"} onClick={handlePayment1}>
+                    ATM Mandiri
+                  </h6>
                 </div>
-                <div className={payment2 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment2}>Livin-Mandiri</h6>
+                <div className="payment2">
+                  <h6 className={payment2 ? "bank-active" : "bank-inactive"} onClick={handlePayment2}>
+                    Livin-Mandiri
+                  </h6>
                 </div>
-                <div className={payment3 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment3}>VA Mandiri</h6>
+                <div className="payment3">
+                  <h6 className={payment3 ? "bank-active" : "bank-inactive"} onClick={handlePayment3}>
+                    VA Mandiri
+                  </h6>
                 </div>
-                <div className={payment4 ? "bank-active" : "bank-inactive"}>
-                  <h6 onClick={handlePayment4}>Internet Banking</h6>
+                <div className="payment4">
+                  <h6 className={payment4 ? "bank-active" : "bank-inactive"} onClick={handlePayment4}>
+                    Internet Banking
+                  </h6>
                 </div>
               </div>
             </div>

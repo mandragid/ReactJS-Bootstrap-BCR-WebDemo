@@ -12,7 +12,10 @@ import moment from "moment/moment";
 import "moment/locale/id";
 
 const CardPaymentDetail = () => {
-  // const [selectedBank, setSelectedBank] = useState();
+  const today = new Date();
+  const todayAddedOneHour = today.setHours(today.getHours() + 1);
+  const formattedToday = moment(todayAddedOneHour).format("LLL");
+  const deadlineToPay = formattedToday
   // Get car id
   const { id } = useParams();
   const [car, setCar] = useState([]);
@@ -36,6 +39,7 @@ const CardPaymentDetail = () => {
   // }, []);
 
   useEffect(() => {
+    localStorage.removeItem("DeadlineToPay")
     const config = {
       headers: {
         access_token: localStorage.getItem("token"),
@@ -53,6 +57,7 @@ const CardPaymentDetail = () => {
   }, []);
 
   const handleBayar = () => {
+    localStorage.setItem("DeadlineToPay", deadlineToPay)
     // Get login token
     const config = {
       headers: {

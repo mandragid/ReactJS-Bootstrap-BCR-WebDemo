@@ -1,16 +1,37 @@
 import "../components/paymentStep.css";
 import BackIcon from "../img/fi_arrow-left.png";
 import CheckIcon from "../img/fi_check.png";
-import Number2BlueIcon from "../img/icon_number-2-blue.png";
 import Number3Icon from "../img/icon_number-3.png";
 import LineIcon from "../img/icon_line.png";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const PaymentStep2 = () => {
-  const Navigate = useNavigate()
+  const { id } = useParams();
+  const [orderId, setOrderId] = useState(0);
+  const Navigate = useNavigate();
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        access_token: localStorage.getItem("token"),
+      },
+    };
+
+    axios
+      .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
+      .then((res) => {
+        // console.log(res);
+        setOrderId(res.data.id);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
+
+  // Back to previous page
   const goBack = () => {
-    Navigate(-1)
-  }
+    Navigate(-1);
+  };
   return (
     <div className="paymentStep-container">
       <div className="paymentStepContent-container">
@@ -25,7 +46,9 @@ const PaymentStep2 = () => {
               <h1>BCA Transfer</h1>
             </div>
             <div className="orderId">
-              <h6>Order ID: 86754231</h6>
+              <h6>
+                Order ID: <span>{orderId}</span>
+              </h6>
             </div>
           </div>
         </div>

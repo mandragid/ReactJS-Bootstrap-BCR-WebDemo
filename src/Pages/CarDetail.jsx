@@ -67,7 +67,7 @@ function CarDetail() {
     axios
       .post(API.POST_CUSTOMER_ORDER, payload, config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setOrderId(res.data.id);
         navigate(`/payment1/${res.data.id}/`);
       })
@@ -80,7 +80,7 @@ function CarDetail() {
     localStorage.removeItem("endDate");
     localStorage.removeItem("orderId");
   }, []);
-  console.log("ORDER ID", orderId);
+  // console.log("ORDER ID", orderId);
 
   // Get Chosen car from Search Page by id
   useEffect(() => {

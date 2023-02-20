@@ -5,7 +5,7 @@ import lineIcon from "../img/icon_line-3.png";
 import axios from "axios";
 import { API } from "../const/endpoint";
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import rootReducer from "../Redux";
 import moment from "moment/moment";
@@ -16,7 +16,7 @@ const CardPaymentDetail = () => {
   // Get car id
   const { id } = useParams();
   const [car, setCar] = useState([]);
-  const [orderId, setOrderId] = useState(0);
+  // const [orderId, setOrderId] = useState(0);
   const [totalPrice, setTotalPrice] = useState();
   const dateStart = moment(localStorage.getItem("startDate"));
   const dateEnd = moment(localStorage.getItem("endDate"));
@@ -25,7 +25,7 @@ const CardPaymentDetail = () => {
   const rentDuration = endDateOnly - startDateOnly + 1;
   const navigate = useNavigate();
   const state = useSelector((rootReducer) => rootReducer);
-  console.log(state);
+  // console.log(state);
 
   // Previously, tried to get the chosen bank from localStorage
   // useEffect(() => {
@@ -45,7 +45,7 @@ const CardPaymentDetail = () => {
     axios
       .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
       .then((res) => {
-        // console.log(res);
+        console.log(res.data);
         setCar(res.data.Car);
         setTotalPrice(res.data.total_price);
       })
@@ -82,7 +82,17 @@ const CardPaymentDetail = () => {
           <img src={carCapacity}></img>
         </div>
         <div className="carCapacity">
-          <h6>{car.category ? car.category.charAt(0).toUpperCase() + car.category.slice(1) : "-"}</h6>
+          {(() => {
+            if (car.category === "small") {
+              return <h6>2-4 Orang</h6>;
+            } else if (car.category === "Medium") {
+              return <h6>4-6 Orang</h6>;
+            } else if (car.category === "large") {
+              return <h6>6-8 Orang</h6>;
+            } else {
+              return <h6> - </h6>;
+            }
+          })()}
         </div>
       </div>
       {/* Card's Accordion  */}
@@ -110,7 +120,7 @@ const CardPaymentDetail = () => {
               <div className="cardPaymentDetail-subHeading second-subHeading">
                 <ul>
                   <li>
-                    Sewa Mobil {car.price} x
+                    Sewa Mobil Rp {car.price} x
                     {(() => {
                       if (rentDuration < 0) {
                         return <span className="rentDurations-Accordion">{rentDuration + parseInt(startDateOnly)}</span>;

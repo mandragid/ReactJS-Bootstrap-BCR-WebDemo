@@ -1,9 +1,9 @@
 import "../components/paymentConfirmation.css";
 import dropzonePreview from "../img/dropzone-preview.png";
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const thumbsContainer = {
   display: "flex",
@@ -34,13 +34,72 @@ const img = {
   height: "100%",
 };
 
+// Countdown Status
+const STATUS = {
+  STARTED: "Started",
+  STOPPED: "Stopped",
+};
+
+const INITIAL_COUNT = 600;
+
 const PaymentConfirmation = (props) => {
   const { id } = useParams();
   const [paymentConfirmed, setPaymentConfirmed] = useState(false);
   const [orderId, setOrderId] = useState(0);
-  // const [image, setImage] = useState("");
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
+  const [secondsRemaining, setSecondsRemaining] = useState(INITIAL_COUNT);
+  const [status, setStatus] = useState(STATUS.STOPPED);
+
+  const secondsToDisplay = secondsRemaining % 60;
+  const minutesRemaining = (secondsRemaining - secondsToDisplay) / 60;
+  const minutesToDisplay = minutesRemaining % 60;
+  // const hoursToDisplay = (minutesRemaining - minutesToDisplay) / 60;
+
+  const handleStart = () => {
+    setStatus(STATUS.STARTED);
+  };
+  const handleStop = () => {
+    setStatus(STATUS.STOPPED);
+  };
+  const handleReset = () => {
+    setStatus(STATUS.STOPPED);
+    setSecondsRemaining(INITIAL_COUNT);
+  };
+  useInterval(
+    () => {
+      if (secondsRemaining > 0) {
+        setSecondsRemaining(secondsRemaining - 1);
+      }
+    },
+    status === STATUS.STARTED ? 1000 : null
+    // passing null stops the interval
+  );
+
+  // source: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
+
+    // Remember the latest callback.
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    // Set up the interval.
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
+
+  // https://stackoverflow.com/a/2998874/1673761
+  const twoDigits = (num) => String(num).padStart(2, "0");
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
@@ -55,7 +114,7 @@ const PaymentConfirmation = (props) => {
       );
     },
   });
-  console.log("INI GAMBAR YANG DIPILIH", files[0]);
+  // console.log("INI GAMBAR YANG DIPILIH", files[0]);
 
   // To delete selected image
   // const deleteFile = () => {
@@ -65,6 +124,7 @@ const PaymentConfirmation = (props) => {
   // To show the dropzone
   const handlePaymentConfirmed = () => {
     setPaymentConfirmed(true);
+    setStatus(STATUS.STARTED);
   };
 
   const thumbs = files.map((file) => (
@@ -93,17 +153,14 @@ const PaymentConfirmation = (props) => {
         access_token: localStorage.getItem("token"),
       },
     };
-
-    console.log(config);
+    // console.log(config);
 
     const formData = new FormData();
     formData.append("slip", files[0]);
     axios
       .put(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}/slip`, formData, config)
       .then((res) => {
-        console.log("Payment Confirmation", res);
         setOrderId(res.data.id);
-        // console.log(res.data.id);
         navigate(`/Ticket/${id}`);
       })
       .catch((err) => console.log(err.message));
@@ -122,7 +179,20 @@ const PaymentConfirmation = (props) => {
                     <h1>Konfirmasi Pembayaran</h1>
                   </div>
                   <div className="deadline-uploadPaymentProofDeadline">
-                    <h5>12 : 12</h5>
+                    {/* CountDown */}
+                    {/* <button onClick={handleStart} type="button">
+                      Start
+                    </button>
+                    <button onClick={handleStop} type="button">
+                      Stop
+                    </button>
+                    <button onClick={handleReset} type="button">
+                      Reset
+                    </button> */}
+                    <div>
+                      {twoDigits(minutesToDisplay)}:{twoDigits(secondsToDisplay)}
+                    </div>
+                    {/* <div>Status: {status}</div> */}
                   </div>
                 </div>
                 <div className="firstP-uploadPaymentProofDeadline">
@@ -168,7 +238,3 @@ const PaymentConfirmation = (props) => {
 };
 
 export default PaymentConfirmation;
-
-// position: "relative",
-//   bottom: 255,
-//   left: 20,

@@ -11,13 +11,19 @@ const AdminEditCar = () => {
 	const [name, setName] = useState("");
 	const [category, setCategory] = useState("");
 	const [image, setImage] = useState(null);
-	const [price, setPrice] = useState();
+	const [price, setPrice] = useState(0);
+	const [created, setCreated] = useState("");
+	const [updated, setUpdated] = useState("");
 	const [carData, setCarData] = useState({});
 	const { id } = useParams();
 	const navigate = useNavigate();
 	const [errorMessage, setErrorMessage] = useState();
 	const [isEdited, setIsEdited] = useState(false);
-	console.log("state gambar", image);
+
+	console.log("nama kendaraan", name);
+	console.log("harga", price);
+	console.log("kategory kend", category);
+
 	const options = {
 		headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
 	};
@@ -57,13 +63,16 @@ const AdminEditCar = () => {
 		try {
 			const res = await axios.get(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`, config);
 			setCarData(res.data);
-			localStorage.setItem("carName", res.data.name);
-			localStorage.setItem("price", res.data.price);
+			// localStorage.setItem("carName", res.data.name);
+			// localStorage.setItem("price", res.data.price);
+			// localStorage.setItem("category", res.data.category);
 
-			localStorage.setItem("category", res.data.category);
 			setName(res.data.name);
 			setPrice(res.data.price);
 			setCategory(res.data.category);
+			setCreated(res.data.createdAt);
+			setUpdated(res.data.updatedAt);
+			console.log("DATA MOBIL", res);
 		} catch (error) {
 			setErrorMessage(error.response.message);
 		}
@@ -74,7 +83,7 @@ const AdminEditCar = () => {
 			setErrorMessage("Please input car name first.");
 		} else if (!category.length) {
 			setErrorMessage("Please input category first.");
-		} else if (!price.toString.length) {
+		} else if (!price.toString().length) {
 			setErrorMessage("Please input price first.");
 		} else {
 			const token = localStorage.getItem("token");
@@ -107,7 +116,7 @@ const AdminEditCar = () => {
 		<div>
 			<div className="container-fluid addCarPage ">
 				<div className="row admin-dashboards">
-					<div className="col-1 sidebarAdd">
+					<div className="col-1 sidebar">
 						{isEdited && (
 							<div className="container editMessage">
 								<h1>Data Berhasil Disimpan</h1>
@@ -132,9 +141,12 @@ const AdminEditCar = () => {
 					<div className="col admin-nav">
 						<AdminNavbar />
 						<div className="row">
-							<div className="col-1 nav-add">
-								<p>Cars</p>
-								<p>List Cars</p>
+							<div className="col-1 nav-dash">
+								<Link to="/admin/cars">
+									<p id="dashboardTitle"> &nbsp; Cars</p>
+								</Link>
+								<br />
+								<div className="dashboardSubtitle d-flex align-items-center">&nbsp; Edit Car</div>
 							</div>
 							<div className="col">
 								<div className="row breadCrumb p-3">
@@ -162,7 +174,7 @@ const AdminEditCar = () => {
 														<p>Nama/Tipe Mobil</p>
 													</div>
 													<div className="col">
-														<input onChange={handleName} placeholder="Input Nama/Tipe Mobil" defaultValue={localStorage.getItem("carName")} />
+														<input onChange={handleName} placeholder="Input Nama/Tipe Mobil" defaultValue={name} />
 													</div>
 												</div>
 
@@ -177,7 +189,7 @@ const AdminEditCar = () => {
 
 												<div className="row">
 													<div className="col-3">
-														<p>Foto</p>
+														<p>Foto*</p>
 													</div>
 													<div className="col">
 														<input onChange={handleImage} class="form-control" type="file" />
@@ -190,12 +202,22 @@ const AdminEditCar = () => {
 														<p>Kategori</p>
 													</div>
 													<div className="optionSelect">
-														<Form.Select onChange={handleCategory} defaultValue={localStorage.getItem("category")}>
+														<Form.Select onChange={handleCategory} defaultValue={category}>
 															<option value="">Pilih Kategori Mobil</option>
 															<option value="small">Small</option>
 															<option value="medium">Medium</option>
 															<option value="large">Large</option>
 														</Form.Select>
+													</div>
+													<div className="row mt-2">
+														<div className="col">
+															<p>Created at: &nbsp;{created.substring(0, 10)} </p>
+														</div>
+													</div>
+													<div className="row">
+														<div className="col">
+															<p>Updated at: &nbsp; {updated.substring(0, 10)} </p>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -204,26 +226,29 @@ const AdminEditCar = () => {
 										)}
 									</div>
 									<div className="addCarButton">
-										<div className="row">
-											<div className="col-1">
-												<button id="cancelAdd">
-													<Link to="/admin/cars">Cancel</Link>
-												</button>
+										<div className="errorMessage">{!!errorMessage && <p>{errorMessage}</p>}</div>
+										<div className="tomboltest">
+											<div className="">
+												<div className="leftButton">
+													<button id="cancelAdd">
+														<Link to="/admin/cars">Cancel</Link>
+													</button>
+												</div>
 											</div>
-											<div className="col-1">
-												{image != null ? (
-													<button id="saveAdd" onClick={handleEdit}>
-														Save
-													</button>
-												) : (
-													<button disabled id="saveAddDisabled" onClick={handleEdit}>
-														Save
-													</button>
-												)}
+											<div className="col-1 buttonAdminEditCar">
+												<div className="buttonAdminEditCar">
+													{image != null ? (
+														<button id="saveAdd" onClick={handleEdit}>
+															Save
+														</button>
+													) : (
+														<button disabled id="saveAddDisabled" onClick={handleEdit}>
+															Save
+														</button>
+													)}
+												</div>
 											</div>
 										</div>
-
-										{!!errorMessage && <p>{errorMessage}</p>}
 									</div>
 								</div>
 							</div>

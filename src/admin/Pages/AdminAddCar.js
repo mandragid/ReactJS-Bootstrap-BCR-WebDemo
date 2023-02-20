@@ -72,7 +72,7 @@ const AdminAddCar = () => {
 	return (
 		<div className="container-fluid addCarPage ">
 			<div className="row admin-dashboards">
-				<div className="col-1 sidebarAdd">
+				<div className="col-1 sidebar">
 					<div className="row">
 						<Link to={"/admin/dashboard"}>
 							<div className="home">
@@ -92,11 +92,14 @@ const AdminAddCar = () => {
 				<div className="col admin-nav">
 					<AdminNavbar />
 					<div className="row">
-						<div className="col-1 nav-add">
-							<Link to={`/admin/cars`}>
-								<p>Cars</p>
-							</Link>
-							<p>List Cars</p>
+						<div className="col-1 nav-dash">
+							<span>
+								<Link to="/admin/cars">
+									<p id="dashboardTitle"> &nbsp; Cars</p>
+								</Link>
+							</span>{" "}
+							<br />
+							<div className="dashboardSubtitle d-flex align-items-center">&nbsp; Add New Car</div>
 						</div>
 						<div className="col">
 							<div className="row breadCrumb p-3">
@@ -138,10 +141,11 @@ const AdminAddCar = () => {
 
 										<div className="row">
 											<div className="col-3">
-												<p>Foto</p>
+												<p>Foto*</p>
 											</div>
-											<div className="col">
+											<div className="col ">
 												<input onChange={handleImage} class="form-control" type="file" />
+
 												<p>File size max. 2MB</p>
 											</div>
 										</div>
@@ -173,13 +177,13 @@ const AdminAddCar = () => {
 									</div>
 									<div className="addCarButton">
 										{!!errorMessage && <p>{errorMessage}</p>}
-										<div className="row">
-											<div className="col-1">
+										<div className="tomboltest">
+											<div className="leftButton">
 												<button id="cancelAdd">
 													<Link to="/admin/cars">Cancel</Link>
 												</button>
 											</div>
-											<div className="col-1">
+											<div className="">
 												<button id="saveAdd" onClick={HandleCreate}>
 													Save
 												</button>

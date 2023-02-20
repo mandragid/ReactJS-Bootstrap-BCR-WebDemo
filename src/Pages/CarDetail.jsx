@@ -14,7 +14,7 @@ import Icon_Calendar from "../img/fi_calendar.png";
 import axios from "axios";
 import { API } from "../const/endpoint";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { addDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
@@ -36,13 +36,17 @@ function CarDetail() {
   const rentDurations = justEndDate - justStartDate + 1;
   // console.log(rentDurations);
   const totalPrice = car.price * rentDurations;
-
+  const navigate = useNavigate();
+  // set order id outside function, if set inside need to double click
+  localStorage.setItem("orderId", orderId);
   // On Button 'Lanjutkan Pembayaran'
   const handleButtonPaymentCardDetail = () => {
+    // Post API, payload and config to get orderID
+
     // Set dates and order id to local storage
     localStorage.setItem("startDate", startDate);
     localStorage.setItem("endDate", endDate);
-    localStorage.setItem("orderId", orderId);
+    // orderId = localStorage.getItem("orderId");
 
     // Get login Token
     const config = {
@@ -63,8 +67,9 @@ function CarDetail() {
     axios
       .post(API.POST_CUSTOMER_ORDER, payload, config)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setOrderId(res.data.id);
+        navigate(`/payment1/${res.data.id}/`);
       })
       .catch((err) => console.log(err.message));
   };
@@ -75,7 +80,7 @@ function CarDetail() {
     localStorage.removeItem("endDate");
     localStorage.removeItem("orderId");
   }, []);
-  // console.log("ORDER ID", orderId);
+  console.log("ORDER ID", orderId);
 
   // Get Chosen car from Search Page by id
   useEffect(() => {
@@ -208,9 +213,9 @@ function CarDetail() {
                 {/* Protect 'Lanjutkan Pembayaran' Button */}
                 <div className={startDate && endDate ? "btn-payment-cardDetail-on" : "btn-payment-cardDetail-off"}>
                   {/* Navigate to payment1 page and Transfer orderId  */}
-                  <Link to={`/payment1/${orderId}`} className={startDate && endDate ? "" : "disabledLink"}>
-                    <button onClick={handleButtonPaymentCardDetail}>Lanjutkan Pembayaran</button>
-                  </Link>
+                  {/* <Link to={`/payment1/${orderId}`} className={startDate && endDate ? "" : "disabledLink"}>
+                  </Link> */}
+                  <button onClick={handleButtonPaymentCardDetail}>Lanjutkan Pembayaran</button>
                 </div>
               </div>
             ) : null}

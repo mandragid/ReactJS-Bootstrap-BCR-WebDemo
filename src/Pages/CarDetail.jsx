@@ -33,7 +33,7 @@ function CarDetail() {
   const dateEnd = moment(endDate).format();
   const justStartDate = dateStart.substr(8, 2);
   const justEndDate = dateEnd.substr(8, 2);
-  const rentDurations = justEndDate - justStartDate;
+  const rentDurations = justEndDate - justStartDate + 1;
   // console.log(rentDurations);
   const totalPrice = car.price * rentDurations;
 
@@ -176,7 +176,7 @@ function CarDetail() {
                     startDate={startDate}
                     endDate={endDate}
                     minDate={new Date()}
-                    maxDate={addDays(startDate, 7)}
+                    maxDate={addDays(startDate, 6)}
                     placeholderText="Pilih Tanggal Mulai dan Akhir Sewa"
                     onChange={(update) => {
                       setDateRange(update);
@@ -197,6 +197,8 @@ function CarDetail() {
                       return <h1 className="totalPriceNumber-carDetail">Rp {car.price}</h1>;
                     } else if (!totalPrice) {
                       return <h1 className="totalPriceNumber-carDetail">Rp 0</h1>;
+                    } else if (rentDurations < 0) {
+                      return <h1 className="totalPriceNumber-carDetai">Rp {car.price * (rentDurations + parseInt(justStartDate))}</h1>;
                     } else if (rentDurations > 0) {
                       return <h1 className="totalPriceNumber-carDetail">Rp {car.price * rentDurations}</h1>;
                     }

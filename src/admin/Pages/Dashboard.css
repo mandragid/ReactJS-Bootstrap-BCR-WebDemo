@@ -1,558 +1,616 @@
 .admin-dashboards {
-  background-color: #f1f3ff;
-  height: 100%;
+	background-color: #f1f3ff;
+	height: 100%;
 }
 
 .sidebar {
-  background-color: #0d28a6;
-  height: 1000px;
-  width: 80px;
+	background-color: #0d28a6;
+	height: 1000px;
+	width: 80px;
+	padding: 0;
 }
 
 .sidebar p {
-  color: white;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	color: white;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 #navTitle {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .sidebarAdd {
-  background-color: #0d28a6;
+	background-color: #0d28a6;
 
-  width: 80px;
+	width: 80px;
 }
 
 .sidebarAdd p {
-  color: white;
+	color: white;
+}
+
+.home {
+	padding-left: 18px;
+	margin-top: 50px;
+}
+
+.cars {
+	padding-left: 18px;
 }
 
 .home img {
-  width: 30px;
-  padding: 0;
-  margin: 0;
+	width: 30px;
+	padding: 0;
+	margin: 0;
 }
 
 .home:hover {
-  background-color: #1f45f1;
+	background-color: #1f45f1;
 }
 
 .cars:hover {
-  background-color: #1f45f1;
+	background-color: #1f45f1;
 }
 
 .cars img {
-  width: 30px;
+	width: 30px;
 }
 
 .nav-dash {
-  width: 220px;
-  height: 830px;
-  background-color: white;
+	width: 220px;
+	height: 830px;
+	background-color: white;
+	padding: 0;
+}
+
+.nav-dash a {
+	text-decoration: none;
 }
 
 .nav-add {
-  background-color: white;
-  width: 220px;
-  height: 94vh;
+	background-color: white;
+	width: 220px;
+	height: 94vh;
 }
 
 .chart-container {
-  height: 300px;
+	height: 300px;
 }
 
 .chartjs-container {
-  height: 400px;
+	height: 400px;
 }
 
 .admin-user-logo {
-  width: 30px;
+	width: 30px;
 }
 
 .admin-dashboard ul li {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 .admin-dashboard a {
-  text-decoration: none;
-  color: black;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 18px;
+	text-decoration: none;
+	color: black;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 18px;
 }
 
 .bread-title {
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 18px;
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 18px;
 }
 
 .header-title {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 #table-title {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
 }
 
 .adminpage-btn {
-  background-color: #0d28a6;
-  border-radius: 0px 2px 2px 0px;
-  margin-bottom: 70px;
+	background-color: #0d28a6;
+	border-radius: 0px 2px 2px 0px;
+	margin-bottom: 70px;
 }
 
 .header-title-container {
-  margin-top: 50px;
+	margin-top: 50px;
 }
 
 .carListCard {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 0;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 0;
 }
 
 #dashboardTitle {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #8a8a8a;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #8a8a8a;
 }
 
 .dashboardSubtitle {
-  background-color: #cfd4ed;
-  width: 100%;
-  color: #000000;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: #cfd4ed;
+	width: 100%;
+	color: #000000;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	height: 32px;
+}
+.dashboardSubtitle p {
+	background-color: #cfd4ed;
+	width: 100%;
+	color: #000000;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	height: 32px;
 }
 
 .ResultCardAdmin {
-  background-color: white;
+	background-color: white;
 }
 
 .filterCategoryButton {
-  margin: 0px;
+	margin: 0px;
+}
+
+.buttonAdminEditCar {
+	padding: 0;
+	margin: 0;
 }
 
 .buttonAddCar button {
-  background-color: #0d28a6;
-  color: white;
-  width: 124px;
-  height: 36px;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: #0d28a6;
+	color: white;
+	width: 124px;
+	height: 36px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .addCar {
-  display: flex;
-  justify-content: space-between !important;
-  width: 100%;
+	display: flex;
+	justify-content: space-between !important;
+	width: 100%;
 }
 
 .buttonAddCar button {
-  justify-content: center;
-  background-color: #0d28a6;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #ffffff;
-  border: none;
-  width: 143.5px;
-  height: 48px;
-  border-radius: 2px;
+	justify-content: center;
+	background-color: #0d28a6;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #ffffff;
+	border: none;
+	width: 143.5px;
+	height: 48px;
+	border-radius: 2px;
 }
 
 .buttonEditCar button {
-  background-color: #5cb85f;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #ffffff;
-  border: none;
-  width: 143.5px;
-  height: 48px;
-  border-radius: 2px;
+	background-color: #5cb85f;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #ffffff;
+	border: none;
+	width: 143.5px;
+	height: 48px;
+	border-radius: 2px;
 }
 
 .buttonDeleteCar button {
-  background-color: white;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #fa2c5a;
-  border: 1px solid #fa2c5a;
-  width: 143.5px;
-  height: 48px;
-  border-radius: 2px;
+	background-color: white;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: #fa2c5a;
+	border: 1px solid #fa2c5a;
+	width: 143.5px;
+	height: 48px;
+	border-radius: 2px;
 }
 
 .dialogBox {
-  position: fixed;
-  top: 25%;
-  left: 35%;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px 32px;
-  gap: 24px;
-  background-color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  height: 350px;
-  text-align: center;
+	position: fixed;
+	top: 25%;
+	left: 35%;
+	z-index: 999;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 24px 32px;
+	gap: 24px;
+	background-color: white;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+	width: 400px;
+	height: 350px;
+	text-align: center;
 }
 
 .dialogBox p {
-  margin-top: -10px;
+	margin-top: -10px;
 }
 
 #dataMobil {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 #yakinHapus {
-  font-family: "Arial";
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .deleteMessage {
-  background-color: #000000;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 16px;
-  gap: 10px;
-  position: absolute;
-  width: 550px;
-  height: 48px;
-  top: 100px;
-  left: 700px;
+	background-color: #000000;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 12px 16px;
+	gap: 10px;
+	position: absolute;
+	width: 550px;
+	height: 48px;
+	top: 100px;
+	left: 700px;
 
-  animation: hideAnimation 0s ease-in 5s;
-  animation-fill-mode: forwards;
+	animation: hideAnimation 0s ease-in 5s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes hideAnimation {
-  to {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
+	to {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+	}
 }
 .editMessage {
-  background-color: #73ca5c;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 16px;
-  gap: 10px;
-  position: absolute;
-  width: 550px;
-  height: 48px;
-  top: 100px;
-  left: 700px;
+	background-color: #73ca5c;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 12px 16px;
+	gap: 10px;
+	position: absolute;
+	width: 550px;
+	height: 48px;
+	top: 100px;
+	left: 700px;
 
-  animation: hideAnimation 0s ease-in 5s;
-  animation-fill-mode: forwards;
+	animation: hideAnimation 0s ease-in 5s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes hideAnimation {
-  to {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
+	to {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+	}
 }
 
 .editMessage h1 {
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
 }
 .deleteMessage h1 {
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 .yesButton {
-  background-color: #0d28a6;
-  border: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  border-radius: 2px;
-  width: 87px;
-  height: 36px;
-  margin-top: -20px;
-  color: white;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: #0d28a6;
+	border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	border-radius: 2px;
+	width: 87px;
+	height: 36px;
+	margin-top: -20px;
+	color: white;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .noButton {
-  background-color: white;
-  border: 1px solid #0d28a6;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  border-radius: 2px;
-  width: 87px;
-  height: 36px;
-  margin-top: -20px;
-  color: #0d28a6;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: white;
+	border: 1px solid #0d28a6;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	border-radius: 2px;
+	width: 87px;
+	height: 36px;
+	margin-top: -20px;
+	color: #0d28a6;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .topSectionContainer {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 .jumpTo input {
-  width: 40px;
+	width: 40px;
 }
 
 .categoryButton {
-  background-color: #ffffff;
-  color: #aeb7e1;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  width: 102px;
-  height: 36px;
-  margin-left: -10px;
-  border: 2px solid #aeb7e1;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: #ffffff;
+	color: #aeb7e1;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	width: 102px;
+	height: 36px;
+	margin-left: -10px;
+	border: 2px solid #aeb7e1;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .categoryButtonA {
-  background-color: #cfd4ed;
-  color: #0d28a6;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  width: 102px;
-  height: 36px;
-  margin-left: -10px;
-  border: 2px solid #aeb7e1;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	background-color: #cfd4ed;
+	color: #0d28a6;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	width: 102px;
+	height: 36px;
+	margin-left: -10px;
+	border: 2px solid #aeb7e1;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .categoryButton {
-  margin: 0px;
+	margin: 0px;
 }
 
 .addCarPage {
-  background-color: #e5e5e5;
-  height: 100vh;
+	background-color: #e5e5e5;
+	height: 100vh;
 }
 
 .addCarButton #saveAdd {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  background: #0d28a6;
-  color: white;
-  border-radius: 2px;
-  position: absolute;
-  width: 57px;
-  height: 36px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	background: #0d28a6;
+	color: white;
+	border-radius: 2px;
+	position: absolute;
+	width: 57px;
+	height: 36px;
 
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .addCarButton #saveAddDisabled {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  background: #868686;
-  color: white;
-  border-radius: 2px;
-  position: absolute;
-  width: 57px;
-  height: 36px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	background: #868686;
+	color: white;
+	border-radius: 2px;
+	position: absolute;
+	width: 57px;
+	height: 36px;
 
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .addCarButton #cancelAdd {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
-  background: white;
-  color: #0d28a6;
-  border-radius: 2px;
-  position: absolute;
-  width: 57px;
-  height: 36px;
-  border: 2px solid #0d28a6;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	background: white;
+	color: #0d28a6;
+	border-radius: 2px;
+
+	width: 57px;
+	height: 36px;
+	border: 2px solid #0d28a6;
 }
 
 #cancelAdd a {
-  text-decoration: none;
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
+	text-decoration: none;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .addCarInput {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  background-color: white;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background-color: white;
 
-  height: 455px;
-  width: 90%;
-  margin-left: 20px;
-  padding: 20px;
+	height: 455px;
+	width: 90%;
+	margin-left: 20px;
+	padding: 20px;
 }
 
 #addNewCarP {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
 }
 
 #addCarBreadCrumbText {
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 18px;
-  color: #000000;
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 18px;
+	color: #000000;
 }
 
 .breadCrumb a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .CarImage {
-  max-height: 300px;
-  overflow: auto;
-  overflow-y: hidden;
-  overflow-x: hidden;
+	max-height: 300px;
+	overflow: auto;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 .addCarInput input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 9px 12px;
-  gap: 8px;
-  border: 1px solid #d0d0d0;
-  border-radius: 2px;
-  width: 339px;
-  height: 36px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 9px 12px;
+	gap: 8px;
+	border: 1px solid #d0d0d0;
+	border-radius: 2px;
+	width: 339px;
+	height: 36px;
 }
 
 .optionSelect {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 9px 12px;
-  gap: 8px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 9px 12px;
+	gap: 8px;
 
-  width: 360px;
-  height: 36px;
+	width: 360px;
+	height: 36px;
 }
 
 .addCarButton {
-  margin-top: 200px;
+	margin-top: 200px;
+	display: flex;
+	flex-direction: column;
+}
+
+.tomboltest {
+	display: flex;
+}
+
+.leftButton {
+	margin-right: 12px;
+}
+
+#carTypeTitle {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.descCat {
+	font-family: "Arial";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
 }

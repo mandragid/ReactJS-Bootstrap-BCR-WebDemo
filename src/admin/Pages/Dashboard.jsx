@@ -151,13 +151,13 @@ function Dashboard() {
 						<div className="row">
 							<div className="col-1 nav-dash">
 								<span>
-									<p id="dashboardTitle">DASHBOARD</p>
+									<p id="dashboardTitle"> &nbsp; DASHBOARD</p>
 								</span>{" "}
 								<br />
-								<div className="dashboardSubtitle">Dashboard</div>
+								<div className="dashboardSubtitle"> &nbsp; Dashboard</div>
 							</div>
 
-							<div className="col">
+							<div className="col ">
 								<div className="row p-3">
 									<Breadcrumb>
 										<Breadcrumb.Item href="#">Dashboard</Breadcrumb.Item>

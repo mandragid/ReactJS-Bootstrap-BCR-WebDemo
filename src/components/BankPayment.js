@@ -12,11 +12,11 @@ const BankPayment = () => {
   // const [bankMandiri, setBankMandiri] = useState(false);
   // const [selectedBank, setSelectedBank] = useState(true);
   
-  // Pass data to redux 
+   // Pass data to redux 
   const dispatch = useDispatch();
-  // Receive data from redux
+   // Receive data from redux
   const state = useSelector((rootReducer) => rootReducer);
-  console.log(state);
+  // console.log(state);
 
     // Previously, remove the chosen bank from local storage when this page refreshed
   // useEffect(() => {

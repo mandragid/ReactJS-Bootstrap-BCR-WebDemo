@@ -1,10 +1,33 @@
 import "../components/paymentTransfer.css";
 import copyToClipboard from "../img/fi_copy.png";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const PaymentTransfer = () => {
   // const [inputValue, setInputValue] = useState("");
+  const { id } = useParams();
+  const [totalPrice, setTotalPrice] = useState();
+
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        access_token: localStorage.getItem("token"),
+      },
+    };
+
+    axios
+      .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
+      .then((res) => {
+        // console.log(res.data);
+        setTotalPrice("Rp " + res.data.total_price);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
+
+
   return (
     <div className="paymentTransfer-container">
       <div className="heading-paymentTransfer">
@@ -26,7 +49,7 @@ const PaymentTransfer = () => {
       </div>
       <div className="account-number">
         <div className="number">
-          <p>54104257877</p>
+          <p>{54104257877}</p>
         </div>
         <div className="btn-copy-container">
           <CopyToClipboard text={54104257877}>
@@ -41,10 +64,10 @@ const PaymentTransfer = () => {
       </div>
       <div className="moneyToSend">
         <div className="money">
-          <p>Rp 3.500.000</p>
+          <p>{totalPrice}</p>
         </div>
         <div className="btn-copy-container">
-          <CopyToClipboard text={`Rp 3.500.000`}>
+          <CopyToClipboard text={totalPrice}>
             <button className="btn-copy btn-copy-moneyToSend">
               <img src={copyToClipboard} alt="icon-copy-to-clipboard"></img>
             </button>

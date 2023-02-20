@@ -45,7 +45,7 @@ const CardPaymentDetail = () => {
     axios
       .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setCar(res.data.Car);
         setTotalPrice(res.data.total_price);
       })

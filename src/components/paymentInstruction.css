@@ -22,13 +22,24 @@
   /* border: 1px solid; */
 }
 
-.paymentMethod-container h6 {
-  border-bottom: 1px solid #5cb85f;
-  /* border: 1px solid; */
+.paymentMethod-container .bank-active {
+  border-bottom: 2px solid #5cb85f;
   width: 135px;
   text-align: center;
   font-size: 14px;
   font-weight: 400;
+  cursor: pointer;
+  /* border: 1px solid; */
+}
+
+.paymentMethod-container .bank-inactive {
+  border-bottom: 1px solid #becfbf;
+  width: 135px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  /* border: 1px solid; */
 }
 
 .instructions {

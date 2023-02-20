@@ -10,6 +10,9 @@ import { useState, useEffect } from "react";
 const PaymentStep2 = () => {
   const { id } = useParams();
   const [orderId, setOrderId] = useState(0);
+  const bankBCA = localStorage.getItem("BCA");
+  const bankBNI = localStorage.getItem("BNI");
+  const bankMandiri = localStorage.getItem("Mandiri");
   const Navigate = useNavigate();
 
   useEffect(() => {
@@ -43,7 +46,15 @@ const PaymentStep2 = () => {
           </div>
           <div className="bankChosen-container">
             <div className="txt-pembayaran bankChosen">
-              <h1>BCA Transfer</h1>
+              {(() => {
+                if (bankBCA === "false") {
+                  return <h1>BCA Transfer</h1>;
+                } else if (bankBNI === "false") {
+                  return <h1>BNI Transfer</h1>;
+                } else if (bankMandiri === "false") {
+                  return <h1>Mandiri Transfer</h1>;
+                }
+              })()}
             </div>
             <div className="orderId">
               <h6>

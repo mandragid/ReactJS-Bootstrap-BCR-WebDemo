@@ -9,7 +9,9 @@ const PaymentTransfer = () => {
   // const [inputValue, setInputValue] = useState("");
   const { id } = useParams();
   const [totalPrice, setTotalPrice] = useState();
-
+  const bankBCA = localStorage.getItem("BCA");
+  const bankBNI = localStorage.getItem("BNI");
+  const bankMandiri = localStorage.getItem("Mandiri");
 
   useEffect(() => {
     const config = {
@@ -25,15 +27,66 @@ const PaymentTransfer = () => {
         setTotalPrice("Rp " + res.data.total_price);
       })
       .catch((err) => console.log(err.message));
+      // setBankBCA(localStorage.getItem("BCA"))
   }, []);
-
 
   return (
     <div className="paymentTransfer-container">
       <div className="heading-paymentTransfer">
         <h1>Lakukan Transfer Ke</h1>
       </div>
-      <div className="bankLogo-paymentTransfer">
+      {(() => {
+        if (bankBCA === 'false') {
+          return (
+            <div>
+              <div className="bankLogo-paymentTransfer">
+                <h6>BCA</h6>
+              </div>
+              <div className="container-for-bankName-and-sender-paymentTransfer">
+                <div className="bankName-paymentTransfer">
+                  <h6>BCA Transfer</h6>
+                </div>
+                <div className="senderName">
+                  <h6>A.N Binar Car Rental</h6>
+                </div>
+              </div>
+            </div>
+          );
+        } else if (bankBNI === 'false') {
+          return (
+            <div>
+              <div className="bankLogo-paymentTransfer">
+                <h6>BNI</h6>
+              </div>
+              <div className="container-for-bankName-and-sender-paymentTransfer">
+                <div className="bankName-paymentTransfer">
+                  <h6>BNI Transfer</h6>
+                </div>
+                <div className="senderName">
+                  <h6>A.N Binar Car Rental</h6>
+                </div>
+              </div>
+            </div>
+          );
+        } else if (bankMandiri === 'false') {
+          return (
+            <div>
+              <div className="bankLogo-paymentTransfer">
+                <h6>Mandiri</h6>
+              </div>
+              <div className="container-for-bankName-and-sender-paymentTransfer">
+                <div className="bankName-paymentTransfer">
+                  <h6>Mandiri Transfer</h6>
+                </div>
+                <div className="senderName">
+                  <h6>A.N Binar Car Rental</h6>
+                </div>
+              </div>
+            </div>
+          );
+        }
+      })()}
+      {/* <div className="bankLogo-paymentTransfer">
         <h6>BCA</h6>
       </div>
       <div className="container-for-bankName-and-sender-paymentTransfer">
@@ -43,7 +96,8 @@ const PaymentTransfer = () => {
         <div className="senderName">
           <h6>A.N Binar Car Rental</h6>
         </div>
-      </div>
+      </div> */}
+
       <div className="heading-account-number">
         <h6>Nomor Rekening</h6>
       </div>

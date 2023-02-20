@@ -1,16 +1,16 @@
 import "../components/bankPayment.css";
 import LineIcon2 from "../img/icon_line-2.png";
 import GreenCheck from "../img/fi_check-2.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleBankBCA, handleBankBNI, handleBankMandiri } from "../Redux/bankAction";
 import rootReducer from "../Redux";
 
 const BankPayment = () => {
-  // const [bankBCA, setBankBCA] = useState(false);
-  // const [bankBNI, setBankBNI] = useState(false);
-  // const [bankMandiri, setBankMandiri] = useState(false);
-  // const [selectedBank, setSelectedBank] = useState(true);
+  const [bankBCA, setBankBCA] = useState(false);
+  const [bankBNI, setBankBNI] = useState(false);
+  const [bankMandiri, setBankMandiri] = useState(false);
+  const [selectedBank, setSelectedBank] = useState(true);
   
    // Pass data to redux 
   const dispatch = useDispatch();
@@ -19,12 +19,13 @@ const BankPayment = () => {
   // console.log(state);
 
     // Previously, remove the chosen bank from local storage when this page refreshed
-  // useEffect(() => {
-  //   localStorage.removeItem("Bank", selectedBank);
-  //   // localStorage.removeItem("BCA", selectedBank);
-  //   // localStorage.removeItem("BNI", selectedBank);
-  //   // localStorage.removeItem("Mandiri", selectedBank);
-  // }, []);
+  useEffect(() => {
+    // localStorage.removeItem("Bank", selectedBank);
+    localStorage.removeItem("BCA", bankBCA);
+    localStorage.removeItem("BNI", bankBNI);
+    localStorage.removeItem("Mandiri", bankMandiri);
+    // localStorage.removeItem("BCA")
+  }, []);
 
   // Reset bank picked to empty string and all the banks state to false when back to this page or refresh this page
   useEffect(() => {
@@ -32,19 +33,32 @@ const BankPayment = () => {
     state.bankReducer.isBCA = false;
     state.bankReducer.isBNI = false;
     state.bankReducer.isMandiri = false;
+    // localStorage.removeItem("BCA", selectedBank)
   }, [state]);
 
   // Handle when specific bank picked
   const onHandleBankBCA = () => {
     dispatch(handleBankBCA());
+    localStorage.setItem("BCA", bankBCA)
+    localStorage.removeItem("BNI", bankBNI);
+    localStorage.removeItem("Mandiri", bankMandiri);
+    // setBankBCA(true)
   };
 
   const onHandleBankBNI = () => {
     dispatch(handleBankBNI());
+    localStorage.setItem("BNI", bankBNI)
+    localStorage.removeItem("BCA", bankBCA);
+    localStorage.removeItem("Mandiri", bankMandiri);
+    // setBankBNI(true)
   };
 
   const onHandleBankMandiri = () => {
     dispatch(handleBankMandiri());
+    localStorage.setItem("Mandiri", bankMandiri)
+    localStorage.removeItem("BCA", bankBCA);
+    localStorage.removeItem("BNI", bankBNI);
+    // setBankMandiri(true)
   };
 
     // Previously, tried to set the chosen bank to localStorage when specific bank clicked
